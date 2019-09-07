@@ -1,5 +1,8 @@
 # ngx-material-admin
+
 Responsive admin application template built on top of Angular, Angular Material and other open-source libraries.
+
+Created by [onthecode](https://onthecode.co.uk)
 
 ## Development server
 
