@@ -1,0 +1,35 @@
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+
+  <div fxFlex="95%">
+
+    <mat-card>
+      <mat-card-content>
+        <h2>My Profile</h2>
+
+        <div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column">
+
+          <div fxFlex="30%" fxFlex.sm="95%" fxFlex.xs="95%">
+            <app-profile-details></app-profile-details>
+          </div>
+
+          <div fxFlex></div>
+
+          <div fxFlex="65%" fxFlex.sm="95%" fxFlex.xs="950%">
+
+
+            <mat-tab-group>
+              <mat-tab label="Change Password">
+                <app-change-password></app-change-password>
+              </mat-tab>
+            </mat-tab-group>
+
+
+          </div>
+
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+
+</div>

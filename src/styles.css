@@ -1,0 +1,148 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.spinner {
+  left: 49%;
+  position: fixed !important;
+  top: 15%;
+  z-index: 9999;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.login-container {
+  height: 80vh;
+}
+
+.login-actions {
+  margin-left: unset !important;
+}
+
+.mat-list-item,
+.mat-menu-item {
+  font-size: 14px !important;
+}
+
+.command-wrapper button {
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+.mat-dialog-title {
+  margin: 0 !important;
+}
+
+.mat-column-actions {
+  flex: 0 0 60px;
+}
+
+.mat-table .mat-row:hover {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.mat-table td.mat-cell a:hover {
+  text-decoration: underline;
+}
+
+.mat-table td.mat-cell:first-child,
+.mat-table td.mat-footer-cell:first-child,
+.mat-table th.mat-header-cell:first-child {
+  padding-left: 20px !important;
+}
+
+.mat-table td.mat-cell:last-child,
+.mat-table td.mat-footer-cell:last-child,
+.mat-table th.mat-header-cell:last-child {
+  padding-right: 10px !important;
+}
+
+.mat-table .mat-cell a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.no-records {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.refresh-button {
+  margin-top: 8px !important;
+}
+
+.no-records .mat-icon {
+  width: 130px;
+  height: 130px;
+  font-size: 130px;
+  color: #c7c7c7;
+}
+
+p .mat-icon {
+  vertical-align: middle;
+}
+
+.mat-slide-toggle.full-width {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.mat-tooltip {
+  font-size: 14px;
+}
+
+.fixed-fab {
+  position: fixed !important;
+  right: 2%;
+  bottom: 3%;
+}
+
+/* Highlight on hover */
+.submitted-timesheet-day:not(.mat-calendar-body-disabled):hover>.mat-calendar-body-cell-content:not(.mat-calendar-body-selected),
+/* Highlight */
+.submitted-timesheet-day>div:not(.mat-calendar-body-selected) {
+  border-radius: 999px;
+  background-color: rgba(14, 152, 5, 0.25);
+}
+
+.table-wrapper {
+  overflow: auto;
+  height: calc(100vh - 270px);
+  max-height: 450px;
+  /* padding: 10px 5px; */
+}
+
+.animate {
+  animation-name: show;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
