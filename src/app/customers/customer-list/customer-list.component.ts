@@ -18,7 +18,7 @@ export class CustomerListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.titleService.setTitle('ngx-material-admin - Customers');
+    this.titleService.setTitle('angular-material-admin - Customers');
     this.logger.log('Customers loaded');
   }
 }

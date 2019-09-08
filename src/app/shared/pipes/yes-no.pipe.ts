@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class YesNoPipe implements PipeTransform {
 
-  transform(value: boolean): string{
+  transform(value: boolean): string {
     return value ? 'Yes' : 'No';
   }
 

@@ -26,7 +26,7 @@ export class PasswordResetComponent implements OnInit {
     private notificationService: NotificationService,
     private titleService: Title) {
 
-    this.titleService.setTitle('ngx-material-admin - Password Reset');
+    this.titleService.setTitle('angular-material-admin - Password Reset');
     this.hideNewPassword = true;
     this.hideNewPasswordConfirm = true;
   }

@@ -18,7 +18,7 @@ export class UserListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.titleService.setTitle('ngx-material-admin - Users');
+    this.titleService.setTitle('angular-material-admin - Users');
     this.logger.log('Users loaded');
   }
 }

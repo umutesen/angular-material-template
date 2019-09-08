@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-material-admin": {
+    "angular-material-admin": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ngx-material-admin",
+            "outputPath": "dist/angular-material-admin",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -50,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-material-admin:build"
+            "browserTarget": "angular-material-admin:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngx-material-admin:build:production"
+              "browserTarget": "angular-material-admin:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-material-admin:build"
+            "browserTarget": "angular-material-admin:build"
           }
         },
         "test": {
@@ -95,7 +95,7 @@
         }
       }
     },
-    "ngx-material-admin-e2e": {
+    "angular-material-admin-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -106,7 +106,7 @@
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ngx-material-admin:serve:production"
+              "devServerTarget": "angular-material-admin:serve:production"
             }
           }
         },
@@ -122,5 +122,5 @@
       }
     }
   },
-  "defaultProject": "ngx-material-admin"
+  "defaultProject": "angular-material-admin"
 }

@@ -1,4 +1,4 @@
-import { AuthGuard } from "./auth.guard";
+import { AuthGuard } from './auth.guard';
 import * as moment from 'moment';
 
 describe('AuthGuard', () => {
@@ -14,22 +14,22 @@ describe('AuthGuard', () => {
     });
 
     it('create an instance', () => {
-        let guard = new AuthGuard(router, notificationService, authService);
+        const guard = new AuthGuard(router, notificationService, authService);
         expect(guard).toBeTruthy();
     });
 
     it('returns false if user is null', () => {
         authService.getCurrentUser.and.returnValue(null);
-        let guard = new AuthGuard(router, notificationService, authService);
+        const guard = new AuthGuard(router, notificationService, authService);
 
-        var result = guard.canActivate();
+        const result = guard.canActivate();
 
         expect(result).toBe(false);
     });
 
     it('redirects to login if user is null', () => {
         authService.getCurrentUser.and.returnValue(null);
-        let guard = new AuthGuard(router, notificationService, authService);
+        const guard = new AuthGuard(router, notificationService, authService);
 
         guard.canActivate();
 
@@ -38,7 +38,7 @@ describe('AuthGuard', () => {
 
     it('does not display expired notification if user is null', () => {
         authService.getCurrentUser.and.returnValue(null);
-        let guard = new AuthGuard(router, notificationService, authService);
+        const guard = new AuthGuard(router, notificationService, authService);
 
         guard.canActivate();
 
@@ -46,9 +46,9 @@ describe('AuthGuard', () => {
     });
 
     it('redirects to login if user session has expired', () => {
-        let user = { expiration: moment().add(-1, 'minutes') };
+        const user = { expiration: moment().add(-1, 'minutes') };
         authService.getCurrentUser.and.returnValue(user);
-        let guard = new AuthGuard(router, notificationService, authService);
+        const guard = new AuthGuard(router, notificationService, authService);
 
         guard.canActivate();
 
@@ -56,9 +56,9 @@ describe('AuthGuard', () => {
     });
 
     it('displays notification if user session has expired', () => {
-        let user = { expiration: moment().add(-1, 'seconds') };
+        const user = { expiration: moment().add(-1, 'seconds') };
         authService.getCurrentUser.and.returnValue(user);
-        let guard = new AuthGuard(router, notificationService, authService);
+        const guard = new AuthGuard(router, notificationService, authService);
 
         guard.canActivate();
 
@@ -67,9 +67,9 @@ describe('AuthGuard', () => {
     });
 
     it('returns true if user session is valid', () => {
-        let user = { expiration: moment().add(1, 'minutes') };
+        const user = { expiration: moment().add(1, 'minutes') };
         authService.getCurrentUser.and.returnValue(user);
-        let guard = new AuthGuard(router, notificationService, authService);
+        const guard = new AuthGuard(router, notificationService, authService);
 
         const result = guard.canActivate();
 

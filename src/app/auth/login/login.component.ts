@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.titleService.setTitle('ngx-material-admin - Login');
+        this.titleService.setTitle('angular-material-admin - Login');
         this.authenticationService.logout();
         this.createForm();
     }

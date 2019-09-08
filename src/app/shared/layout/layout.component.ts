@@ -32,6 +32,7 @@ export class LayoutComponent implements OnInit, OnDestroy, AfterViewInit {
 
         this.mobileQuery = this.media.matchMedia('(max-width: 1000px)');
         this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+        // tslint:disable-next-line: deprecation
         this.mobileQuery.addListener(this._mobileQueryListener);
         this.environment = environment.label;
     }
@@ -43,13 +44,14 @@ export class LayoutComponent implements OnInit, OnDestroy, AfterViewInit {
         this.userName = user.fullName;
 
         // Auto log-out subscription
-        let timer = TimerObservable.create(2000, 5000);
+        const timer = TimerObservable.create(2000, 5000);
         this.autoLogoutSubscription = timer.subscribe(t => {
             this.authGuard.canActivate();
         });
     }
 
     ngOnDestroy(): void {
+        // tslint:disable-next-line: deprecation
         this.mobileQuery.removeListener(this._mobileQueryListener);
         this.autoLogoutSubscription.unsubscribe();
     }

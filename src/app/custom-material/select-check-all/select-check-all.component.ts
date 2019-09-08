@@ -4,7 +4,7 @@ import { MatCheckboxChange } from '@angular/material';
 
 @Component({
   selector: 'app-select-check-all',
-  templateUrl: "./select-check-all.component.html",
+  templateUrl: './select-check-all.component.html',
   styleUrls: ['./select-check-all.component.css'],
   encapsulation: ViewEncapsulation.None
 })

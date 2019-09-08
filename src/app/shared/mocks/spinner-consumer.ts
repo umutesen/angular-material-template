@@ -1,11 +1,11 @@
-import { SpinnerService } from "../../core/services/spinner.service";
+import { SpinnerService } from '../../core/services/spinner.service';
 
 export class SpinnerConsumer {
-isBusy = false;
+    isBusy = false;
 
-constructor(private spinnerService: SpinnerService) {
-    this.spinnerService.visibility.subscribe((value: boolean) => {
-        this.isBusy = value;
-    });
-}
+    constructor(private spinnerService: SpinnerService) {
+        this.spinnerService.visibility.subscribe((value: boolean) => {
+            this.isBusy = value;
+        });
+    }
 }

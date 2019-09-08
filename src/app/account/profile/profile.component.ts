@@ -11,7 +11,7 @@ export class ProfileComponent implements OnInit {
   constructor(private titleService: Title) { }
 
   ngOnInit() {
-    this.titleService.setTitle('ngx-material-admin - Profile');
+    this.titleService.setTitle('angular-material-admin - Profile');
   }
 
 }
