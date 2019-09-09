@@ -49,17 +49,11 @@ mat-sidenav {
 }
 
 /* Set height of wrapper to stop content from moving up & down */
+
 .progress-bar-container {
   height: 5px;
 }
 
 a.mat-list-item.active {
   background: rgba(0, 0, 0, .04);
-}
-
-.environment {
-  position: fixed;
-  bottom: 5px;
-  left: 4px;
-  font-size: 12px;
 }

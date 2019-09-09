@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build-production": "ng build --configuration=production",
+    "build-production": "ng build --configuration=production --base-href=/angular-material-template/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

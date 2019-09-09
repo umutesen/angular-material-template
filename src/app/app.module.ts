@@ -22,7 +22,7 @@ import { environment } from '../environments/environment';
     CustomMaterialModule.forRoot(),
     AppRoutingModule,
     LoggerModule.forRoot({
-      serverLoggingUrl: `${environment.apiUrl}api/logs`,
+      serverLoggingUrl: `http://my-api/logs`,
       level: environment.logLevel,
       serverLogLevel: environment.serverLogLevel
     })

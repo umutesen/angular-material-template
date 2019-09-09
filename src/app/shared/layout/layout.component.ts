@@ -20,7 +20,6 @@ export class LayoutComponent implements OnInit, OnDestroy, AfterViewInit {
     showSpinner: boolean;
     userName: string;
     isAdmin: boolean;
-    environment: string;
 
     private autoLogoutSubscription: Subscription;
 
@@ -34,7 +33,6 @@ export class LayoutComponent implements OnInit, OnDestroy, AfterViewInit {
         this._mobileQueryListener = () => changeDetectorRef.detectChanges();
         // tslint:disable-next-line: deprecation
         this.mobileQuery.addListener(this._mobileQueryListener);
-        this.environment = environment.label;
     }
 
     ngOnInit(): void {
