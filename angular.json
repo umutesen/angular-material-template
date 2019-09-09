@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-material-admin": {
+    "angular-material-template": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-material-admin",
+            "outputPath": "dist/angular-material-template",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -50,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-material-admin:build"
+            "browserTarget": "angular-material-template:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-material-admin:build:production"
+              "browserTarget": "angular-material-template:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-material-admin:build"
+            "browserTarget": "angular-material-template:build"
           }
         },
         "test": {
@@ -95,7 +95,7 @@
         }
       }
     },
-    "angular-material-admin-e2e": {
+    "angular-material-template-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -106,7 +106,7 @@
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular-material-admin:serve:production"
+              "devServerTarget": "angular-material-template:serve:production"
             }
           }
         },
@@ -122,5 +122,5 @@
       }
     }
   },
-  "defaultProject": "angular-material-admin"
+  "defaultProject": "angular-material-template"
 }
