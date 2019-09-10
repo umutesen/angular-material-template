@@ -46,7 +46,7 @@ At present, we officially aim to support the last two versions of the following 
 - Demo: <http://demo.onthecode.co.uk/angular-material-template>
 - Download Page: <https://onthecode.co.uk/product/angular-material-template>
 - License Agreement: [License Agreement](https://github.com/umutesen/angular-material-template/blob/master/LICENSE)
-- Support: [Ask onthecode] (https://onthecode.co.uk/ask-question)
+- Support: [Ask onthecode](https://onthecode.co.uk/ask-question)
 - Issues: [Github Issues](https://github.com/umutesen/angular-material-template/issues)
 
 ## Technical Help
