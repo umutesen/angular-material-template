@@ -1,29 +1,14 @@
-# angular-material-template
+# [Angular Material Template - Free Material Design Admin Application Template](https://onthecode.co.uk/product/angular-material-template/)
 
-Responsive admin application template built on top of Angular, Angular Material and other open-source libraries.
+**[Material Application Template](https://onthecode.co.uk/product/angular-material-template/)** is a free Material Admin with a simple design inspired by Google’s Material Design. Material Application Template is scalable and has been built with the official style guide in mind. We have used various components from Angular Material library and other well-known open-source libraries such as momentjs, rxjs and ngx-logger.
 
-Created by [onthecode](https://onthecode.co.uk)
+Material Template is built with Angular and closely follows material design principles. The user flow is simple and effective: it starts with login, where user can log into the app or navigate to reset password page. Once logged in, the dashboard page welcomes the user. The navigation stays mainly on the left sidebar and the main content is on the right inside. User account is accessible from the top right-hand corner, where the user can change password.
 
-## Development server
+This application template came as a result of several applications that we have developed over the past few years. We have always used Angular Material components and wanted to create a starter template to save time. We developed it based on user feedback and it is a powerful Angular admin dashboard, which allows you to build products like admin panels, content management systems (CMS) and customer relationship management (CRM) software.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Table of Contents
 
-## Code scaffolding
+* [Demo](#demo)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Demo
+[View Demo](http://demo.onthecode.co.uk/angular-material-template).
