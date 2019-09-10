@@ -1,10 +1,31 @@
-# [Angular Material Application Template - Free Admin Dashboard Template](https://onthecode.co.uk/product/angular-material-template/)
+# [Angular Material Starter Template](https://onthecode.co.uk/product/angular-material-template/)
 
-**[Angular Material Application Template](https://onthecode.co.uk/product/angular-material-template/)** is a free Material Admin with a simple design inspired by Google’s Material Design. Material Application Template is scalable and has been built with the official style guide in mind. We have used various components from Angular Material library and other well-known open-source libraries such as momentjs, rxjs and ngx-logger.
+**[Angular Material Application Template](https://onthecode.co.uk/product/angular-material-template/)** is a free template built with Angular 8 and Angular Material 8. You can use it out of the box without having to change any file paths. Everything you need to start development on an Angular 8 project is here.
 
-Material Application Template is built with Angular and closely follows material design principles. The user flow is simple and effective: it starts with login, where user can log into the app or navigate to reset password page. Once logged in, the dashboard page welcomes the user. The navigation stays mainly on the left sidebar and the main content is on the right inside. User account is accessible from the top right-hand corner, where the user can change password.
+Angular Material starter template has been built with the official style guide in mind, which means it promotes a clean folder structure and separation of concerns. The material template is fully responsive and contains the fundamental building blocks of a scalable Angular application:
 
-This template came as a result of several applications that we have developed over the past few years. We have always used Angular Material components and wanted to create a starter template to save time. We developed it based on user feedback and it is a powerful Angular admin dashboard, which allows you to build products like admin panels, content management systems (CMS) and customer relationship management (CRM) software.
+Login component
+Password reset component
+Responsive Admin dashboard with sidebar
+Account area with change password component
+Log out
+All Angular Material components
+In addition to Angular 8, other well-known open-source libraries such as rxjs, moment and ngx-logger are also included.
+
+This application template came as a result of several applications that we have developed over the past few years. We have always used Angular Material components and wanted to create a starter template to save time for greenfield projects. We developed it based on user feedback and it is a powerful Angular admin dashboard, which allows you to build products like admin panels, content management systems (CMS) and customer relationship management (CRM) software.
+
+### Starter Template Features
+
+* Clean folder structure
+* Core module
+* Shared module
+* Example feature modules
+* Lazy-loaded feature modules
+* Global error-handling
+* Error logging with ngx-logger (logging to browser & remote API)
+* HTTP Interceptors to inject JWT-tokens Authentication and role guards (for Role-based access)
+* Shows spinner for all HTTP requests
+* Angular flex layout
 
 ## Table of Contents
 
@@ -62,4 +83,4 @@ If you have questions or need help integrating the product please [contact us](h
 ## Licensing
 
 - Copyright 2019 onthecode (https://onthecode.co.uk/)
-- Licensed under MIT (https://github.com/umutesen/angular-material-template/blob/master/LICENSE.md)
+- Licensed under MIT [License Agreement](https://github.com/umutesen/angular-material-template/blob/master/LICENSE)
