@@ -1,3 +1,5 @@
+[![Build status](https://dev.azure.com/umutesen/onthecode/_apis/build/status/Material%20Template%20CI)](https://dev.azure.com/umutesen/onthecode/_build/latest?definitionId=11)
+
 # [Angular Material Starter Template](https://onthecode.co.uk/product/angular-material-template/)
 
 **[Angular Material Application Template](https://onthecode.co.uk/product/angular-material-template/)** is a free template built with Angular 8 and Angular Material 8. You can use it out of the box without having to change any file paths. Everything you need to start development on an Angular 8 project is here.
