@@ -35,4 +35,6 @@ Follow the steps below to start using the template.
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 ## Supported Browsers
-At present, we officially aim to support the last two versions of the major browsers.
+At present, we officially aim to support the last two versions of the following browsers:
+
+<img src="https://github.com/umutesen/angular-material-template/raw/media/chrome.png" width="64" height="64"><img src="https://github.com/umutesen/angular-material-template/raw/media/firefox.png" width="64" height="64"><img src="https://github.com/umutesen/angular-material-template/raw/media/edge.png" width="64" height="64"><img src="https://github.com/umutesen/angular-material-template/raw/media/safari.png" width="64" height="64"> <img src="https://github.com/umutesen/angular-material-template/raw/media/opera.png" width="64" height="64">
