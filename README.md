@@ -1,4 +1,4 @@
-# [Angular Material Application Template - Free Material Design Admin Application Template](https://onthecode.co.uk/product/angular-material-template/)
+# [Angular Material Application Template - Free Admin Dashboard Template](https://onthecode.co.uk/product/angular-material-template/)
 
 **[Angular Material Application Template](https://onthecode.co.uk/product/angular-material-template/)** is a free Material Admin with a simple design inspired by Google’s Material Design. Material Application Template is scalable and has been built with the official style guide in mind. We have used various components from Angular Material library and other well-known open-source libraries such as momentjs, rxjs and ngx-logger.
 
