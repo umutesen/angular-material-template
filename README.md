@@ -12,6 +12,9 @@ This application template came as a result of several applications that we have 
 * [Quick Start](#quick-start)
 * [Browser Support](#browser-support)
 * [Resources](#resources)
+* [Reporting Issues](#reporting-issues)
+* [Technical Support or Questions](#technical-support-or-questions)
+* [Licensing](#licensing)
 
 ## Demo
 [View Demo](http://demo.onthecode.co.uk/angular-material-template)
@@ -43,7 +46,22 @@ At present, we officially aim to support the last two versions of the following 
 ## Resources
 - Demo: <http://demo.onthecode.co.uk/angular-material-template>
 - Download Page: <https://onthecode.co.uk/product/angular-material-template>
-- License Agreement: [License Agreement](https://github.com/umutesen/angular-material-template/blob/master/LICENSE)
+- License Agreement: [License Agreement](https://github.com/umutesen/angular-material-template/blob/master/LICENSE.md)
 - Support: [Ask onthecode] (https://onthecode.co.uk/ask-question)
 - Issues: [Github Issues](https://github.com/umutesen/angular-material-template/issues)
 
+## Reporting Issues
+
+We use GitHub Issues as the official bug tracker for this template. Here are some advices for our users that want to report an issue:
+
+1. Make sure that you are using the latest version of the template.
+2. Providing us reproducible steps for the issue will shorten the time it takes for it to be fixed.
+3. Some issues may be browser specific, so specifying in what browser you encountered the issue might help.
+
+## Technical Help
+If you have questions or need help integrating the product please [contact us](https://onthecode.co.uk/ask-question) instead of opening an issue.
+
+## Licensing
+
+- Copyright 2019 onthecode (https://onthecode.co.uk/)
+- Licensed under MIT (https://github.com/umutesen/angular-material-template/blob/master/LICENSE.md)
