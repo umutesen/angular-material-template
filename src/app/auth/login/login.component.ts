@@ -58,11 +58,7 @@ export class LoginComponent implements OnInit {
                     this.router.navigate(['/']);
                 },
                 error => {
-                    if (error.statusText === 'Unknown Error') {
-                        this.notificationService.openSnackBar('An error occurred, please try again later.');
-                    } else {
-                        this.notificationService.openSnackBar(error.error);
-                    }
+                    this.notificationService.openSnackBar(error.error);
                     this.loading = false;
                 }
             );

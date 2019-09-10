@@ -8,10 +8,10 @@ import {
   MatProgressSpinnerModule, MatDatepickerModule, MatTableModule,
   MatAutocompleteModule, MatDialogModule, MatTabsModule, MatTooltipModule,
   MatSelectModule, MatPaginatorModule, MatChipsModule, MatButtonToggleModule,
-  MatSlideToggleModule, MatBadgeModule, MatCheckboxModule, MatExpansionModule
+  MatSlideToggleModule, MatBadgeModule, MatCheckboxModule, MatExpansionModule, MatSortModule
 } from '@angular/material';
 import { SelectCheckAllComponent } from './select-check-all/select-check-all.component';
-import {DragDropModule} from '@angular/cdk/drag-drop';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 export const MY_FORMATS = {
   parse: {
@@ -35,7 +35,7 @@ export const MY_FORMATS = {
     MatAutocompleteModule, MatTableModule, MatDialogModule, MatTabsModule,
     MatTooltipModule, MatSelectModule, MatPaginatorModule, MatChipsModule,
     MatButtonToggleModule, MatSlideToggleModule, MatBadgeModule, MatCheckboxModule,
-    MatExpansionModule, DragDropModule
+    MatExpansionModule, DragDropModule, MatSortModule
   ],
   exports: [
     CommonModule,
@@ -45,7 +45,7 @@ export const MY_FORMATS = {
     MatAutocompleteModule, MatTableModule, MatDialogModule, MatTabsModule,
     MatTooltipModule, MatSelectModule, MatPaginatorModule, MatChipsModule,
     MatButtonToggleModule, MatSlideToggleModule, MatBadgeModule, MatCheckboxModule,
-    MatExpansionModule, SelectCheckAllComponent, DragDropModule
+    MatExpansionModule, SelectCheckAllComponent, DragDropModule, MatSortModule
   ],
   providers: [
     {

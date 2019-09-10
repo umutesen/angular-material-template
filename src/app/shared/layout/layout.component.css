@@ -57,3 +57,8 @@ mat-sidenav {
 a.mat-list-item.active {
   background: rgba(0, 0, 0, .04);
 }
+
+#push-bottom {
+  position: absolute;
+  bottom: 0;
+}

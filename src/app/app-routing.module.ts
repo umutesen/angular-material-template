@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AuthGuard } from './core/guards/auth.guard';
-import { AdminGuard } from './core/guards/admin.guard';
 
 const appRoutes: Routes = [
     {
@@ -17,16 +16,26 @@ const appRoutes: Routes = [
     {
         path: 'customers',
         loadChildren: './customers/customers.module#CustomersModule',
-        canActivate: [AuthGuard, AdminGuard]
+        canActivate: [AuthGuard]
     },
     {
         path: 'users',
         loadChildren: './users/users.module#UsersModule',
-        canActivate: [AuthGuard, AdminGuard]
+        canActivate: [AuthGuard]
     },
     {
         path: 'account',
         loadChildren: './account/account.module#AccountModule',
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'icons',
+        loadChildren: './icons/icons.module#IconsModule',
+        canActivate: [AuthGuard]
+    },
+    {
+        path: 'typography',
+        loadChildren: './typography/typography.module#TypographyModule',
         canActivate: [AuthGuard]
     },
     {

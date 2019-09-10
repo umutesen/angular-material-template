@@ -15,6 +15,22 @@
 
     <span class="navbar-spacer"></span>
 
+    <button mat-icon-button [matMenuTriggerFor]="notificationMenu">
+      <mat-icon matBadge="2" matBadgeColor="accent">notifications</mat-icon>
+    </button>
+    <mat-menu #notificationMenu="matMenu" xPosition="before" yPosition="above" [overlapTrigger]="false">
+
+      <a mat-menu-item>
+        <span>You have new tasks</span>
+      </a>
+      <a mat-menu-item>
+        <span>You have a new message</span>
+      </a>
+
+    </mat-menu>
+
+
+
     <button mat-button [matMenuTriggerFor]="userMenu">
       <mat-icon>person</mat-icon>
       <span fxShow fxHide.xs>
@@ -52,10 +68,6 @@
           <p mat-line> Dashboard </p>
         </a>
 
-        <mat-divider></mat-divider>
-
-        <h3 mat-subheader>Navigation</h3>
-
         <a mat-list-item [routerLink]="['/customers']" routerLinkActive="active">
           <mat-icon mat-list-icon>
             business
@@ -64,11 +76,46 @@
         </a>
         <a mat-list-item [routerLink]="['/users']" routerLinkActive="active">
           <mat-icon mat-list-icon>
-            people_outline
+            people
           </mat-icon>
           <p mat-line> Users </p>
         </a>
-        <a mat-list-item [routerLink]="['/about']" routerLinkActive="active">
+
+        <a mat-list-item [routerLink]="['/account/profile']">
+          <mat-icon mat-list-icon>person</mat-icon>
+          <p mat-line> Account </p>
+        </a>
+
+        <a mat-list-item [routerLink]="['/auth/login']">
+          <mat-icon mat-list-icon>exit_to_app</mat-icon>
+          <p mat-line> Log out </p>
+        </a>
+
+        <mat-divider></mat-divider>
+
+        <h3 mat-subheader>Resources</h3>
+
+        <a mat-list-item [routerLink]="['/icons']" routerLinkActive="active">
+          <mat-icon mat-list-icon>
+            toll
+          </mat-icon>
+          <p mat-line> Icons </p>
+        </a>
+        <a mat-list-item [routerLink]="['/typography']" routerLinkActive="active">
+          <mat-icon mat-list-icon>
+            font_download
+          </mat-icon>
+          <p mat-line> Typography </p>
+        </a>
+
+        <a mat-list-item href="https://material.angular.io/components/categories" target="_blank">
+          <mat-icon mat-list-icon>
+            link
+          </mat-icon>
+          <p mat-line> Material Components </p>
+        </a>
+
+        <a id="push-bottom" mat-list-item [routerLink]="['/about']" routerLinkActive="active">
           <mat-icon mat-list-icon>
             info_outline
           </mat-icon>
