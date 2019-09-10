@@ -11,6 +11,7 @@ This application template came as a result of several applications that we have 
 * [Demo](#demo)
 * [Quick Start](#quick-start)
 * [Browser Support](#browser-support)
+* [Resources](#resources)
 
 ## Demo
 [View Demo](http://demo.onthecode.co.uk/angular-material-template)
@@ -38,3 +39,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 At present, we officially aim to support the last two versions of the following browsers:
 
 <img src="https://github.com/umutesen/angular-material-template/blob/media/chrome.png?raw=true" width="64" height="64"><img src="https://github.com/umutesen/angular-material-template/blob/media/firefox.png?raw=true" width="64" height="64"><img src="https://github.com/umutesen/angular-material-template/blob/media/edge.png?raw=true" width="64" height="64"><img src="https://github.com/umutesen/angular-material-template/blob/media/safari.png?raw=true" width="64" height="64"> <img src="https://github.com/umutesen/angular-material-template/blob/media/opera.png?raw=true" width="64" height="64">
+
+## Resources
+- Demo: <http://demo.onthecode.co.uk/angular-material-template>
+- Download Page: <https://onthecode.co.uk/product/angular-material-template>
+- License Agreement: [License Agreement](https://github.com/umutesen/angular-material-template/blob/master/LICENSE)
+- Support: [Ask onthecode] (https://onthecode.co.uk/ask-question)
+- Issues: [Github Issues](https://github.com/umutesen/angular-material-template/issues)
+
