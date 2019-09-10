@@ -10,7 +10,7 @@ This template came as a result of several applications that we have developed ov
 
 * [Demo](#demo)
 * [Quick Start](#quick-start)
-* [Browser Support](#browser-support)
+* [Supported Browsers](#browser-support)
 * [Resources](#resources)
 * [Technical Help](#technical-help)
 * [Licensing](#licensing)
