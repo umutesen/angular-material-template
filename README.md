@@ -2,16 +2,20 @@
 
 # [Angular Material Starter Template](https://onthecode.co.uk/product/angular-material-template/)
 
+![Product Gif](https://github.com/umutesen/angular-material-template/blob/media/material-template-demo.gif)
+
+
 **[Angular Material Application Template](https://onthecode.co.uk/product/angular-material-template/)** is a free template built with Angular 8 and Angular Material 8. You can use it out of the box without having to change any file paths. Everything you need to start development on an Angular 8 project is here.
 
 Angular Material starter template has been built with the official style guide in mind, which means it promotes a clean folder structure and separation of concerns. The material template is fully responsive and contains the fundamental building blocks of a scalable Angular application:
 
-Login component
-Password reset component
-Responsive Admin dashboard with sidebar
-Account area with change password component
-Log out
-All Angular Material components
+* Login component
+* Password reset component
+* Responsive Admin dashboard with sidebar
+* Account area with change password component
+* Log out
+* All Angular Material components
+
 In addition to Angular 8, other well-known open-source libraries such as rxjs, moment and ngx-logger are also included.
 
 This application template came as a result of several applications that we have developed over the past few years. We have always used Angular Material components and wanted to create a starter template to save time for greenfield projects. We developed it based on user feedback and it is a powerful Angular admin dashboard, which allows you to build products like admin panels, content management systems (CMS) and customer relationship management (CRM) software.
