@@ -1,11 +1,11 @@
 [![Build status](https://dev.azure.com/umutesen/onthecode/_apis/build/status/Material%20Template%20CI)](https://dev.azure.com/umutesen/onthecode/_build/latest?definitionId=11)
 
-# [Angular Material Starter Template](https://onthecode.co.uk/product/angular-material-template/)
+# [Angular Material Starter Template](https://onthecode.co.uk/angular-material-starter-template-for-your-next-project/)
 
 ![Product Gif](https://github.com/umutesen/angular-material-template/blob/media/material-template-demo.gif)
 
 
-**[Angular Material Application Template](https://onthecode.co.uk/product/angular-material-template/)** is a free template built with Angular 8 and Angular Material 8. You can use it out of the box without having to change any file paths. Everything you need to start development on an Angular 8 project is here.
+**[Angular Material Application Template](https://onthecode.co.uk/angular-material-starter-template-for-your-next-project/)** is a free template built with Angular 8 and Angular Material 8. You can use it out of the box without having to change any file paths. Everything you need to start development on an Angular 8 project is here.
 
 Angular Material starter template has been built with the official style guide in mind, which means it promotes a clean folder structure and separation of concerns. The material template is fully responsive and contains the fundamental building blocks of a scalable Angular application:
 
@@ -49,7 +49,7 @@ This application template came as a result of several applications that we have 
 Start by downloading the template from one of these locations:
 
 - [Download from Github](https://github.com/umutesen/angular-material-template/archive/master.zip)
-- [Download from onthecode](https://onthecode.co.uk/product/angular-material-template)
+- [Download from onthecode](https://onthecode.co.uk/angular-material-starter-template-for-your-next-project/)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) and currently uses version 8.x and Angular 8.x.
 
