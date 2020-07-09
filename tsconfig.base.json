@@ -1,9 +1,9 @@
 {
   "compileOnSave": false,
-  "angularCompilerOptions": {
+  /*"angularCompilerOptions": {
     "fullTemplateTypeCheck": false,
     "ivyTemplateTypeCheck": false,
-  },
+  },*/
   "compilerOptions": {
     "baseUrl": "./",
     "importHelpers": true,
