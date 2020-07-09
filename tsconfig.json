@@ -1,8 +1,13 @@
 {
   "compileOnSave": false,
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": false,
+    "ivyTemplateTypeCheck": false,
+  },
   "compilerOptions": {
     "baseUrl": "./",
     "importHelpers": true,
+    "module": "esnext",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
