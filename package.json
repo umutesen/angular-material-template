@@ -33,7 +33,7 @@
     "material-design-icons": "^3.0.1",
     "moment": "^2.22.2",
     "ngx-logger": "^4.0.4",
-    "rxjs": "^6.5.3",
+    "rxjs": "^6.6.7",
     "rxjs-compat": "^6.5.3",
     "tslib": "^2.0.0",
     "web-animations-js": "^2.3.2",
