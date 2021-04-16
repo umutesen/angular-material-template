@@ -57,11 +57,10 @@ export const MY_FORMATS = {
   declarations: [SelectCheckAllComponent]
 })
 export class CustomMaterialModule {
-  static forRoot() {
+  static forRoot(): ModuleWithProviders<CustomMaterialModule> {
     return {
-      ngModule: CustomMaterialModule,
-      providers: [
-      ]
+        ngModule: CustomMaterialModule,
+        providers: []
     };
-  }
+}
 }
