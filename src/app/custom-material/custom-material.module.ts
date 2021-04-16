@@ -30,6 +30,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { SelectCheckAllComponent } from './select-check-all/select-check-all.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ModuleWithProviders } from '@angular/core';
 
 export const MY_FORMATS = {
   parse: {
