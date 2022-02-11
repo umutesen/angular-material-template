@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 
@@ -8,16 +8,13 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
   styleUrls: ['./select-check-all.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class SelectCheckAllComponent implements OnInit {
+export class SelectCheckAllComponent {
   @Input()
   model: FormControl = new FormControl;
   @Input() values = [];
   @Input() text = 'Select All';
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
   isChecked(): boolean {
     return this.model.value && this.values.length

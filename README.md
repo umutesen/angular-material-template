@@ -1,4 +1,8 @@
-# NgAdminTmp
+[![Build status](https://dev.azure.com/umutesen/onthecode/_apis/build/status/Material%20Template%20CI)](https://dev.azure.com/umutesen/onthecode/_build/latest?definitionId=11)
+
+ # [Angular Material Starter Template](https://onthecode.co.uk/angular-material-starter-template-for-your-next-project/)
+
+ ![Product Gif](https://github.com/umutesen/angular-material-template/blob/media/material-template-demo.gif)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.0.
 
