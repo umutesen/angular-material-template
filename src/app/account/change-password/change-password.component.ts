@@ -13,13 +13,13 @@ import { SpinnerService } from './../../core/services/spinner.service';
 })
 export class ChangePasswordComponent implements OnInit {
 
-  form: FormGroup;
+  form!: FormGroup;
   hideCurrentPassword: boolean;
   hideNewPassword: boolean;
-  currentPassword: string;
-  newPassword: string;
-  newPasswordConfirm: string;
-  disableSubmit: boolean;
+  currentPassword!: string;
+  newPassword!: string;
+  newPasswordConfirm!: string;
+  disableSubmit!: boolean;
 
   constructor(private authService: AuthenticationService,
     private logger: NGXLogger,
@@ -37,13 +37,13 @@ export class ChangePasswordComponent implements OnInit {
       newPasswordConfirm: new FormControl('', Validators.required),
     });
 
-    this.form.get('currentPassword').valueChanges
+    this.form.get('currentPassword')?.valueChanges
       .subscribe(val => { this.currentPassword = val; });
 
-    this.form.get('newPassword').valueChanges
+    this.form.get('newPassword')?.valueChanges
       .subscribe(val => { this.newPassword = val; });
 
-    this.form.get('newPasswordConfirm').valueChanges
+    this.form.get('newPasswordConfirm')?.valueChanges
       .subscribe(val => { this.newPasswordConfirm = val; });
 
     this.spinnerService.visibility.subscribe((value) => {

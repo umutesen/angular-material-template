@@ -13,10 +13,10 @@ import { AuthenticationService } from '../../core/services/auth.service';
 })
 export class PasswordResetComponent implements OnInit {
 
-  private token: string;
-  email: string;
-  form: FormGroup;
-  loading: boolean;
+  private token!: string;
+  email!: string;
+  form!: FormGroup;
+  loading!: boolean;
   hideNewPassword: boolean;
   hideNewPasswordConfirm: boolean;
 
@@ -33,8 +33,8 @@ export class PasswordResetComponent implements OnInit {
 
   ngOnInit() {
     this.activeRoute.queryParamMap.subscribe((params: ParamMap) => {
-      this.token = params.get('token');
-      this.email = params.get('email');
+      this.token = params.get('token') + '';
+      this.email = params.get('email') + '';
 
       if (!this.token || !this.email) {
         this.router.navigate(['/']);
@@ -49,8 +49,8 @@ export class PasswordResetComponent implements OnInit {
 
   resetPassword() {
 
-    const password = this.form.get('newPassword').value;
-    const passwordConfirm = this.form.get('newPasswordConfirm').value;
+    const password = this.form.get('newPassword')?.value;
+    const passwordConfirm = this.form.get('newPasswordConfirm')?.value;
 
     if (password !== passwordConfirm) {
       this.notificationService.openSnackBar('Passwords do not match');
@@ -61,11 +61,11 @@ export class PasswordResetComponent implements OnInit {
 
     this.authService.passwordReset(this.email, this.token, password, passwordConfirm)
       .subscribe(
-        data => {
+        () => {
           this.notificationService.openSnackBar('Your password has been changed.');
           this.router.navigate(['/auth/login']);
         },
-        error => {
+        (error: any) => {
           this.notificationService.openSnackBar(error.error);
           this.loading = false;
         }

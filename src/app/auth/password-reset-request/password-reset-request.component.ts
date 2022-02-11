@@ -14,9 +14,9 @@ import { NotificationService } from './../../core/services/notification.service'
 })
 export class PasswordResetRequestComponent implements OnInit {
 
-  private email: string;
-  form: FormGroup;
-  loading: boolean;
+  private email!: string;
+  form!: FormGroup;
+  loading!: boolean;
 
   constructor(private authService: AuthenticationService,
     private notificationService: NotificationService,
@@ -30,7 +30,7 @@ export class PasswordResetRequestComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email])
     });
 
-    this.form.get('email').valueChanges
+    this.form.get('email')?.valueChanges
       .subscribe((val: string) => { this.email = val.toLowerCase(); });
   }
 

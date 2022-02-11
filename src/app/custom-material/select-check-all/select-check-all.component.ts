@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MatCheckboxChange } from '@angular/material';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-select-check-all',
@@ -9,7 +9,8 @@ import { MatCheckboxChange } from '@angular/material';
   encapsulation: ViewEncapsulation.None
 })
 export class SelectCheckAllComponent implements OnInit {
-  @Input() model: FormControl;
+  @Input()
+  model: FormControl = new FormControl;
   @Input() values = [];
   @Input() text = 'Select All';
 

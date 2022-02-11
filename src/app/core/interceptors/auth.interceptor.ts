@@ -8,8 +8,8 @@ import { HttpEvent } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 
 import { AuthenticationService } from '../services/auth.service';
-import { MatDialog } from '@angular/material';
-
+import { MatDialog } from '@angular/material/dialog';
+ 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
 

@@ -35,7 +35,8 @@ export class CustomerListComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild(MatSort, { static: true })
+  sort: MatSort = new MatSort;
 
   constructor(
     private logger: NGXLogger,
@@ -46,6 +47,7 @@ export class CustomerListComponent implements OnInit {
   ngOnInit() {
     this.titleService.setTitle('angular-material-template - Customers');
     this.logger.log('Customers loaded');
+    this.notificationService.openSnackBar('Customers loaded');
     this.dataSource.sort = this.sort;
 
   }

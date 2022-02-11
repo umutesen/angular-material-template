@@ -1,10 +1,9 @@
 import { Component, OnInit, ChangeDetectorRef, OnDestroy, AfterViewInit } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
-import { TimerObservable } from 'rxjs/observable/TimerObservable';
+import { timer } from 'rxjs';
 import { Subscription } from 'rxjs';
 
-import { environment } from './../../../environments/environment';
-import { AuthenticationService } from './../../core/services/auth.service';
+ import { AuthenticationService } from './../../core/services/auth.service';
 import { SpinnerService } from '../../core/services/spinner.service';
 import { AuthGuard } from 'src/app/core/guards/auth.guard';
 
@@ -17,11 +16,11 @@ export class LayoutComponent implements OnInit, OnDestroy, AfterViewInit {
 
     private _mobileQueryListener: () => void;
     mobileQuery: MediaQueryList;
-    showSpinner: boolean;
-    userName: string;
-    isAdmin: boolean;
+    showSpinner: boolean = false;
+    userName: string = "";
+    isAdmin: boolean = false;
 
-    private autoLogoutSubscription: Subscription;
+    private autoLogoutSubscription: Subscription = new Subscription;
 
     constructor(private changeDetectorRef: ChangeDetectorRef,
         private media: MediaMatcher,
@@ -42,8 +41,8 @@ export class LayoutComponent implements OnInit, OnDestroy, AfterViewInit {
         this.userName = user.fullName;
 
         // Auto log-out subscription
-        const timer = TimerObservable.create(2000, 5000);
-        this.autoLogoutSubscription = timer.subscribe(t => {
+        const timer$ = timer(2000, 5000);
+        this.autoLogoutSubscription = timer$.subscribe(() => {
             this.authGuard.canActivate();
         });
     }
