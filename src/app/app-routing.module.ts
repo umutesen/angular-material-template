@@ -6,41 +6,41 @@ import { AuthGuard } from './core/guards/auth.guard';
 const appRoutes: Routes = [
   {
     path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
+    loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule),
   },
   {
     path: 'dashboard',
-    loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+    loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule),
     canActivate: [AuthGuard]
   },
   {
     path: 'customers',
-    loadChildren: () => import('./customers/customers.module').then(m => m.CustomersModule),
+    loadChildren: () => import('./features/customers/customers.module').then(m => m.CustomersModule),
     canActivate: [AuthGuard]
   },
   {
     path: 'users',
-    loadChildren: () => import('./users/users.module').then(m => m.UsersModule),
+    loadChildren: () => import('./features/users/users.module').then(m => m.UsersModule),
     canActivate: [AuthGuard]
   },
   {
     path: 'account',
-    loadChildren: () => import('./account/account.module').then(m => m.AccountModule),
+    loadChildren: () => import('./features/account/account.module').then(m => m.AccountModule),
     canActivate: [AuthGuard]
   },
   {
     path: 'icons',
-    loadChildren: () => import('./icons/icons.module').then(m => m.IconsModule),
+    loadChildren: () => import('./features/icons/icons.module').then(m => m.IconsModule),
     canActivate: [AuthGuard]
   },
   {
     path: 'typography',
-    loadChildren: () => import('./typography/typography.module').then(m => m.TypographyModule),
+    loadChildren: () => import('./features/typography/typography.module').then(m => m.TypographyModule),
     canActivate: [AuthGuard]
   },
   {
     path: 'about',
-    loadChildren: () => import('./about/about.module').then(m => m.AboutModule),
+    loadChildren: () => import('./features/about/about.module').then(m => m.AboutModule),
     canActivate: [AuthGuard]
   },
   {
