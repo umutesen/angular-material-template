@@ -1,4 +1,4 @@
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
@@ -14,7 +14,7 @@ export class PasswordResetComponent implements OnInit {
 
   private token!: string;
   email!: string;
-  form!: FormGroup;
+  form!: UntypedFormGroup;
   loading!: boolean;
   hideNewPassword: boolean;
   hideNewPasswordConfirm: boolean;
@@ -40,9 +40,9 @@ export class PasswordResetComponent implements OnInit {
       }
     });
 
-    this.form = new FormGroup({
-      newPassword: new FormControl('', Validators.required),
-      newPasswordConfirm: new FormControl('', Validators.required)
+    this.form = new UntypedFormGroup({
+      newPassword: new UntypedFormControl('', Validators.required),
+      newPasswordConfirm: new UntypedFormControl('', Validators.required)
     });
   }
 

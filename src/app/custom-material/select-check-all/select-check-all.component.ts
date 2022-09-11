@@ -1,5 +1,5 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 
 @Component({
@@ -10,7 +10,7 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
 })
 export class SelectCheckAllComponent {
   @Input()
-  model: FormControl = new FormControl;
+  model: UntypedFormControl = new UntypedFormControl;
   @Input() values = [];
   @Input() text = 'Select All';
 

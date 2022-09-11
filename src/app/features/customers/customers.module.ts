@@ -5,15 +5,13 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { CustomerListComponent } from './customer-list/customer-list.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    CustomersRoutingModule,
-    SharedModule
-  ],
-  declarations: [
-    CustomerListComponent
-  ],
-  entryComponents: [
-  ]
+    imports: [
+        CommonModule,
+        CustomersRoutingModule,
+        SharedModule
+    ],
+    declarations: [
+        CustomerListComponent
+    ]
 })
 export class CustomersModule { }
