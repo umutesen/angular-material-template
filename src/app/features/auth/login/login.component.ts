@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { UntypedFormControl, Validators, UntypedFormGroup } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { AuthenticationService } from 'src/app/core/services/auth.service';
 import { NotificationService } from 'src/app/core/services/notification.service';
@@ -12,7 +12,7 @@ import { NotificationService } from 'src/app/core/services/notification.service'
 })
 export class LoginComponent implements OnInit {
 
-    loginForm!: FormGroup;
+    loginForm!: UntypedFormGroup;
     loading!: boolean;
 
     constructor(private router: Router,
@@ -30,10 +30,10 @@ export class LoginComponent implements OnInit {
     private createForm() {
         const savedUserEmail = localStorage.getItem('savedUserEmail');
 
-        this.loginForm = new FormGroup({
-            email: new FormControl(savedUserEmail, [Validators.required, Validators.email]),
-            password: new FormControl('', Validators.required),
-            rememberMe: new FormControl(savedUserEmail !== null)
+        this.loginForm = new UntypedFormGroup({
+            email: new UntypedFormControl(savedUserEmail, [Validators.required, Validators.email]),
+            password: new UntypedFormControl('', Validators.required),
+            rememberMe: new UntypedFormControl(savedUserEmail !== null)
         });
     }
 

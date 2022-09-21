@@ -1,4 +1,4 @@
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { NGXLogger } from 'ngx-logger';
 import { AuthenticationService } from 'src/app/core/services/auth.service';
@@ -13,7 +13,7 @@ import { SpinnerService } from 'src/app/core/services/spinner.service';
 })
 export class ChangePasswordComponent implements OnInit {
 
-  form!: FormGroup;
+  form!: UntypedFormGroup;
   hideCurrentPassword: boolean;
   hideNewPassword: boolean;
   currentPassword!: string;
@@ -31,10 +31,10 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.form = new FormGroup({
-      currentPassword: new FormControl('', Validators.required),
-      newPassword: new FormControl('', Validators.required),
-      newPasswordConfirm: new FormControl('', Validators.required),
+    this.form = new UntypedFormGroup({
+      currentPassword: new UntypedFormControl('', Validators.required),
+      newPassword: new UntypedFormControl('', Validators.required),
+      newPasswordConfirm: new UntypedFormControl('', Validators.required),
     });
 
     this.form.get('currentPassword')?.valueChanges

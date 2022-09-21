@@ -12,34 +12,31 @@ import { YesNoPipe } from './pipes/yes-no.pipe';
 import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
-  imports: [
-    RouterModule,
-    CustomMaterialModule,
-    FormsModule,
-    ReactiveFormsModule,
-    FlexLayoutModule,
-  ],
-  declarations: [
-    ConfirmDialogComponent,
-    ContentPlaceholderAnimationComponent,
-    LimitToPipe,
-    LocalDatePipe,
-    YesNoPipe,
-    LayoutComponent
-  ],
-  exports: [
-    FormsModule,
-    ReactiveFormsModule,
-    FlexLayoutModule,
-    CustomMaterialModule,
-    LimitToPipe,
-    ConfirmDialogComponent,
-    ContentPlaceholderAnimationComponent,
-    LocalDatePipe,
-    YesNoPipe
-  ],
-  entryComponents: [
-    ConfirmDialogComponent
-  ]
+    imports: [
+        RouterModule,
+        CustomMaterialModule,
+        FormsModule,
+        ReactiveFormsModule,
+        FlexLayoutModule,
+    ],
+    declarations: [
+        ConfirmDialogComponent,
+        ContentPlaceholderAnimationComponent,
+        LimitToPipe,
+        LocalDatePipe,
+        YesNoPipe,
+        LayoutComponent
+    ],
+    exports: [
+        FormsModule,
+        ReactiveFormsModule,
+        FlexLayoutModule,
+        CustomMaterialModule,
+        LimitToPipe,
+        ConfirmDialogComponent,
+        ContentPlaceholderAnimationComponent,
+        LocalDatePipe,
+        YesNoPipe
+    ]
 })
 export class SharedModule { }
