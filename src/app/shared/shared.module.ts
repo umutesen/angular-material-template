@@ -18,6 +18,7 @@ import { LayoutComponent } from './layout/layout.component';
         FormsModule,
         ReactiveFormsModule,
         FlexLayoutModule,
+    
     ],
     declarations: [
         ConfirmDialogComponent,

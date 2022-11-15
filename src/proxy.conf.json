@@ -1,0 +1,8 @@
+{
+    "/api/*": {
+      "target": "http://192.168.4.18:8086",
+      "secure": false,
+      "logLevel": "debug"
+    }
+  }
+  

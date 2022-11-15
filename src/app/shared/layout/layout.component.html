@@ -1,17 +1,22 @@
 <div class="navbar-container" [class.example-is-mobile]="mobileQuery.matches">
 
   <!-- Top navbar -->
-  <mat-toolbar class="navbar" color="primary">
+  <mat-toolbar class="navbar" >
 
     <button mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
 
     <a class="navbar-brand" [routerLink]="['/']" matTooltip="Home">
-      <h1>
-        angular-material-template
-      </h1>
-    </a>
+      <img src="assets/images/kase-logo.svg" style="height: 30px;">    </a>
+      <div class="header_inner-left">
+        <svg-icon class="pointer" routerLink="/view/dashboard" src="assets/images/kase-logo.svg"></svg-icon>
+        <div class="date">
+          <span>{{currentDate}}</span>
+          <span>{{currentTime}}</span>
+        </div>
+      </div>
+
 
     <span class="navbar-spacer"></span>
 
@@ -72,13 +77,19 @@
           <mat-icon mat-list-icon>
             business
           </mat-icon>
-          <p mat-line> Customers </p>
+          <p mat-line> Эмитенты </p>
         </a>
         <a mat-list-item [routerLink]="['/users']" routerLinkActive="active">
           <mat-icon mat-list-icon>
             people
           </mat-icon>
-          <p mat-line> Users </p>
+          <p mat-line> Пользователи </p>
+        </a>
+        <a mat-list-item [routerLink]="['/brokers']" routerLinkActive="active">
+          <mat-icon mat-list-icon>
+            business_center
+          </mat-icon>
+          <p mat-line> Брокеры </p>
         </a>
 
         <a mat-list-item [routerLink]="['/account/profile']">
@@ -93,7 +104,7 @@
 
         <mat-divider></mat-divider>
 
-        <h3 mat-subheader>Resources</h3>
+     <!--<h3 mat-subheader>Resources</h3>
 
         <a mat-list-item [routerLink]="['/icons']" routerLinkActive="active">
           <mat-icon mat-list-icon>
@@ -120,7 +131,7 @@
             info_outline
           </mat-icon>
           <p mat-line> About </p>
-        </a>
+        </a>-->
       </mat-nav-list>
 
     </mat-sidenav>

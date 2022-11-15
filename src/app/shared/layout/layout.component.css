@@ -4,13 +4,18 @@
 
 .navbar {
   z-index: 2;
-}
-
+  background: rgba(22, 33, 25, 0.37);
+gap:12px;}
 .navbar-brand {
   text-decoration: none;
-  color: white;
-}
 
+  display:flex;
+
+}
+.myImage{
+  background-image: url("/assets/images/kase-logo.svg");
+   
+}
 .navbar-container {
   display: flex;
   flex-direction: column;
@@ -62,3 +67,17 @@ a.mat-list-item.active {
   position: absolute;
   bottom: 0;
 }
+.header_inner-left {
+  display: flex;
+  gap: 16px;
+}
+.date{
+  display:flex;
+  flex-direction: column;
+  font-size:13px
+}
+  
+    h1{
+      padding: 12px 0px 10px 10px
+    }
+  

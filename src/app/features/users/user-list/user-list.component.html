@@ -3,17 +3,42 @@
 
     <mat-card>
       <mat-card-content>
-        <h2>Users</h2>
+        <h2>Пользователи
+        </h2>
+
+        <table mat-table [dataSource]="dataSource" style="width: 100%;" matSort >
+  
+          <!-- Position Column -->
+          <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+            <td mat-cell *matCellDef="let myData$;index as i" > {{i+1}} </td>
+          </ng-container>
+        
+          <!-- Name Column -->
+          <ng-container matColumnDef="name" style="" >
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Пользователи </th>
+            <td mat-cell *matCellDef="let myData$" > {{myData$.role}} </td>
+          </ng-container>
+        
+          <!-- Weight Column -->
+          <ng-container matColumnDef="weight">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Услуга </th>
+            <td mat-cell *matCellDef=" let myData$" style="padding-bottom: 15px;"> 
+               
+               <div *ngFor="let r of myData$.service" >
+                  <br>
+                  {{r}}
+               </div>
 
 
-        <div class="container" fxLayout="row" fxLayoutAlign="center none">
-          <div fxFlex="50%" class="text-center no-records animate">
-            <mat-icon>people_outline</mat-icon>
-            <p>No users exist.</p>
-          </div>
-          <mat-icon> </mat-icon>
-        </div>
-
+            </td>
+          </ng-container>
+      
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        
       </mat-card-content>
     </mat-card>
 
