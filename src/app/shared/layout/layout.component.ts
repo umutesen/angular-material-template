@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, OnDestroy, AfterViewInit, ViewChild } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { timer } from 'rxjs';
 import { Subscription } from 'rxjs';
@@ -7,7 +7,8 @@ import { Subscription } from 'rxjs';
 import { SpinnerService } from '../../core/services/spinner.service';
 import { AuthGuard } from 'src/app/core/guards/auth.guard';
 import * as moment from 'moment';
-
+import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';  
+import { MatSidenav } from '@angular/material/sidenav';
 @Component({
     selector: 'app-layout',
     templateUrl: './layout.component.html',
@@ -22,8 +23,14 @@ export class LayoutComponent implements OnInit, OnDestroy, AfterViewInit {
     isAdmin: boolean = false;
     public currentTime: string = ''
     public currentDate: string = ''
-
+    @ViewChild('sidenav') sidenav: MatSidenav | undefined;
+    isExpanded = true;
+    showSubmenu: boolean = false;
+    isShowing = false;
+    showSubSubMenu: boolean = false;
+  
     private autoLogoutSubscription: Subscription = new Subscription;
+snav: any;
 
     constructor(private changeDetectorRef: ChangeDetectorRef,
         private media: MediaMatcher,

@@ -12,8 +12,8 @@
       <div class="header_inner-left">
         <svg-icon class="pointer" routerLink="/view/dashboard" src="assets/images/kase-logo.svg"></svg-icon>
         <div class="date">
-          <span>{{currentDate}}</span>
-          <span>{{currentTime}}</span>
+          <span class="font-500 fs-14_196 ">{{currentDate}}</span>
+          <span  class="font-500 fs-14_196 ">{{currentTime}}</span>
         </div>
       </div>
 
@@ -38,7 +38,7 @@
 
     <button mat-button [matMenuTriggerFor]="userMenu">
       <mat-icon>person</mat-icon>
-      <span fxShow fxHide.xs>
+      <span fxShow fxHide.xs class="font-700 fs-16_24 ">
         {{userName}}
       </span>
     </button>
@@ -64,42 +64,117 @@
       [fixedInViewport]="mobileQuery.matches" fixedTopGap="56" class="sidenav">
 
       <mat-nav-list>
-        <h3 mat-subheader>Home</h3>
+        <h3 mat-subheader >Home</h3>
+    
 
-        <a mat-list-item [routerLink]="['/dashboard']" routerLinkActive="active">
+        <a mat-list-item [routerLink]="['/dashboard']" routerLinkActive="active" class="">
           <mat-icon mat-list-icon>
             dashboard
           </mat-icon>
-          <p mat-line> Dashboard </p>
-        </a>
+          <p class="font-500 fs-16_19 pl-18"> Dashboard </p>
 
-        <a mat-list-item [routerLink]="['/customers']" routerLinkActive="active">
-          <mat-icon mat-list-icon>
-            business
-          </mat-icon>
-          <p mat-line> Эмитенты </p>
         </a>
-        <a mat-list-item [routerLink]="['/users']" routerLinkActive="active">
-          <mat-icon mat-list-icon>
-            people
-          </mat-icon>
-          <p mat-line> Пользователи </p>
-        </a>
-        <a mat-list-item [routerLink]="['/brokers']" routerLinkActive="active">
-          <mat-icon mat-list-icon>
-            business_center
-          </mat-icon>
-          <p mat-line> Брокеры </p>
-        </a>
+        <mat-expansion-panel [class.mat-elevation-z0]="true">
+          <mat-expansion-panel-header  class="font-500 fs-16_19 " >
+             <mat-icon mat-list-icon class="mat-h">
+              business
+              </mat-icon>
+           Эмитенты 
+          </mat-expansion-panel-header>
+          <mat-nav-list class="items">
+              <a mat-list-item routerLink="#" class="button">
+                <span class="fs-16_24 font-500">Корпоративные события</span>
+              </a>
+              <a mat-list-item routerLink="#"  class="button">
+              <span  class="fs-16_24 font-500">Счета и акты выполненных работ</span>
+              </a>
+              <a mat-list-item routerLink="#"  class="button">
+                <span class="fs-16_24 font-500">Проспекты</span>
+                </a>
+                <a mat-list-item routerLink="#"  class="button">
+                  <span class="fs-16_24 font-500">Периодическая отчетность</span>
+                  </a>
+                  <a mat-list-item routerLink="#"  class="button">
+                    <span class="fs-16_24 font-500">Учредительные документы</span>
+                    </a>
+                    <a mat-list-item routerLink="#"  class="button">
+                      <span class="fs-16_24 font-500">Листинговые процедуры (официальный список Биржи)</span>
+                      </a>
+                      <a mat-list-item routerLink="#"  class="button">
+                        <span class="fs-16_24 font-500">Сектор "Нелистинговые ценные бумаги" (неофициальный список Биржи)</span>
+                        </a>
+                        <a mat-list-item routerLink="#"  class="button">
+                          <span class="fs-16_24 font-500">Прием в члены Биржи</span>
+                          </a>
+                            <a mat-list-item routerLink="#"  class="button">
+                            <span class="fs-16_24 font-500">Информационные сообщения</span>
+                            </a>
+                                           
+          </mat-nav-list>
+      </mat-expansion-panel>
+      
+        <mat-expansion-panel [class.mat-elevation-z0]="true">
+          <mat-expansion-panel-header class="font-500 fs-16_19">
+             <mat-icon mat-list-icon class="mat-h">
+                people
+              </mat-icon>
+               Пользователи 
+          </mat-expansion-panel-header>
+          <mat-nav-list class="items">
+              <a mat-list-item routerLink="#" class="button">
+                <span class="fs-16_24 font-500">RTM</span>
+              </a>
+              <a mat-list-item routerLink="#" class="button">
+              <span class="fs-16_24 font-500">Платная подписка</span>
+              </a>
+             
+          </mat-nav-list>
+      </mat-expansion-panel>
+
+            
+      <mat-expansion-panel [class.mat-elevation-z0]="true">
+          <mat-expansion-panel-header class="font-500 fs-16_19">
+             <mat-icon mat-list-icon class="mat-h">
+                business_center
+              </mat-icon>
+               Брокеры 
+          </mat-expansion-panel-header>
+          <mat-nav-list class="items">
+              <a mat-list-item routerLink="#" class="button">
+                <span class="fs-16_24 font-500">Единый пул 
+                  обеспечения</span>
+              </a>
+               
+                <mat-expansion-panel  class="button" mat-expansion-panel [class.mat-elevation-z0]="true">
+              <mat-expansion-panel-header class="fs-16_24 font-500 button">Просмотр счетов</mat-expansion-panel-header>
+              <mat-nav-list class="items">
+                <a mat-list-item routerLink="/stock-market" class="button">
+                  <span class="fs-16_24 font-500">Фондовый рынок</span>
+                </a>
+                <a mat-list-item routerLink="/currency-market" class="button">
+                  <span class="fs-16_24 font-500">Валютный рынок</span>
+                </a>
+                <a mat-list-item routerLink="/derivative" class="button">
+                  <span class="fs-16_24 font-500">Деривативы</span>
+                </a>
+              
+              
+              </mat-nav-list>
+             </mat-expansion-panel>
+              <a mat-list-item routerLink="#" class="button">
+                <span class="fs-16_24 font-500">IPO</span>
+                </a>
+         </mat-nav-list>
+      </mat-expansion-panel>
 
         <a mat-list-item [routerLink]="['/account/profile']">
           <mat-icon mat-list-icon>person</mat-icon>
-          <p mat-line> Account </p>
+          <p class="font-500 fs-16_19 pl-18"> Account </p>
         </a>
 
         <a mat-list-item [routerLink]="['/auth/login']">
           <mat-icon mat-list-icon>exit_to_app</mat-icon>
-          <p mat-line> Log out </p>
+          <p class="font-500 fs-16_19 pl-18"> Log out </p>
         </a>
 
         <mat-divider></mat-divider>

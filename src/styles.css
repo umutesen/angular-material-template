@@ -1,8 +1,9 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-
+@import "assets/css/fonts.css";
+@import "assets/css/font-size.css";
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Museo Sans Cyrl;
   font-size: 14px;
 }
 

@@ -10,8 +10,8 @@ export class HttpService {
 
   constructor(private http: HttpClient) { }
 
-  getData(user: string){
-    return this.http.get('http://192.168.4.18:8086/kase.kz/role?role=' + user)
+  getData(){
+    return this.http.get('http://192.168.4.18:8084/stock?vDateStart=20221030&vDateEnd=20221102')
   }
 
 }

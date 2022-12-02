@@ -1,0 +1,37 @@
+<h1 mat-dialog-title>Фильтр</h1>
+<div class="f-main">
+    <div class="second">
+    <mat-form-field appearance="fill" style="">
+        <mat-label>Enter a date range</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+          <input matStartDate placeholder="Start date">
+          <input matEndDate placeholder="End date">
+        </mat-date-range-input>
+        <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker" style="width: 50px!important;height: 50px!important;"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+</div>
+<div class="second">
+    <span class="font-700 fs-14_168">Вид счета</span>
+    <div class="container">
+<div class="card font-500 fs-12_168 ">CLTI</div>
+<div class="card font-500 fs-12_168 ">KASI</div>
+<div class="card font-500 fs-12_168 ">OWNI</div>
+    </div>
+</div>
+<div class="second"><span class="font-700 fs-14_168">Валюта</span>
+    <div class="container">
+    <div class="card font-500 fs-12_168 ">AUD</div>
+<div class="card font-500 fs-12_168 ">CAD</div>
+<div class="card font-500 fs-12_168 ">CHF</div>
+<div class="card font-500 fs-12_168 ">CNY</div>
+<div class="card font-500 fs-12_168 ">DEM</div>
+<div class="card font-500 fs-12_168 ">EUR</div>
+<div class="card font-500 fs-12_168 ">GBP</div>
+</div>
+</div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close style="width: 100%; color:white;background-color: #038726;" class="font-700 fs-14_196 ">Показать данные</button>
+</div>

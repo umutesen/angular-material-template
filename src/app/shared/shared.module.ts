@@ -10,6 +10,7 @@ import { ContentPlaceholderAnimationComponent } from './content-placeholder-anim
 import { LocalDatePipe } from './pipes/local-date.pipe';
 import { YesNoPipe } from './pipes/yes-no.pipe';
 import { LayoutComponent } from './layout/layout.component';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
     imports: [
@@ -18,6 +19,8 @@ import { LayoutComponent } from './layout/layout.component';
         FormsModule,
         ReactiveFormsModule,
         FlexLayoutModule,
+        MatNativeDateModule,
+   
     
     ],
     declarations: [
@@ -26,7 +29,8 @@ import { LayoutComponent } from './layout/layout.component';
         LimitToPipe,
         LocalDatePipe,
         YesNoPipe,
-        LayoutComponent
+        LayoutComponent,
+        
     ],
     exports: [
         FormsModule,
