@@ -1,0 +1,19 @@
+.bl{
+    color: #1E212B;
+}
+.dialog{
+color:white;
+gap: 8px;
+
+width: 161px;
+height: 36px;
+
+
+background: #12BA3E;
+border-radius: 8px;
+}
+.c{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

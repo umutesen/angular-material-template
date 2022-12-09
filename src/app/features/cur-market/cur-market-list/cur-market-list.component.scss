@@ -1,0 +1,22 @@
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color:  #038726;
+    margin: 0;
+  }
+  .search {
+    &__form {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: center;
+  
+      &_field {
+        width: 250px;
+        margin: 0 8px 16px 8px;
+      }
+    }
+    &__table {
+      margin: 0 18px 18px 18px;
+    }
+  }
+  h2{
+    text-align: center;
+  }

@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.titleService.setTitle('angular-material-template - Login');
+        this.titleService.setTitle('Admin-panel - Login');
         this.authenticationService.logout();
         this.createForm();
     }
@@ -64,4 +64,8 @@ export class LoginComponent implements OnInit {
     resetPassword() {
         this.router.navigate(['/auth/password-reset-request']);
     }
+    createAccount(){
+        this.router.navigate(['/auth/login-create'])
+    }
+
 }

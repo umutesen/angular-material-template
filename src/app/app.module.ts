@@ -9,6 +9,7 @@ import { CustomMaterialModule } from './custom-material/custom-material.module';
 import { AppRoutingModule } from './app-routing.module';
 import { LoggerModule } from 'ngx-logger';
 import { environment } from '../environments/environment';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import { environment } from '../environments/environment';
     CoreModule,
     SharedModule,
     CustomMaterialModule.forRoot(),
+    
     AppRoutingModule,
+    HttpClientModule,
     LoggerModule.forRoot({
       serverLoggingUrl: `http://my-api/logs`,
       level: environment.logLevel,

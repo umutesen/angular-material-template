@@ -1,0 +1,73 @@
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+    <div fxFlex="95%">
+      <div class="c">
+     <div ><h2 class="font-700 fs-18_252"> Информация по фондовому рынку
+     
+            </h2> </div>
+           
+           
+             <div style="float: left;"> <button mat-button (click)="openDialog()" class="dialog">Фильтр</button>
+          </div> </div>
+           
+       
+      <mat-card>
+        <mat-card-content>
+       
+
+
+
+          
+  
+          <table mat-table [dataSource]="dataSource" style="width: 100%;" matSort >
+  
+            <!-- Position Column -->
+            <ng-container matColumnDef="code" >
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="font-700 fs-14_168 bl "> Код организации </th>
+              <td mat-cell *matCellDef="let myData$" class="font-500 fs-14_196"> {{myData$.orgCode}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="date" style="" >
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="font-700 fs-14_168 bl"> Дата </th>
+              <td mat-cell *matCellDef="let myData$"  class="font-500 fs-14_196" > {{myData$.dateTime}} </td>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="debit">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="font-700 fs-14_168 bl"> Дебет </th>
+              <td mat-cell *matCellDef=" let myData$"  class="font-500 fs-14_196"> {{myData$.debet}}
+              </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="credit">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="font-700 fs-14_168 bl"> Кредит </th>
+              <td mat-cell *matCellDef=" let myData$"  class="font-500 fs-14_196" > {{myData$.credit}}
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="currency">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="font-700 fs-14_168 bl"> Валюта </th>
+              <td mat-cell *matCellDef=" let myData$"  class="font-500 fs-14_196"> 
+                {{myData$.currency}}
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="type-op">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="font-700 fs-14_168 bl"> Вид операции </th>
+              <td mat-cell *matCellDef=" let myData$"  class="font-500 fs-14_196"> 
+                {{myData$.operType}}
+              </td>
+            </ng-container>
+            <ng-container matColumnDef="type-ac">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="font-700 fs-14_168 bl"> Вид счета </th>
+              <td mat-cell *matCellDef=" let myData$"  class="font-500 fs-14_196"> 
+                {{myData$.accountType}}
+              </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          
+        </mat-card-content>
+      </mat-card>
+  
+    </div>
+  </div>

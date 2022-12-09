@@ -1,0 +1,70 @@
+<div class="container login-container" fxLayout="row" fxLayoutAlign="center " class="a">
+    <div  fxFlex="50%" fxFlex.sm="50%" fxFlex.xs="90%" fxLayout=" column" fxLayoutAlign="left "class="d navbar">
+   
+         <a class="navbar-brand" [routerLink]="['/']" matTooltip="Home">
+             <img src="assets/images/kase-logo.svg" style="height: 30px;"> </a>
+        
+             <mat-card-content>
+ 
+     </mat-card-content>    
+   
+     <div class="bb">
+        <img class ='image' src='assets/images/log.jpg'>
+     </div>
+ 
+ </div>
+ <div  fxFlex="30%" fxFlex.sm="50%" fxFlex.xs="90%" fxLayout=" row" fxLayoutAlign="right ">
+     <div fxLayoutAlign=" center ">
+     <mat-card>
+         <mat-card-title class="font-700 fs-36_432">Create an Account</mat-card-title>
+         <mat-card-content>
+             <mat-form-field class="full-width" appearance="outline"> 
+                <mat-label>Name</mat-label>
+                 <input id="nameInput" matInput placeholder="Enter your name"formControlName="name" autocomplete="name"
+                     type="name" class="font-500 fs-14_196 ">
+  </mat-form-field>
+             <mat-form-field class="full-width"  appearance="outline">
+                <mat-label>Surname</mat-label>
+                 <input id="surnameInput" matInput placeholder="Enter your surname" formControlName="surname" type="surname"
+                     >
+                
+             </mat-form-field>
+             <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Company</mat-label>
+                <mat-select>
+                  <mat-option value="one">Issuers</mat-option>
+                  <mat-option value="two">Users</mat-option>
+                  <mat-option value="two">Brokers</mat-option>
+                </mat-select>
+              </mat-form-field>
+             <mat-form-field class="full-width" appearance="outline"> 
+                <mat-label>Email</mat-label>
+                <input id="emailInput" matInput placeholder="Enter your email" formControlName="email" autocomplete="email"
+                    type="email" class="font-500 fs-14_196 ">
+ </mat-form-field>
+            <mat-form-field class="full-width"  appearance="outline">
+                <mat-label>Password</mat-label>
+                <input id="passwordInput" matInput placeholder="Enter your password" formControlName="password" type="password"
+                    >
+               
+            </mat-form-field>
+
+             <div class="full-width">
+                 <mat-slide-toggle formControlName="rememberMe"  style="padding-top: 4px;">Remember me</mat-slide-toggle>
+                
+             </div>
+             <mat-card-actions class="login-actions ">
+                <button mat-raised-button id="login"   class="full-width" style="background-color: #038726;color: 
+                white; height: 47px;margin-top: 15px;" class="font-700 fs-18_252 full-width "
+                    (click)="login()">Create an account</button>
+               
+            </mat-card-actions>
+         </mat-card-content>
+  </mat-card></div>
+        
+ 
+    
+    
+ 
+ </div>
+ </div>

@@ -1,7 +1,7 @@
-<div class="container login-container" fxLayout="row" fxLayoutAlign="center center">
+<!--<div class="container login-container" fxLayout="row" fxLayoutAlign="left center">
     <form [formGroup]="loginForm" fxFlex="30%" fxFlex.sm="50%" fxFlex.xs="90%">
         <mat-card>
-            <mat-card-title>angular-material-template</mat-card-title>
+            <mat-card-title>Services</mat-card-title>
             <mat-card-subtitle>Log in to your account</mat-card-subtitle>
             <mat-card-content>
 
@@ -44,4 +44,73 @@
 
         <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
     </form>
+</div>-->
+<div class="container login-container" fxLayout="row" fxLayoutAlign="center " class="a">
+   <div  fxFlex="50%" fxFlex.sm="50%" fxFlex.xs="90%" fxLayout=" column" fxLayoutAlign="left "class="d navbar">
+  
+        <a class="navbar-brand" [routerLink]="['/']" matTooltip="Home">
+            <img src="assets/images/kase-logo.svg" style="height: 30px;"> </a>
+       
+            <mat-card-content>
+
+    </mat-card-content>    
+  
+    <div class="bb">
+       <img class ='image' src='assets/images/log.jpg'>
+    </div>
+
+</div>
+<div  fxFlex="30%" fxFlex.sm="50%" fxFlex.xs="90%" fxLayout=" row" fxLayoutAlign="right ">
+    <div fxLayoutAlign=" center ">
+    <mat-card>
+        <mat-card-title class="font-700 fs-36_432">Login to your Account</mat-card-title>
+      
+        <mat-card-content>
+
+            <mat-form-field class="full-width">
+                <input id="emailInput" matInput placeholder="Email" formControlName="email" autocomplete="email"
+                    type="email" class="font-500 fs-14_196 ">
+
+                <mat-error id="invalidEmailError" *ngIf="loginForm.controls['email'].hasError('email')">
+                    Please enter a valid email address
+                </mat-error>
+                <mat-error id="requiredEmailError" *ngIf="loginForm.controls['email'].hasError('required')">
+                    Email is
+                    <strong>required</strong>
+                </mat-error>
+
+            </mat-form-field>
+
+            <mat-form-field class="full-width">
+                <input id="passwordInput" matInput placeholder="Password" formControlName="password" type="password"
+                    autocomplete="current-password">
+                <mat-error id="requiredPasswordError" *ngIf="loginForm.controls['email'].hasError('required')">
+                    Password is
+                    <strong>required</strong>
+                </mat-error>
+            </mat-form-field>
+
+            <div class="full-width">
+                <mat-slide-toggle formControlName="rememberMe"  style="padding-top: 4px;">Remember me</mat-slide-toggle>
+                <button mat-button id="resetPassword" (click)="resetPassword()" type="button" style="float: right;">Reset Password</button>
+            </div>
+
+        </mat-card-content>
+
+        <mat-card-actions class="login-actions ">
+            <button mat-raised-button id="login"  [disabled]="loginForm.invalid || loading" class="full-width" style="background-color: #038726;color: 
+            white;" class="font-700 fs-18_252 full-width "
+                (click)="login()">Login</button>
+           
+        </mat-card-actions> </mat-card></div>
+        <mat-card-content style="" fxLayout=" column"fxLayoutAlign="bottom center ">
+        <div class="full-width" >
+            <span   style="color: #828282;" class="font-500 fs-18_252  ">Not Registered Yet?</span>
+       <button mat-button id="createAccount" (click)="createAccount()" type="button" style="float: right;color: #038726; margin-top: -6px;" class="font-500 fs-18_252 ">Create an account</button>
+       </div></mat-card-content>
+
+   
+   
+
+</div>
 </div>

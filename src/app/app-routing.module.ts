@@ -13,16 +13,7 @@ const appRoutes: Routes = [
     loadChildren: () => import('./features/dashboard/dashboard.module').then(m => m.DashboardModule),
     canActivate: [AuthGuard]
   },
-  {
-    path: 'customers',
-    loadChildren: () => import('./features/customers/customers.module').then(m => m.CustomersModule),
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'users',
-    loadChildren: () => import('./features/users/users.module').then(m => m.UsersModule),
-    canActivate: [AuthGuard]
-  },
+
   {
     path: 'account',
     loadChildren: () => import('./features/account/account.module').then(m => m.AccountModule),
@@ -43,6 +34,18 @@ const appRoutes: Routes = [
     loadChildren: () => import('./features/about/about.module').then(m => m.AboutModule),
     canActivate: [AuthGuard]
   },
+  {path:'stock-market',
+  loadChildren:()=>import('./features/stok-market/stock-market').then(m=>m.StockMarketModule),
+  canActivate:[AuthGuard]
+},
+{path:'currency-market',
+loadChildren:()=>import('./features/cur-market/cur-market').then(m=>m.CurMarketModule),
+canActivate:[AuthGuard]
+},
+{path:'derivative',
+loadChildren:()=>import('./features/derivatives/derivative').then(m=>m.DerivativeModule),
+canActivate:[AuthGuard]
+},
   {
     path: '**',
     redirectTo: 'dashboard',
