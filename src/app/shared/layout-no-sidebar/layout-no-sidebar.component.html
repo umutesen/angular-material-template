@@ -1,0 +1,66 @@
+<div class="navbar-container" [class.example-is-mobile]="mobileQuery.matches">
+
+    <!-- Top navbar -->
+    <mat-toolbar class="navbar" color="primary">
+  
+      <a class="navbar-brand" [routerLink]="['/']" matTooltip="Home">
+        <h1>
+          Setlist Helper
+        </h1>
+      </a>
+  
+      <span class="navbar-spacer"></span>
+  
+      <button mat-icon-button [matMenuTriggerFor]="notificationMenu">
+        <mat-icon matBadge="2" matBadgeColor="accent">notifications</mat-icon>
+      </button>
+      <mat-menu #notificationMenu="matMenu" xPosition="before" yPosition="above" [overlapTrigger]="false">
+  
+        <a mat-menu-item>
+          <span>You have new tasks</span>
+        </a>
+        <a mat-menu-item>
+          <span>You have a new message</span>
+        </a>
+  
+      </mat-menu>
+  
+  
+  
+      <button mat-button [matMenuTriggerFor]="userMenu">
+        <mat-icon>person</mat-icon>
+        <span fxShow fxHide.xs>
+          {{userName}}
+        </span>
+      </button>
+      <mat-menu #userMenu="matMenu" xPosition="before" yPosition="above" [overlapTrigger]="false">
+  
+        <a mat-menu-item [routerLink]="['/account/profile']">
+          <mat-icon>person</mat-icon>
+          <span>Account</span>
+        </a>
+  
+        <a mat-menu-item [routerLink]="['/auth/login']">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Log out</span>
+        </a>
+  
+      </mat-menu>
+  
+    </mat-toolbar>
+  
+    
+  
+
+    <div class="progress-bar-container">
+        <mat-progress-bar color="accent" mode="indeterminate" *ngIf="spinnerService.visibility | async">
+        </mat-progress-bar>
+        <!-- <mat-spinner class="spinner" [diameter]="50" *ngIf="showSpinner"></mat-spinner> -->
+    </div>
+
+
+    <router-outlet></router-outlet>
+
+
+  
+  </div>

@@ -1,0 +1,54 @@
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+  <div fxFlex="95%">
+
+    <mat-card>
+      <mat-card-content>
+        <mat-toolbar  >
+          <button mat-icon-button aria-label="Add Song" (click)="onAddSong()">
+            <mat-icon>add</mat-icon>
+          </button>
+          <span class="spacer"></span>
+          <form class="search-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>Search</mat-label>
+              <input type="text" matInput 
+                     placeholder="Search">
+            </mat-form-field>
+          </form>
+        </mat-toolbar>
+        <table mat-table [dataSource]="dataSource" matSort>
+
+          
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+
+          <!-- Artist Column -->
+          <ng-container matColumnDef="artist">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Artist </th>
+            <td mat-cell *matCellDef="let element"> {{element.artist}} </td>
+          </ng-container>
+        
+          <!-- Genre Column -->
+          <ng-container matColumnDef="genre">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Genre </th>
+            <td mat-cell *matCellDef="let element"> {{element.genre}} </td>
+          </ng-container>
+        
+          <!-- Key Column -->
+          <ng-container matColumnDef="key">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Key </th>
+            <td mat-cell *matCellDef="let element"> {{element.key}} </td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row (dblclick)="onEditSong(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        
+      </mat-card-content>
+    </mat-card>
+
+  </div>
+</div>

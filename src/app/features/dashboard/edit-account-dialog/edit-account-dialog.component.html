@@ -1,0 +1,33 @@
+<form class="dialog-form" [formGroup]="accountForm">
+  <div mat-dialog-content>
+    <p *ngIf="!isNew">Edit Account</p>
+    <p *ngIf="isNew">Add Account</p>
+    <p>
+      <mat-form-field appearance="outline" class="dialog-input-full-width">
+        <mat-label>Account Name</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline" class="dialog-input-full-width">
+        <mat-label>Description</mat-label>
+        <input matInput formControlName="description" />
+      </mat-form-field>
+    </p>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="onSave()"
+      [disabled]="!accountForm.valid || !accountForm.dirty"
+      cdkFocusInitial
+    >
+      Save
+      <mat-icon *ngIf="saving"
+        ><mat-spinner color="accent" diameter="20"> </mat-spinner
+      ></mat-icon>
+    </button>
+  </div>
+</form>

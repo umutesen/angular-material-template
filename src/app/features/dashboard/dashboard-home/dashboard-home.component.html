@@ -1,18 +1,38 @@
 <div class="container" fxLayout="row" fxLayoutAlign="center none">
 
   <div fxFlex="95%">
-    <div class="container" fxLayout="row" fxLayoutAlign="center none">
+    <div class="container" fxLayout="row" fxLayoutGap="5.0%" fxLayoutAlign="center none">
 
-      <h2>Welcome back, {{currentUser.fullName}}!</h2>
-
+      <h2>Accounts</h2> 
+      <button mat-fab color="primary"><mat-icon (click)="onAddAccount()">add</mat-icon></button>
     </div>
 
-    <div class="container" fxLayout="row" fxLayoutAlign="center none">
-      <div fxFlex="50%" class="text-center no-records animate">
+    <div class="container" fxLayout="row" fxLayout.xs="column" fxlayoutWrap fxLayoutGap="5.0%" fxLayoutAlign="center">
+      <div fxFlex="70%" *ngIf="!(accounts$ | async)" class="text-center no-records animate">
         <mat-icon>dashboard</mat-icon>
-        <p>This is the dashboard.</p>
+        <p>There are no accounts.</p>
       </div>
       <mat-icon> </mat-icon>
+      <mat-card *ngFor="let account of (accounts$ | async)" class="account-card">
+        <div [routerLink]="['/songs/' + account.id ]">
+        <mat-card-header>
+          <mat-card-subtitle>Account Name</mat-card-subtitle>
+          <mat-card-title>{{account.name}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p *ngIf="!account.description">Songs, Setlists, Lyrics, Audio and Documents that are grouped for a band, worship group, or solo act. </p>
+          <p *ngIf="account.description">{{account.description}}</p>
+          <mat-divider></mat-divider>
+        </mat-card-content>
+      </div>
+        <mat-card-actions>
+          <button mat-button (click)="onEditAccount(account)">Edit</button>
+          <button mat-button [routerLink]="['/songs/' + account.id ]">View</button>
+        </mat-card-actions>
+        
+      </mat-card>
+  
+      
     </div>
   </div>
 </div>

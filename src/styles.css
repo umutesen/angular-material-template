@@ -146,3 +146,23 @@ p .mat-icon {
     opacity: 1;
   }
 }
+
+.dialog-responsive {
+  width: 40%;
+}
+
+@media only screen and (max-width: 760px) {
+  .dialog-responsive {
+      width: 100%;
+  }
+}
+
+.dialog-form {
+  min-width: 150px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.dialog-input-full-width {
+  width: 100%;
+}

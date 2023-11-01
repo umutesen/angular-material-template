@@ -10,6 +10,7 @@ import { ContentPlaceholderAnimationComponent } from './content-placeholder-anim
 import { LocalDatePipe } from './pipes/local-date.pipe';
 import { YesNoPipe } from './pipes/yes-no.pipe';
 import { LayoutComponent } from './layout/layout.component';
+import { LayoutNoSidebarComponent } from './layout-no-sidebar/layout-no-sidebar.component';
 
 @NgModule({
     imports: [
@@ -25,7 +26,8 @@ import { LayoutComponent } from './layout/layout.component';
         LimitToPipe,
         LocalDatePipe,
         YesNoPipe,
-        LayoutComponent
+        LayoutComponent,
+        LayoutNoSidebarComponent
     ],
     exports: [
         FormsModule,

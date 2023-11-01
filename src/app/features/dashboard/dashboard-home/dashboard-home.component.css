@@ -15,3 +15,13 @@
   max-height: 400px;
   overflow: auto;
 }
+
+::ng-deep .mat-card-header-text {
+  /* CSS styles go here */
+  margin: 0px !important; 
+}
+
+.account-card{
+  cursor: pointer;
+  min-width: 400px;
+}

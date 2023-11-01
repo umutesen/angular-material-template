@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LayoutComponent } from 'src/app/shared/layout/layout.component';
-
+import { LayoutNoSidebarComponent } from 'src/app/shared/layout-no-sidebar/layout-no-sidebar.component';
 import { DashboardHomeComponent } from './dashboard-home/dashboard-home.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: LayoutComponent,
+    component: LayoutNoSidebarComponent,
     children: [
       { path: '', component: DashboardHomeComponent },
     ]
