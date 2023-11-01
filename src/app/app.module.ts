@@ -17,7 +17,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
-
+import { NgxsModule } from '@ngxs/store';
 @NgModule({
   declarations: [
     AppComponent
@@ -36,7 +36,11 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
       level: environment.logLevel,
       serverLogLevel: environment.serverLogLevel
     }),
-    
+    NgxsModule.forRoot([], {
+      selectorOptions: {
+        injectContainerState: false
+      }
+    }),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // for firestore
     MatCardModule, MatDividerModule, MatButtonModule, MatProgressBarModule
