@@ -66,13 +66,13 @@
           <p mat-line> Accounts </p>
         </a>
 
-        <a mat-list-item [routerLink]="['/songs']" routerLinkActive="active">
+        <a mat-list-item [routerLink]="['/songs/' + selectedAccount.id]" routerLinkActive="active">
           <mat-icon mat-list-icon>
             music_note
           </mat-icon>
           <p mat-line> Songs </p>
         </a>
-        <a mat-list-item [routerLink]="['/users']" routerLinkActive="active">
+        <a mat-list-item [routerLink]="['/setlists/'  + selectedAccount.id]" routerLinkActive="active">
           <mat-icon mat-list-icon>
             library_music
           </mat-icon>

@@ -18,9 +18,11 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { NgxsModule } from '@ngxs/store';
+import { AccountStateModule } from './core/store/account-state.module';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     //provideFirestore(() => getFirestore()),
@@ -31,6 +33,7 @@ import { NgxsModule } from '@ngxs/store';
     SharedModule,
     CustomMaterialModule.forRoot(),
     AppRoutingModule,
+    AccountStateModule,
     LoggerModule.forRoot({
       serverLoggingUrl: `http://my-api/logs`,
       level: environment.logLevel,

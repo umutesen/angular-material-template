@@ -9,6 +9,9 @@ import { Account } from "src/app/core/model/account";
 import { MatDialog } from "@angular/material/dialog";
 import { EditAccountDialogComponent } from "../edit-account-dialog/edit-account-dialog.component";
 import { Firestore, collection, collectionData } from "@angular/fire/firestore";
+import { Store } from "@ngxs/store";
+import { AccountActions } from "src/app/core/store/account.state";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: "app-dashboard-home",
@@ -23,6 +26,8 @@ export class DashboardHomeComponent implements OnInit {
     private notificationService: NotificationService,
     private authService: AuthenticationService,
     private titleService: Title,
+    private store:Store,
+    private router: Router,
     private logger: NGXLogger,
     private accountService: AccountService,
     public dialog: MatDialog
@@ -37,6 +42,11 @@ export class DashboardHomeComponent implements OnInit {
     setTimeout(() => {
       this.notificationService.openSnackBar("Welcome!");
     });
+  }
+
+  onSelectAccount(selectAccount: Account) {
+    this.store.dispatch(new AccountActions.selectAccount(selectAccount));
+    this.router.navigate(['/songs/' + selectAccount.id]);
   }
 
   onAddAccount() {

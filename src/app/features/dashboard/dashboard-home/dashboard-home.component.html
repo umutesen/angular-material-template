@@ -14,7 +14,7 @@
       </div>
       <mat-icon> </mat-icon>
       <mat-card *ngFor="let account of (accounts$ | async)" class="account-card">
-        <div [routerLink]="['/songs/' + account.id ]">
+        <div (click)="onSelectAccount(account)">
         <mat-card-header>
           <mat-card-subtitle>Account Name</mat-card-subtitle>
           <mat-card-title>{{account.name}}</mat-card-title>

@@ -15,7 +15,12 @@ const appRoutes: Routes = [
   },
   {
     path: 'songs',
-    loadChildren: () => import('./features/songs/songs.module').then(m => m.CustomersModule),
+    loadChildren: () => import('./features/songs/songs.module').then(m => m.SongsModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'setlists',
+    loadChildren: () => import('./features/setlists/setlist.module').then(m => m.SetlistModule),
     canActivate: [AuthGuard]
   },
   {

@@ -16,4 +16,4 @@ import { SongEditDialogComponent } from './song-edit-dialog/song-edit-dialog.com
         SongEditDialogComponent
     ]
 })
-export class CustomersModule { }
+export class SongsModule { }

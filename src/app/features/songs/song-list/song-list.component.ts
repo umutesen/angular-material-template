@@ -8,10 +8,13 @@ import { SongService } from 'src/app/core/services/song.service';
 import { SAMPLE_SONGS } from 'src/app/core/model/sampleSongs';
 import { Observable } from 'rxjs';
 import { Song } from 'src/app/core/model/song';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SongEditDialogComponent } from '../song-edit-dialog/song-edit-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { AccountSong } from 'src/app/core/model/account-song';
+import { Select, Store } from '@ngxs/store';
+import { AccountActions, AccountState } from 'src/app/core/store/account.state';
+import { Account } from 'src/app/core/model/account';
 
 @Component({
   selector: 'app-song-list',
@@ -19,6 +22,10 @@ import { AccountSong } from 'src/app/core/model/account-song';
   styleUrls: ['./song-list.component.css']
 })
 export class SongListComponent implements OnInit {
+  @Select(AccountState.selectedAccount) 
+  selectedAccount$!: Observable<Account>;
+
+  
   displayedColumns: string[] = [ 'name', 'artist', 'genre', 'key'];
   dataSource =  new MatTableDataSource();
   accountId?: string;
@@ -30,8 +37,12 @@ export class SongListComponent implements OnInit {
     private route: ActivatedRoute,
     private titleService: Title,
     private songService: SongService,
+    private store: Store,
+    private router: Router,
     public dialog: MatDialog
+
   ) { 
+    const selectedAccount = this.store.selectSnapshot(AccountState.selectedAccount);
     const id = this.route.snapshot.paramMap.get('accountid');
     if(id){
       this.accountId = id;

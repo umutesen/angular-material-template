@@ -6,6 +6,9 @@ import { Subscription } from 'rxjs';
  import { AuthenticationService } from 'src/app/core/services/auth.service';
 import { SpinnerService } from '../../core/services/spinner.service';
 import { AuthGuard } from 'src/app/core/guards/auth.guard';
+import { Account } from 'src/app/core/model/account';
+import { Store } from '@ngxs/store';
+import { AccountState } from 'src/app/core/store/account.state';
 
 @Component({
     selector: 'app-layout',
@@ -19,19 +22,21 @@ export class LayoutComponent implements OnInit, OnDestroy, AfterViewInit {
     showSpinner: boolean = false;
     userName: string = "";
     isAdmin: boolean = false;
-
+    selectedAccount: Account;
     private autoLogoutSubscription: Subscription = new Subscription;
 
     constructor(private changeDetectorRef: ChangeDetectorRef,
         private media: MediaMatcher,
         public spinnerService: SpinnerService,
         private authService: AuthenticationService,
+        private store: Store,
         private authGuard: AuthGuard) {
 
         this.mobileQuery = this.media.matchMedia('(max-width: 1000px)');
         this._mobileQueryListener = () => changeDetectorRef.detectChanges();
         // tslint:disable-next-line: deprecation
         this.mobileQuery.addListener(this._mobileQueryListener);
+        this.selectedAccount = this.store.selectSnapshot(AccountState.selectedAccount);
     }
 
     ngOnInit(): void {
