@@ -5334,7 +5334,7 @@ firebase-tools@^12.6.2:
     winston-transport "^4.4.0"
     ws "^7.2.3"
 
-firebase@^10.5.0:
+firebase@^10.5.2:
   version "10.5.2"
   resolved "https://registry.yarnpkg.com/firebase/-/firebase-10.5.2.tgz#c50d3c1e9026cad517913666eea8def2d25d4587"
   integrity sha512-LLCig21TBYdByMbGJt5YmUzzk2HpsFCsIUTvOteQjW9BUh40IrSP2+dZi9IvT8RlztM3zcH+TNZ0jOsOaa7GMQ==

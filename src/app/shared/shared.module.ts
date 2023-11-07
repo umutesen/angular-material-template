@@ -27,7 +27,7 @@ import { LayoutNoSidebarComponent } from './layout-no-sidebar/layout-no-sidebar.
         LocalDatePipe,
         YesNoPipe,
         LayoutComponent,
-        LayoutNoSidebarComponent
+        LayoutNoSidebarComponent,
     ],
     exports: [
         FormsModule,

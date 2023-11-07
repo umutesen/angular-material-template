@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef, OnDestroy, AfterViewInit } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
-import { timer } from 'rxjs';
+import { Observable, timer } from 'rxjs';
 import { Subscription } from 'rxjs';
 
  import { AuthenticationService } from 'src/app/core/services/auth.service';
@@ -9,6 +9,7 @@ import { AuthGuard } from 'src/app/core/guards/auth.guard';
 import { Account } from 'src/app/core/model/account';
 import { Store } from '@ngxs/store';
 import { AccountState } from 'src/app/core/store/account.state';
+import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
     selector: 'app-layout',
@@ -20,18 +21,19 @@ export class LayoutComponent implements OnInit, OnDestroy, AfterViewInit {
     private _mobileQueryListener: () => void;
     mobileQuery: MediaQueryList;
     showSpinner: boolean = false;
-    userName: string = "";
+    displayUserName$: Observable<string |null>;
     isAdmin: boolean = false;
     selectedAccount: Account;
+
     private autoLogoutSubscription: Subscription = new Subscription;
 
     constructor(private changeDetectorRef: ChangeDetectorRef,
         private media: MediaMatcher,
         public spinnerService: SpinnerService,
-        private authService: AuthenticationService,
         private store: Store,
-        private authGuard: AuthGuard) {
-
+        private authGuard: AuthGuard,
+        private userService: UserService) {
+        this.displayUserName$ = userService.displayName$;
         this.mobileQuery = this.media.matchMedia('(max-width: 1000px)');
         this._mobileQueryListener = () => changeDetectorRef.detectChanges();
         // tslint:disable-next-line: deprecation
@@ -40,11 +42,7 @@ export class LayoutComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
     ngOnInit(): void {
-        const user = this.authService.getCurrentUser();
-
-        this.isAdmin = user.isAdmin;
-        this.userName = user.fullName;
-
+        
         // Auto log-out subscription
         const timer$ = timer(2000, 5000);
         this.autoLogoutSubscription = timer$.subscribe(() => {
@@ -60,5 +58,9 @@ export class LayoutComponent implements OnInit, OnDestroy, AfterViewInit {
 
     ngAfterViewInit(): void {
         this.changeDetectorRef.detectChanges();
+    }
+
+    onLogout(){
+        this.userService.logout();
     }
 }

@@ -27,7 +27,7 @@
     "@angular/router": "^14.2.1",
     "@ngrx/store": "^14.0.0",
     "@ngxs/store": "^3.8.1",
-    "firebase": "^10.5.0",
+    "firebase": "^10.5.2",
     "firebase-tools": "^12.6.2",
     "firebaseui": "^6.1.0",
     "jwt-decode": "^3.1.2",
