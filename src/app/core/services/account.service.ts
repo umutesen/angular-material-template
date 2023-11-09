@@ -13,8 +13,10 @@ import {
 } from "@angular/fire/firestore";
 import { SAMPLE_SONGS } from "../model/sampleSongs";
 
-
-import { AngularFirestore, AngularFirestoreCollection } from "@angular/fire/compat/firestore";
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+} from "@angular/fire/compat/firestore";
 
 //import OrderByDirection = firebase.firestore.OrderByDirection;
 
@@ -24,7 +26,7 @@ import { AngularFirestore, AngularFirestoreCollection } from "@angular/fire/comp
 export class AccountService {
   private collection = "accounts";
 
-  private dbPath = '/accounts';
+  private dbPath = "/accounts";
 
   accountsRef: AngularFirestoreCollection<Account>;
 
@@ -32,34 +34,44 @@ export class AccountService {
     this.accountsRef = db.collection(this.dbPath);
   }
 
-  getAccounts(): Observable<any> {
-    return this.accountsRef.snapshotChanges().pipe(
-      map(changes =>
-        changes.map(c =>
-          ({ id: c.payload.doc.id, ...c.payload.doc.data() })
-        )
+  getAccounts(userId: string): Observable<any> {
+    return this.db
+      .collection(this.dbPath, (ref) =>
+        ref.where("users", "array-contains", userId)
       )
-    );
+      .get()
+      .pipe(
+        map((results) =>
+          results.docs.map((snap) => {
+            return { id: snap.id, ...(<any>snap.data()) };
+          })
+        )
+      );
+
   }
 
   addAccount(data: Account): any {
     delete data.id;
-    delete data.description;
-    
+    if(!data.description){
+      delete data.description;
+    }
+
     return this.accountsRef.add(data);
   }
 
   updateAccount(id: string, data: Account): Observable<void> {
     delete data.id;
-    if(!data.description){
-      data.description = '';
+    if (!data.description) {
+      data.description = "";
     }
-    
+
     return from(this.accountsRef.doc(id).update(data));
   }
 
-  addSongsToAccount(account: Account){
-    const accountSongsRef = this.accountsRef.doc(account.id).collection("/songs");
+  addSongsToAccount(account: Account) {
+    const accountSongsRef = this.accountsRef
+      .doc(account.id)
+      .collection("/songs");
     accountSongsRef.add(SAMPLE_SONGS[0]);
     accountSongsRef.add(SAMPLE_SONGS[1]);
   }

@@ -8,9 +8,9 @@
     </div>
 
     <div class="container" fxLayout="row" fxLayout.xs="column" fxlayoutWrap fxLayoutGap="5.0%" fxLayoutAlign="center">
-      <div fxFlex="70%" *ngIf="!(accounts$ | async)" class="text-center no-records animate">
+      <div fxFlex="70%" *ngIf="(accounts$ | async)?.length === 0" class="text-center no-records animate">
         <mat-icon>dashboard</mat-icon>
-        <p>There are no accounts.</p>
+        <p>Create an account that will group your songs and seltists. You will be able to add users to the account to share your data. </p>
       </div>
       <mat-icon> </mat-icon>
       <mat-card *ngFor="let account of (accounts$ | async)" class="account-card">

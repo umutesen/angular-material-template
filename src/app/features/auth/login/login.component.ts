@@ -9,6 +9,7 @@ import * as firebaseui from 'firebaseui'
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import EmailAuthProvider = firebase.auth.EmailAuthProvider;
 import GoogleAuthProvider = firebase.auth.GoogleAuthProvider;
+import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
     selector: 'app-login',
@@ -24,7 +25,8 @@ export class LoginComponent implements OnInit, OnDestroy {
         private titleService: Title,
         private notificationService: NotificationService,
         private authenticationService: AuthenticationService,
-        private afAuth: AngularFireAuth) {
+        private afAuth: AngularFireAuth,
+        private userService: UserService) {
     }
 
     ngOnInit() {
@@ -62,6 +64,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     onLoginSuccessful(authResult: any) {
         console.log('Firebase UI result:', authResult);
+        
 
         this.router.navigateByUrl("/dashboard");
        

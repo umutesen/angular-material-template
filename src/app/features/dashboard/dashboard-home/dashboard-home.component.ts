@@ -12,6 +12,7 @@ import { Firestore, collection, collectionData } from "@angular/fire/firestore";
 import { Store } from "@ngxs/store";
 import { AccountActions } from "src/app/core/store/account.state";
 import { ActivatedRoute, Router } from "@angular/router";
+import { UserService } from "src/app/core/services/user.service";
 
 @Component({
   selector: "app-dashboard-home",
@@ -30,18 +31,20 @@ export class DashboardHomeComponent implements OnInit {
     private router: Router,
     private logger: NGXLogger,
     private accountService: AccountService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private userService: UserService
   ) {
-    this.accounts$ = this.accountService.getAccounts();
+    this.userService.user$.subscribe((user) => {
+      if(user && user.uid){
+        this.accounts$ = this.accountService.getAccounts(user.uid);
+      }
+    });
+    
   }
 
   ngOnInit() {
     this.currentUser = this.authService.getCurrentUser();
     this.titleService.setTitle("Edit Account");
-
-    setTimeout(() => {
-      this.notificationService.openSnackBar("Welcome!");
-    });
   }
 
   onSelectAccount(selectAccount: Account) {
@@ -55,6 +58,7 @@ export class DashboardHomeComponent implements OnInit {
       panelClass: "dialog-responsive",
     });
   }
+
   onEditAccount(account: Account) {
     const dialogRef = this.dialog.open(EditAccountDialogComponent, {
       data: account,

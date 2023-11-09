@@ -4,11 +4,16 @@ import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { map } from "rxjs/operators";
 import { Router } from "@angular/router";
 import { UserRoles } from "../model/user-roles";
+import { AngularFirestore, AngularFirestoreCollection } from "@angular/fire/compat/firestore";
+import { User } from "../model/user";
 
 @Injectable({
   providedIn: "root",
 })
 export class UserService {
+  private dbPath = '/users';
+  userRef: AngularFirestoreCollection<User>;
+
   isLoggedIn$: Observable<boolean>;
 
   isLoggedOut$: Observable<boolean>;
@@ -18,8 +23,13 @@ export class UserService {
   roles$: Observable<UserRoles>;
 
   displayName$: Observable<string | null>;
+  user$: Observable<any | null>;
 
-  constructor(private afAuth: AngularFireAuth, private router: Router) {
+  constructor(
+    private afAuth: AngularFireAuth, 
+    private router: Router,
+    private db: AngularFirestore) {
+      
     //this.afAuth.idToken.subscribe((jwt) => console.log(jwt));
     this.isLoggedIn$ = afAuth.authState.pipe(map((user) => !!user));
 
@@ -27,6 +37,10 @@ export class UserService {
 
     this.displayName$ = afAuth.authState.pipe(
       map((user) => (user ? user.displayName : ''))
+    );
+
+    this.user$ = afAuth.authState.pipe(
+      map((user) => (user ? user : ''))
     );
 
     this.pictureUrl$ = afAuth.authState.pipe(
