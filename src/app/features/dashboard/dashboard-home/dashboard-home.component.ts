@@ -36,6 +36,7 @@ export class DashboardHomeComponent implements OnInit {
   ) {
     this.userService.user$.subscribe((user) => {
       if(user && user.uid){
+        this.currentUser = user;
         this.accounts$ = this.accountService.getAccounts(user.uid);
       }
     });
@@ -43,7 +44,6 @@ export class DashboardHomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.currentUser = this.authService.getCurrentUser();
     this.titleService.setTitle("Edit Account");
   }
 
@@ -63,6 +63,10 @@ export class DashboardHomeComponent implements OnInit {
     const dialogRef = this.dialog.open(EditAccountDialogComponent, {
       data: account,
       panelClass: "dialog-responsive",
+    });
+
+    dialogRef.afterClosed().subscribe((data) => {
+      this.accounts$ = this.accountService.getAccounts(this.currentUser.uid);
     });
   }
 }

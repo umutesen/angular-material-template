@@ -64,10 +64,12 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     onLoginSuccessful(authResult: any) {
         console.log('Firebase UI result:', authResult);
-        
-
-        this.router.navigateByUrl("/dashboard");
-       
+        this.userService.getUser(authResult.user.uid).subscribe((user) => {
+            if(!user){
+                this.userService.addUser(authResult.user);
+            }
+            this.router.navigateByUrl("/dashboard");
+        });
     }
 
     private createForm() {

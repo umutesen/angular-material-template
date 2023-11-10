@@ -1,9 +1,10 @@
 
 export class User {
     constructor(
-        public $key: string,
-        //public role: string,
-        public accounts: string[]
+        public uid: string,
+        public displayName: string,
+        public email: string,
+        public photoUrl: string
     ){
 
     }
