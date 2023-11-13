@@ -36,16 +36,20 @@ export class AccountService {
   }
 
   getAccounts(userId: string): Observable<Account[]> {
-     return this.db
+    return this.db
       .collection(this.dbPath, (ref) =>
         ref.where("users", "array-contains", userId)
       )
-      .snapshotChanges().pipe(
-        map(actions => actions.map(a => {
-          const data = a.payload.doc.data() as any;
-          data.id = a.payload.doc.id;
-          return <Account>data;
-        })));
+      .stateChanges()
+      .pipe(
+        map((actions) =>
+          actions.map((a) => {
+            const data = a.payload.doc.data() as any;
+            data.id = a.payload.doc.id;
+            return <Account>data;
+          })
+        )
+      );
   }
 
   addAccount(data: Account): any {
@@ -78,61 +82,46 @@ export class AccountService {
     const dbPath = `/accounts/${accountId}/users`;
     const usersRef = this.db.collection(dbPath);
     return usersRef.snapshotChanges().pipe(
-      map(changes =>
-        changes.map(c =>
-          {
-            const user = c.payload.doc.data() as User;
-            user.uid = c.payload.doc.id;
-            return user;
-          }
-        )
+      map((changes) =>
+        changes.map((c) => {
+          const user = c.payload.doc.data() as User;
+          user.id = c.payload.doc.id;
+          return user;
+        })
       )
     );
- }
+  }
 
   addUserToAccount(account: Account, user: User) {
+    delete user.id;
     const accountUserRef = this.accountsRef
       .doc(account.id)
       .collection("/users");
 
     accountUserRef.add(user);
     account.users?.push(user.uid);
-    
-    if(account.id){
+
+    if (account.id) {
       this.updateAccount(account.id, account);
     }
   }
 
-  // create(account: Account): any {
-  //   //return this.accountsRef.add({ ...account });
-  // }
+  removeUserFromAccount(account: Account, user: User) {
+    const accountUsersRef = this.accountsRef
+      .doc(account.id)
+      .collection("/users");
 
-  // update(id: string, data: any): Promise<void> {
-  //   //return this.accountsRef.doc(id).update(data);
-  // }
+    //delete the user from the collection in the account.
+    accountUsersRef.doc(user.id).delete();
 
-  // delete(id: string): Promise<void> {
-  //   //return this.accountsRef.doc(id).delete();
-  // }
-  /*getAccounts(): Observable<Account[]> {
-    return from(this.getAccountsInternal());
-    // get a reference to the user-profile collection
-    //const accountsCollection = collection(this.firestore, 'accounts');
-
-    // get documents (data) from the collection using collectionData
-    //return collectionData(accountsCollection) as Observable<Account[]>;
+    //Remove the uid from the users array on the account.
+    if (account.id) {
+      const uidIndex = account.users?.indexOf(user.uid);
+      if (uidIndex && uidIndex > -1) {
+        // only splice array when item is found
+        account.users?.splice(uidIndex, 1); // 2nd parameter means remove one item only
+      }
+      this.updateAccount(account.id, account);
+    }
   }
-
-  // private async getAccountsInternal() {
-    
-  //   return (
-  //     await getDocs(query(collection(this.firestore, this.collection), where("name", "!=", "")))
-  //   ).docs.map((accounts) => {
-  //     const docData = accounts.data();
-  //     const account = {} as Account;
-  //     account.name = docData['name'];
-  //     account.docId = accounts.id;
-  //     return account;
-  //   });
-  // }*/
 }
