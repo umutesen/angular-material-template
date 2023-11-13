@@ -1,71 +1,58 @@
-import { Injectable, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { delay, map } from 'rxjs/operators';
-import * as jwt_decode from 'jwt-decode';
-import * as moment from 'moment';
+import { Injectable, Inject } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { delay, map } from "rxjs/operators";
+import * as jwt_decode from "jwt-decode";
+import * as moment from "moment";
 
-import { environment } from '../../../environments/environment';
-import { of, EMPTY } from 'rxjs';
+import { environment } from "../../../environments/environment";
+import { of, EMPTY, Observable } from "rxjs";
+import { UserRoles } from "../model/user-roles";
+import { AngularFireAuth } from "@angular/fire/compat/auth";
+import { AngularFirestore } from "@angular/fire/compat/firestore";
+import { Router } from "@angular/router";
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: "root",
 })
 export class AuthenticationService {
+  isLoggedIn$: Observable<boolean>;
 
-    constructor(private http: HttpClient,
-        @Inject('LOCALSTORAGE') private localStorage: Storage) {
-    }
+  isLoggedOut$: Observable<boolean>;
 
-    login(email: string, password: string) {
-        return of(true)
-            .pipe(delay(1000),
-                map((/*response*/) => {
-                    // set token property
-                    // const decodedToken = jwt_decode(response['token']);
+  pictureUrl$: Observable<string | null>;
 
-                    // store email and jwt token in local storage to keep user logged in between page refreshes
-                    this.localStorage.setItem('currentUser', JSON.stringify({
-                        token: 'aisdnaksjdn,axmnczm',
-                        isAdmin: true,
-                        email: 'john.doe@gmail.com',
-                        id: '12312323232',
-                        alias: 'john.doe@gmail.com'.split('@')[0],
-                        expiration: moment().add(1, 'days').toDate(),
-                        fullName: 'John Doe'
-                    }));
+  roles$: Observable<UserRoles>;
 
-                    return true;
-                }));
-    }
+  displayName$: Observable<string | null>;
 
-    logout(): void {
-        // clear token remove user from local storage to log user out
-        this.localStorage.removeItem('currentUser');
-    }
+  user$: Observable<any | null>;
 
-    getCurrentUser(): any {
-        // TODO: Enable after implementation
-        // return JSON.parse(this.localStorage.getItem('currentUser'));
-        return {
-            token: 'aisdnaksjdn,axmnczm',
-            isAdmin: true,
-            email: 'john.doe@gmail.com',
-            id: '12312323232',
-            alias: 'john.doe@gmail.com'.split('@')[0],
-            expiration: moment().add(1, 'days').toDate(),
-            fullName: 'John Doe'
-        };
-    }
+  constructor(
+    private afAuth: AngularFireAuth,
+    private router: Router,
+    private db: AngularFirestore
+  ) {
+    this.isLoggedIn$ = afAuth.authState.pipe(map((user) => !!user));
 
-    passwordResetRequest(email: string) {
-        return of(true).pipe(delay(1000));
-    }
+    this.isLoggedOut$ = this.isLoggedIn$.pipe(map((loggedIn) => !loggedIn));
 
-    changePassword(email: string, currentPwd: string, newPwd: string) {
-        return of(true).pipe(delay(1000));
-    }
+    this.displayName$ = afAuth.authState.pipe(
+      map((user) => (user ? user.displayName : ""))
+    );
 
-    passwordReset(email: string, token: string, password: string, confirmPassword: string): any {
-        return of(true).pipe(delay(1000));
-    }
+    this.user$ = afAuth.authState.pipe(map((user) => (user ? user : "")));
+
+    this.pictureUrl$ = afAuth.authState.pipe(
+      map((user) => (user ? user.photoURL : null))
+    );
+
+    this.roles$ = this.afAuth.idTokenResult.pipe(
+      map((token) => <any>token?.claims ?? { admin: false })
+    );
+  }
+
+  logout() {
+    this.afAuth.signOut();
+    this.router.navigateByUrl("/auth/login");  
+  }
 }

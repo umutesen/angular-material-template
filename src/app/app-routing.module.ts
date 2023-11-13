@@ -22,7 +22,7 @@ const appRoutes: Routes = [
   {
     path: "dashboard",
     loadChildren: () =>
-      import("./features/dashboard/dashboard.module").then(
+      import("./features/accounts/account.module").then(
         (m) => m.DashboardModule
       ),
     canActivate: [AngularFireAuthGuard],
@@ -46,29 +46,6 @@ const appRoutes: Routes = [
     path: "users",
     loadChildren: () =>
       import("./features/users/users.module").then((m) => m.UsersModule),
-    canActivate: [AngularFireAuthGuard],
-    data: { authGuardPipe: redirectUnauthorizedToLogin },
-  },
-  {
-    path: "account",
-    loadChildren: () =>
-      import("./features/account/account.module").then((m) => m.AccountModule),
-    canActivate: [AngularFireAuthGuard],
-    data: { authGuardPipe: redirectUnauthorizedToLogin },
-  },
-  {
-    path: "icons",
-    loadChildren: () =>
-      import("./features/icons/icons.module").then((m) => m.IconsModule),
-    canActivate: [AngularFireAuthGuard],
-    data: { authGuardPipe: redirectUnauthorizedToLogin },
-  },
-  {
-    path: "typography",
-    loadChildren: () =>
-      import("./features/typography/typography.module").then(
-        (m) => m.TypographyModule
-      ),
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToLogin },
   },

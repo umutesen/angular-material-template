@@ -1,0 +1,71 @@
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+  <div fxFlex="95%">
+    <p>Account Users</p>
+    <mat-card>
+      <mat-card-content>
+        <table mat-table [dataSource]="dataSource" matSort>
+          <!-- email Column -->
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+            <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+          </ng-container>
+
+          <!-- displayName Column -->
+          <ng-container matColumnDef="displayName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Display Name
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.displayName }}
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+      </mat-card-content>
+    </mat-card>
+    <form class="dialog-form" [formGroup]="addUserForm">
+      <div mat-dialog-content>
+        <p>
+          Enter an email address of the user to share songs with. Make sure the
+          user has a Setlist Songs account.
+        </p>
+        <div class="email-group">
+          <mat-form-field appearance="outline" class="dialog-input-full-width">
+            <mat-label>Email</mat-label>
+            <input
+              type="email"
+              matInput
+              formControlName="email"
+              [errorStateMatcher]="matcher"
+              placeholder="Ex. pat@example.com"
+            />
+          </mat-form-field>
+          <button
+              class="email-button"
+              (click)="onAdd()"
+              mat-raised-button
+              color="primary"
+              mat-button
+              matSuffix
+              mat-stroked-button
+              aria-label="add"
+            >
+              <mat-icon>add</mat-icon>
+            </button>
+        </div>
+      </div>
+    </form>
+    <div mat-dialog-actions>
+      <button
+        mat-raised-button
+        color="primary"
+        mat-button
+        (click)="onNoClick()"
+      >
+        Done
+      </button>
+    </div>
+  </div>
+</div>

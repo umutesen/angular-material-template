@@ -13,13 +13,14 @@ import { Store } from "@ngxs/store";
 import { AccountActions } from "src/app/core/store/account.state";
 import { ActivatedRoute, Router } from "@angular/router";
 import { UserService } from "src/app/core/services/user.service";
+import { AccountUsersComponent } from "../account-users/account-users.component";
 
 @Component({
-  selector: "app-dashboard-home",
-  templateUrl: "./dashboard-home.component.html",
-  styleUrls: ["./dashboard-home.component.css"],
+  selector: "app-account-home",
+  templateUrl: "./account-home.component.html",
+  styleUrls: ["./account-home.component.css"],
 })
-export class DashboardHomeComponent implements OnInit {
+export class AccountHomeComponent implements OnInit {
   currentUser: any;
   accounts$: Observable<Account[]>;
 
@@ -34,7 +35,7 @@ export class DashboardHomeComponent implements OnInit {
     public dialog: MatDialog,
     private userService: UserService
   ) {
-    this.userService.user$.subscribe((user) => {
+    this.authService.user$.subscribe((user) => {
       if(user && user.uid){
         this.currentUser = user;
         this.accounts$ = this.accountService.getAccounts(user.uid);
@@ -61,6 +62,15 @@ export class DashboardHomeComponent implements OnInit {
 
   onEditAccount(account: Account) {
     const dialogRef = this.dialog.open(EditAccountDialogComponent, {
+      data: account,
+      panelClass: "dialog-responsive",
+    });
+
+    
+  }
+
+  onAddOrRemoveAccountUsers(account: Account) {
+    const dialogRef = this.dialog.open(AccountUsersComponent, {
       data: account,
       panelClass: "dialog-responsive",
     });

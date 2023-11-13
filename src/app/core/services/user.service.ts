@@ -14,42 +14,12 @@ export class UserService {
   private dbPath = '/users';
   userRef: AngularFirestoreCollection<User>;
 
-  isLoggedIn$: Observable<boolean>;
-
-  isLoggedOut$: Observable<boolean>;
-
-  pictureUrl$: Observable<string | null>;
-
-  roles$: Observable<UserRoles>;
-
-  displayName$: Observable<string | null>;
-  user$: Observable<any | null>;
-
   constructor(
     private afAuth: AngularFireAuth, 
     private router: Router,
     private db: AngularFirestore) {
       this.userRef = db.collection(this.dbPath);
-    //this.afAuth.idToken.subscribe((jwt) => console.log(jwt));
-    this.isLoggedIn$ = afAuth.authState.pipe(map((user) => !!user));
-
-    this.isLoggedOut$ = this.isLoggedIn$.pipe(map((loggedIn) => !loggedIn));
-
-    this.displayName$ = afAuth.authState.pipe(
-      map((user) => (user ? user.displayName : ''))
-    );
-
-    this.user$ = afAuth.authState.pipe(
-      map((user) => (user ? user : ''))
-    );
-
-    this.pictureUrl$ = afAuth.authState.pipe(
-      map((user) => (user ? user.photoURL : null))
-    );
-
-    this.roles$ = this.afAuth.idTokenResult.pipe(
-      map((token) => <any>token?.claims ?? { admin: false })
-    );
+    
   }
 
   addUser(authUser: any): any {
@@ -57,7 +27,7 @@ export class UserService {
     return this.userRef.add(userToAdd);
   }
 
-  getUser(uid: string): Observable<User>{
+  getUserById(uid: string): Observable<User>{
     return this.db
       .collection(this.dbPath, (ref) =>
         ref.where("uid", "==", uid)
@@ -72,8 +42,20 @@ export class UserService {
       );
   }
 
-  logout() {
-    this.afAuth.signOut();
-    this.router.navigateByUrl("/auth/login");  
+  getUserByEmail(emailAddress: string): Observable<User>{
+    return this.db
+      .collection(this.dbPath, (ref) =>
+        ref.where("email", "==", emailAddress)
+      )
+      .get()
+      .pipe(
+        map((results) =>
+          results.docs.map((snap) => {
+            return { id: snap.id, ...(<any>snap.data()) };
+          })[0]
+        )
+      );
   }
+
+  
 }

@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Account } from 'src/app/core/model/account';
 import { AccountService } from 'src/app/core/services/account.service';
+import { AuthenticationService } from 'src/app/core/services/auth.service';
 import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
@@ -25,13 +26,13 @@ export class EditAccountDialogComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<EditAccountDialogComponent>,
     private accountService: AccountService,
-    private userService: UserService,
+    private authService: AuthenticationService,
     @Inject(MAT_DIALOG_DATA) public data: Account,
   ) {
     if(Object.keys(data).length){
       this.isNew = false;
     }
-    userService.user$.subscribe((user) => {
+    authService.user$.subscribe((user) => {
       if(user && user.uid){
         this.ownerUserId = user.uid;
       }

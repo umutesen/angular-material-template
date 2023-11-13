@@ -1,0 +1,21 @@
+table {
+    width: 100%;
+}
+
+th.mat-sort-header-sorted {
+    color: black;
+}
+
+.spacer {
+    flex: 1 1 auto;
+  }
+
+  .email-group {
+    display: flex;
+    align-items: flex-start;
+  }
+  .email-button{
+    margin-left: 10px;
+    height: 52px;
+    margin-top: 3px;
+  }

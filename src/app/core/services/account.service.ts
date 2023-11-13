@@ -1,5 +1,5 @@
 import { inject, Injectable } from "@angular/core";
-import { from, map, Observable, of } from "rxjs";
+import { from, map, Observable, of, pipe } from "rxjs";
 import { Account } from "../model/account";
 import {
   Firestore,
@@ -17,6 +17,7 @@ import {
   AngularFirestore,
   AngularFirestoreCollection,
 } from "@angular/fire/compat/firestore";
+import { User } from "../model/user";
 
 //import OrderByDirection = firebase.firestore.OrderByDirection;
 
@@ -34,25 +35,22 @@ export class AccountService {
     this.accountsRef = db.collection(this.dbPath);
   }
 
-  getAccounts(userId: string): Observable<any> {
-    return this.db
+  getAccounts(userId: string): Observable<Account[]> {
+     return this.db
       .collection(this.dbPath, (ref) =>
         ref.where("users", "array-contains", userId)
       )
-      .get()
-      .pipe(
-        map((results) =>
-          results.docs.map((snap) => {
-            return { id: snap.id, ...(<any>snap.data()) };
-          })
-        )
-      );
-
+      .snapshotChanges().pipe(
+        map(actions => actions.map(a => {
+          const data = a.payload.doc.data() as any;
+          data.id = a.payload.doc.id;
+          return <Account>data;
+        })));
   }
 
   addAccount(data: Account): any {
     delete data.id;
-    if(!data.description){
+    if (!data.description) {
       delete data.description;
     }
 
@@ -74,6 +72,35 @@ export class AccountService {
       .collection("/songs");
     accountSongsRef.add(SAMPLE_SONGS[0]);
     accountSongsRef.add(SAMPLE_SONGS[1]);
+  }
+
+  getAccountUsers(accountId: string): Observable<User[]> {
+    const dbPath = `/accounts/${accountId}/users`;
+    const usersRef = this.db.collection(dbPath);
+    return usersRef.snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          {
+            const user = c.payload.doc.data() as User;
+            user.uid = c.payload.doc.id;
+            return user;
+          }
+        )
+      )
+    );
+ }
+
+  addUserToAccount(account: Account, user: User) {
+    const accountUserRef = this.accountsRef
+      .doc(account.id)
+      .collection("/users");
+
+    accountUserRef.add(user);
+    account.users?.push(user.uid);
+    
+    if(account.id){
+      this.updateAccount(account.id, account);
+    }
   }
 
   // create(account: Account): any {

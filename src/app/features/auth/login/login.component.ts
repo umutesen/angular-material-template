@@ -54,8 +54,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
         this.titleService.setTitle('Setlist Songs - Login');
 
-        this.authenticationService.logout();
-        this.createForm();
+        
     }
 
     ngOnDestroy() {
@@ -64,46 +63,12 @@ export class LoginComponent implements OnInit, OnDestroy {
 
     onLoginSuccessful(authResult: any) {
         console.log('Firebase UI result:', authResult);
-        this.userService.getUser(authResult.user.uid).subscribe((user) => {
+        this.userService.getUserById(authResult.user.uid).subscribe((user) => {
             if(!user){
                 this.userService.addUser(authResult.user);
             }
             this.router.navigateByUrl("/dashboard");
         });
-    }
-
-    private createForm() {
-        const savedUserEmail = localStorage.getItem('savedUserEmail');
-
-        this.loginForm = new UntypedFormGroup({
-            email: new UntypedFormControl(savedUserEmail, [Validators.required, Validators.email]),
-            password: new UntypedFormControl('', Validators.required),
-            rememberMe: new UntypedFormControl(savedUserEmail !== null)
-        });
-    }
-
-    login() {
-        const email = this.loginForm.get('email')?.value;
-        const password = this.loginForm.get('password')?.value;
-        const rememberMe = this.loginForm.get('rememberMe')?.value;
-
-        this.loading = true;
-        this.authenticationService
-            .login(email.toLowerCase(), password)
-            .subscribe(
-                data => {
-                    if (rememberMe) {
-                        localStorage.setItem('savedUserEmail', email);
-                    } else {
-                        localStorage.removeItem('savedUserEmail');
-                    }
-                    this.router.navigate(['/']);
-                },
-                error => {
-                    this.notificationService.openSnackBar(error.error);
-                    this.loading = false;
-                }
-            );
     }
 
     resetPassword() {

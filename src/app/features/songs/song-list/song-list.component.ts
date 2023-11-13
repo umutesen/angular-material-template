@@ -24,7 +24,6 @@ import { Account } from 'src/app/core/model/account';
 export class SongListComponent implements OnInit {
   @Select(AccountState.selectedAccount) 
   selectedAccount$!: Observable<Account>;
-
   
   displayedColumns: string[] = [ 'name', 'artist', 'genre', 'key'];
   dataSource =  new MatTableDataSource();

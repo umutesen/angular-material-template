@@ -11,7 +11,6 @@ import { Subscription } from "rxjs";
 
 import { AuthenticationService } from "src/app/core/services/auth.service";
 import { SpinnerService } from "../../core/services/spinner.service";
-import { AuthGuard } from "src/app/core/guards/auth.guard";
 import { UserService } from "src/app/core/services/user.service";
 @Component({
   selector: "app-layout-no-sidebar",
@@ -34,10 +33,10 @@ export class LayoutNoSidebarComponent
     private changeDetectorRef: ChangeDetectorRef,
     private media: MediaMatcher,
     public spinnerService: SpinnerService,
-    private userService: UserService,
-    private authGuard: AuthGuard
+    private authService: AuthenticationService,
+    
   ) {
-    this.displayUserName$ = userService.displayName$;
+    this.displayUserName$ = authService.displayName$;
     this.mobileQuery = this.media.matchMedia("(max-width: 1000px)");
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     // tslint:disable-next-line: deprecation
@@ -45,11 +44,7 @@ export class LayoutNoSidebarComponent
   }
 
   ngOnInit(): void {
-    // Auto log-out subscription
-    const timer$ = timer(2000, 5000);
-    this.autoLogoutSubscription = timer$.subscribe(() => {
-      this.authGuard.canActivate();
-    });
+    
   }
 
   ngOnDestroy(): void {
@@ -63,6 +58,6 @@ export class LayoutNoSidebarComponent
   }
 
   onLogout() {
-    this.userService.logout();
+    this.authService.logout();
   }
 }
