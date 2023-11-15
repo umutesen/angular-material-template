@@ -1,6 +1,6 @@
 import { inject, Injectable } from "@angular/core";
 import { from, map, Observable, of, pipe } from "rxjs";
-import { Account } from "../model/account";
+import { Account, AccountHelper } from "../model/account";
 import {
   Firestore,
   collectionData,
@@ -17,7 +17,7 @@ import {
   AngularFirestore,
   AngularFirestoreCollection,
 } from "@angular/fire/compat/firestore";
-import { User } from "../model/user";
+import { User, UserHelper } from "../model/user";
 
 //import OrderByDirection = firebase.firestore.OrderByDirection;
 
@@ -53,21 +53,15 @@ export class AccountService {
   }
 
   addAccount(data: Account): any {
-    delete data.id;
-    if (!data.description) {
-      delete data.description;
-    }
+    const accountToAdd = AccountHelper.getAccountForAddOrUpdate(data);
 
-    return this.accountsRef.add(data);
+    return this.accountsRef.add(accountToAdd);
   }
 
   updateAccount(id: string, data: Account): Observable<void> {
-    delete data.id;
-    if (!data.description) {
-      data.description = "";
-    }
+    const accountForUpdate = AccountHelper.getAccountForAddOrUpdate(data);
 
-    return from(this.accountsRef.doc(id).update(data));
+    return from(this.accountsRef.doc(id).update(accountForUpdate));
   }
 
   addSongsToAccount(account: Account) {
@@ -93,13 +87,13 @@ export class AccountService {
   }
 
   addUserToAccount(account: Account, user: User) {
-    delete user.id;
+    const userToAdd = UserHelper.getUserForAddOrUpdate(user);
     const accountUserRef = this.accountsRef
       .doc(account.id)
       .collection("/users");
 
-    accountUserRef.add(user);
-    account.users?.push(user.uid);
+    accountUserRef.add(userToAdd);
+    account.users?.push(userToAdd.uid);
 
     if (account.id) {
       this.updateAccount(account.id, account);

@@ -41,6 +41,7 @@ export class AccountUsersComponent implements OnInit {
   searching = false;
   showUserNotfound = false;
   ownerUserId: string;
+  accountId: string; //When the account is updated the id is deleted. This will make sure we have it.
   matcher = new MyErrorStateMatcher();
   dataSource = new MatTableDataSource<User>();
   sort: MatSort = new MatSort();
@@ -59,6 +60,7 @@ export class AccountUsersComponent implements OnInit {
     private userService: UserService,
     @Inject(MAT_DIALOG_DATA) public data: Account
   ) {
+    this.accountId = data.id ?? "";
     this.dataSource.sort = this.sort;
     this.accountService.getAccountUsers(this.data.id!).subscribe((users) => {
       this.dataSource = new MatTableDataSource(users);
@@ -78,6 +80,7 @@ export class AccountUsersComponent implements OnInit {
         this.searching = false;
         if (user) {
           this.accountService.addUserToAccount(this.data, user);
+          //this.email?.setValue("");
         } else {
           this.showUserNotfound = true;
         }
@@ -91,6 +94,6 @@ export class AccountUsersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.data);
+    
   }
 }

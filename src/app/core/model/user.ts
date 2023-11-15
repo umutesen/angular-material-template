@@ -5,3 +5,14 @@ export interface User {
   email: string;
   photoUrl: string;
 }
+
+export class UserHelper{
+  static getUserForAddOrUpdate(data: User): User {
+      return {
+        uid: data.uid ?? "",
+        displayName: data.displayName ?? "",
+        email: data.email ?? "",
+        photoUrl: data.photoUrl ?? "",
+      };
+    }
+}

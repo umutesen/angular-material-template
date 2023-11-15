@@ -11,6 +11,7 @@ import { LocalDatePipe } from './pipes/local-date.pipe';
 import { YesNoPipe } from './pipes/yes-no.pipe';
 import { LayoutComponent } from './layout/layout.component';
 import { LayoutNoSidebarComponent } from './layout-no-sidebar/layout-no-sidebar.component';
+import { AutoFocusDirective } from './directives/auto-focus/auto-focus.directive';
 
 @NgModule({
     imports: [
@@ -28,6 +29,7 @@ import { LayoutNoSidebarComponent } from './layout-no-sidebar/layout-no-sidebar.
         YesNoPipe,
         LayoutComponent,
         LayoutNoSidebarComponent,
+        AutoFocusDirective,
     ],
     exports: [
         FormsModule,
@@ -38,7 +40,8 @@ import { LayoutNoSidebarComponent } from './layout-no-sidebar/layout-no-sidebar.
         ConfirmDialogComponent,
         ContentPlaceholderAnimationComponent,
         LocalDatePipe,
-        YesNoPipe
+        YesNoPipe,
+        AutoFocusDirective,
     ]
 })
 export class SharedModule { }

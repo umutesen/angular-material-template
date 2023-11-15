@@ -1,8 +1,13 @@
 <div class="container" fxLayout="row" fxLayoutAlign="center none">
   <div fxFlex="95%">
-    <p>Account Users</p>
+    <div mat-dialog-title class="dialog-title">
+      <h4>Account Users</h4>
+      <button mat-icon-button aria-label="close dialog" mat-dialog-close>
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
     <mat-card>
-      <mat-card-content>
+      <mat-card-content class="user-table-container">
         <table mat-table [dataSource]="dataSource" matSort>
           <!-- email Column -->
           <ng-container matColumnDef="email">
@@ -39,6 +44,7 @@
           <mat-form-field appearance="outline" class="dialog-input-full-width">
             <mat-label>Email</mat-label>
             <input
+              auto-focus
               type="email"
               matInput
               formControlName="email"

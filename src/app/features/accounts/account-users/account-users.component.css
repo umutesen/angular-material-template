@@ -19,3 +19,27 @@ th.mat-sort-header-sorted {
     height: 52px;
     margin-top: 3px;
   }
+
+  .user-table-container {
+    margin-top: 10px;
+    height: calc(100vh - 450px);
+    overflow: auto;
+  }
+
+  .mat-header-row{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: white;
+  }
+
+  .dialog-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  h4{
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
