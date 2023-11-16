@@ -23,6 +23,7 @@ th.mat-sort-header-sorted {
   .user-table-container {
     margin-top: 10px;
     height: calc(100vh - 450px);
+    min-height: 200px;
     overflow: auto;
   }
 

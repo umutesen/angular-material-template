@@ -36,8 +36,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   templateUrl: "./account-users.component.html",
   styleUrls: ["./account-users.component.css"],
 })
-export class AccountUsersComponent implements OnInit {
-  displayedColumns: string[] = ["email", "displayName", "remove"];
+export class AccountUsersComponent {
+  displayedColumns: string[] = ["email", "displayName", "role", "remove"];
   searching = false;
   showUserNotfound = false;
   ownerUserId: string;
@@ -73,16 +73,19 @@ export class AccountUsersComponent implements OnInit {
 
   onAdd(): void {
     this.searching = true;
-    this.showUserNotfound = false;
+    this.email?.setErrors(null);
     const emailToAdd = this.email?.value;
     if (emailToAdd) {
       this.userService.getUserByEmail(emailToAdd).subscribe((user) => {
         this.searching = false;
         if (user) {
           this.accountService.addUserToAccount(this.data, user);
-          //this.email?.setValue("");
+          this.email?.setValue("");
+          this.email?.setErrors(null);
         } else {
-          this.showUserNotfound = true;
+          this.email?.setErrors({
+            notMatched: true
+          });
         }
       });
     }
@@ -93,7 +96,5 @@ export class AccountUsersComponent implements OnInit {
     this.accountService.removeUserFromAccount(this.data, user);
   }
 
-  ngOnInit(): void {
-    
-  }
+  
 }
