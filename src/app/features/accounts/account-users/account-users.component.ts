@@ -10,7 +10,9 @@ import { ErrorStateMatcher } from "@angular/material/core";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import { MatSort } from "@angular/material/sort";
 import { MatTableDataSource } from "@angular/material/table";
+import { AccountUser } from "src/app/core/model/AccountUser";
 import { Account } from "src/app/core/model/account";
+import { MEMBER, ROLES } from "src/app/core/model/roles";
 import { User } from "src/app/core/model/user";
 import { AccountService } from "src/app/core/services/account.service";
 import { AuthenticationService } from "src/app/core/services/auth.service";
@@ -38,6 +40,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class AccountUsersComponent {
   displayedColumns: string[] = ["email", "displayName", "role", "remove"];
+  roles: string[];
   searching = false;
   showUserNotfound = false;
   ownerUserId: string;
@@ -65,6 +68,7 @@ export class AccountUsersComponent {
     this.accountService.getAccountUsers(this.data.id!).subscribe((users) => {
       this.dataSource = new MatTableDataSource(users);
     });
+    this.roles = ROLES;
   }
 
   onNoClick(): void {
@@ -79,7 +83,8 @@ export class AccountUsersComponent {
       this.userService.getUserByEmail(emailToAdd).subscribe((user) => {
         this.searching = false;
         if (user) {
-          this.accountService.addUserToAccount(this.data, user);
+          const accountUser = {role: MEMBER, ...user}
+          this.accountService.addUserToAccount(this.data, accountUser);
           this.email?.setValue("");
           this.email?.setErrors(null);
         } else {
@@ -89,6 +94,13 @@ export class AccountUsersComponent {
         }
       });
     }
+  }
+
+  onSelectRole(event: any, user: AccountUser, role: string): void {
+    event.preventDefault();
+    const accountUserWithNewRole = user;
+    accountUserWithNewRole.role = role;
+    this.accountService.updateAccountUserRole(this.data, accountUserWithNewRole);
   }
 
   onRemove(event: any, user: User): void {

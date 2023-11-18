@@ -18,6 +18,8 @@ import {
   AngularFirestoreCollection,
 } from "@angular/fire/compat/firestore";
 import { User, UserHelper } from "../model/user";
+import { AccountUser, AccountUserHelper } from "../model/AccountUser";
+import { ADMIN } from "../model/roles";
 
 //import OrderByDirection = firebase.firestore.OrderByDirection;
 
@@ -52,10 +54,19 @@ export class AccountService {
       );
   }
 
-  addAccount(data: Account): any {
-    const accountToAdd = AccountHelper.getAccountForAddOrUpdate(data);
-
-    return this.accountsRef.add(accountToAdd);
+  addAccount(account: Account, userAddingTheAccount: AccountUser): Observable<Account> {
+    const accountToAdd = AccountHelper.getAccountForAddOrUpdate(account);
+    return from(this.accountsRef.add(accountToAdd)).pipe(
+      map((res) => {
+        const rtnAccount = {
+          id: res.id,
+          ...accountToAdd,
+        };
+        //Add the owner to the users.
+        this.addUserToAccount(rtnAccount, userAddingTheAccount);
+        return rtnAccount;
+      })
+    );
   }
 
   updateAccount(id: string, data: Account): Observable<void> {
@@ -86,8 +97,8 @@ export class AccountService {
     );
   }
 
-  addUserToAccount(account: Account, user: User) {
-    const userToAdd = UserHelper.getUserForAddOrUpdate(user);
+  addUserToAccount(account: Account, user: AccountUser) {
+    const userToAdd = AccountUserHelper.getAccountUserForAddOrUpdate(user);
     const accountUserRef = this.accountsRef
       .doc(account.id)
       .collection("/users");
@@ -98,6 +109,15 @@ export class AccountService {
     if (account.id) {
       this.updateAccount(account.id, account);
     }
+  }
+
+  updateAccountUserRole(account: Account, user: AccountUser) {
+    const accountUserRef = this.accountsRef
+      .doc(account.id)
+      .collection("/users")
+      .doc(user.id);
+      const userToUpdate = AccountUserHelper.getAccountUserForAddOrUpdate(user);
+      return from(accountUserRef.update(userToUpdate));
   }
 
   removeUserFromAccount(account: Account, user: User) {

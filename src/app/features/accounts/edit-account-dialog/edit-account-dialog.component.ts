@@ -2,6 +2,8 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Account } from 'src/app/core/model/account';
+import { ADMIN } from 'src/app/core/model/roles';
+import { User } from 'src/app/core/model/user';
 import { AccountService } from 'src/app/core/services/account.service';
 import { AuthenticationService } from 'src/app/core/services/auth.service';
 import { UserService } from 'src/app/core/services/user.service';
@@ -14,7 +16,7 @@ import { UserService } from 'src/app/core/services/user.service';
 export class EditAccountDialogComponent implements OnInit {
   saving = false;
   isNew = true;
-  ownerUserId: string;
+  ownerUser: User;
   accountForm = new FormGroup({
     id: new FormControl(this.data.id),
     name: new FormControl(this.data.name, Validators.required),
@@ -34,7 +36,7 @@ export class EditAccountDialogComponent implements OnInit {
     }
     authService.user$.subscribe((user) => {
       if(user && user.uid){
-        this.ownerUserId = user.uid;
+        this.ownerUser = user;
       }
     });
   }
@@ -49,8 +51,10 @@ export class EditAccountDialogComponent implements OnInit {
     if(this.data.id){
       this.accountService.updateAccount(this.data.id, modifiedAccount);
     }else{
-      modifiedAccount.users = [this.ownerUserId];
-      this.accountService.addAccount(modifiedAccount);
+      //Adding Account
+      const accountUser = {role: ADMIN, ...this.ownerUser};
+      modifiedAccount.ownerUserId = this.ownerUser.uid;
+      this.accountService.addAccount(modifiedAccount, accountUser).subscribe();
 
     }
     this.dialogRef.close(modifiedAccount);
