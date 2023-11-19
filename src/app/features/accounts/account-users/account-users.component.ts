@@ -49,7 +49,7 @@ export class AccountUsersComponent {
   dataSource = new MatTableDataSource<User>();
   sort: MatSort = new MatSort();
   addUserForm = new FormGroup({
-    email: new FormControl(""),
+    email: new FormControl("", Validators.email),
   });
 
   get email() {

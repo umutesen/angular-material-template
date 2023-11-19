@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Account } from 'src/app/core/model/account';
 import { ADMIN } from 'src/app/core/model/roles';
-import { User } from 'src/app/core/model/user';
+import { User, UserHelper } from 'src/app/core/model/user';
 import { AccountService } from 'src/app/core/services/account.service';
 import { AuthenticationService } from 'src/app/core/services/auth.service';
 import { UserService } from 'src/app/core/services/user.service';
@@ -36,7 +36,7 @@ export class EditAccountDialogComponent implements OnInit {
     }
     authService.user$.subscribe((user) => {
       if(user && user.uid){
-        this.ownerUser = user;
+        this.ownerUser = UserHelper.getUserForAddOrUpdate(user);
       }
     });
   }
@@ -47,13 +47,14 @@ export class EditAccountDialogComponent implements OnInit {
 
   onSave(): void {
     this.saving = true;
-    const modifiedAccount = this.accountForm.value as Account;
+    const modifiedAccount = {...this.data, ...this.accountForm.value} as Account;
     if(this.data.id){
       this.accountService.updateAccount(this.data.id, modifiedAccount);
     }else{
       //Adding Account
       const accountUser = {role: ADMIN, ...this.ownerUser};
       modifiedAccount.ownerUserId = this.ownerUser.uid;
+      modifiedAccount.users = [this.ownerUser.uid];
       this.accountService.addAccount(modifiedAccount, accountUser).subscribe();
 
     }
@@ -61,7 +62,7 @@ export class EditAccountDialogComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.data);
+    
   }
 
 }

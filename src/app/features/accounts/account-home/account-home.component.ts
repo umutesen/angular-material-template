@@ -58,6 +58,10 @@ export class AccountHomeComponent implements OnInit {
       data: {},
       panelClass: "dialog-responsive",
     });
+
+    dialogRef.afterClosed().subscribe((data) => {
+      this.accounts$ = this.accountService.getAccounts(this.currentUser.uid);
+    }); 
   }
 
   onEditAccount(account: Account) {
@@ -66,7 +70,9 @@ export class AccountHomeComponent implements OnInit {
       panelClass: "dialog-responsive",
     });
 
-    
+    dialogRef.afterClosed().subscribe((data) => {
+      this.accounts$ = this.accountService.getAccounts(this.currentUser.uid);
+    });
   }
 
   onAddOrRemoveAccountUsers(account: Account) {

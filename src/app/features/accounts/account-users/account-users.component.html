@@ -56,6 +56,7 @@
           Enter an email address of the user to share songs with. Make sure the
           user has a Setlist Songs account registered with this email.
         </p>
+        {{email?.errors?.email}}
         <div class="email-group">
           <mat-form-field appearance="outline" class="dialog-input-full-width">
             <mat-label>Email</mat-label>
@@ -71,6 +72,7 @@
           </mat-form-field>
           <button
             class="email-button"
+            [disabled]="email?.errors?.email || email?.pristine"
             (click)="onAdd()"
             mat-raised-button
             color="primary"
@@ -78,6 +80,7 @@
             matSuffix
             mat-stroked-button
             aria-label="add"
+            
           >
             <mat-icon>add</mat-icon>
           </button>

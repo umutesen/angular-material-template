@@ -20,6 +20,7 @@ import {
 import { User, UserHelper } from "../model/user";
 import { AccountUser, AccountUserHelper } from "../model/AccountUser";
 import { ADMIN } from "../model/roles";
+import { convertSnaps } from "./db-utils";
 
 //import OrderByDirection = firebase.firestore.OrderByDirection;
 
@@ -42,20 +43,15 @@ export class AccountService {
       .collection(this.dbPath, (ref) =>
         ref.where("users", "array-contains", userId)
       )
-      .stateChanges()
+      .get()
       .pipe(
-        map((actions) =>
-          actions.map((a) => {
-            const data = a.payload.doc.data() as any;
-            data.id = a.payload.doc.id;
-            return <Account>data;
-          })
-        )
+        map(results => convertSnaps<Account>(results))
       );
   }
 
   addAccount(account: Account, userAddingTheAccount: AccountUser): Observable<Account> {
     const accountToAdd = AccountHelper.getAccountForAddOrUpdate(account);
+    
     return from(this.accountsRef.add(accountToAdd)).pipe(
       map((res) => {
         const rtnAccount = {
@@ -104,7 +100,9 @@ export class AccountService {
       .collection("/users");
 
     accountUserRef.add(userToAdd);
-    account.users?.push(userToAdd.uid);
+    if(!account.users?.find((uid) => uid === user.uid)){
+      account.users?.push(userToAdd.uid);
+    }
 
     if (account.id) {
       this.updateAccount(account.id, account);
