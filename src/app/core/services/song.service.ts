@@ -11,7 +11,7 @@ import {
   DocumentReference,
 } from "@angular/fire/firestore";
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { Song } from '../model/song';
+import { Song, SongHelper } from '../model/song';
 import { Account } from '../model/account';
 
 @Injectable({
@@ -40,11 +40,11 @@ export class SongService {
   }
 
   addSong(accountId: string, song: Song): any {
-    delete song.id;
+    const songForAdd = SongHelper.getSongForAddOrUpdate(song);
     const dbPath = `/accounts/${accountId}/songs`;
     const songsRef = this.db.collection(dbPath);
     
-    return songsRef.add(song);
+    return songsRef.add(songForAdd);
   }
 
   updateSong(accountId: string, songId: string, song: Song): Observable<void> {

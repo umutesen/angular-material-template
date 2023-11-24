@@ -6,7 +6,7 @@ import { SongListComponent } from './song-list/song-list.component';
 
 const routes: Routes = [
   {
-    path: ':accountid',
+    path: '',
     component: LayoutComponent,
     children: [
       { path: '', component: SongListComponent },

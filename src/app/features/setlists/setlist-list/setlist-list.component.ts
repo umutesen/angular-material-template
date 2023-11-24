@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { SetlistEditDialogComponent } from '../setlist-edit-dialog/setlist-edit-dialog.component';
 import { MatTableDataSource } from '@angular/material/table';
-import { AccountState } from 'src/app/core/store/account.state';
+import { AccountActions, AccountState } from 'src/app/core/store/account.state';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSort } from '@angular/material/sort';
 import { Title } from '@angular/platform-browser';
@@ -37,7 +37,6 @@ export class SetlistListComponent implements OnInit {
     private store: Store,
     private router: Router,
     public dialog: MatDialog
-
   ) { 
     const selectedAccount = this.store.selectSnapshot(AccountState.selectedAccount);
     const id = this.route.snapshot.paramMap.get('accountid');
@@ -50,7 +49,7 @@ export class SetlistListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.titleService.setTitle('Songs');
+    this.titleService.setTitle('Setlists');
     
     this.dataSource.sort = this.sort;
   }
@@ -67,6 +66,11 @@ export class SetlistListComponent implements OnInit {
       data: { accountId: this.accountId, setlist: row} as AccountSetlist,
       panelClass: "dialog-responsive",
     });
+  }
+
+  onViewSetlistSongs(row: any){
+    
+    this.router.navigate([row.id + '/songs'], { relativeTo: this.route } );
   }
 
 }

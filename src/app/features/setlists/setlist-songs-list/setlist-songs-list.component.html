@@ -1,0 +1,92 @@
+<div class="container" fxLayoutGap="10px grid" fxLayout="row" fxLayoutAlign="center none">
+  <!-- Songs Grid -->
+  <div fxFlex="20%">
+    <mat-card>
+      <mat-card-content>
+        <mat-toolbar>
+          <span class="spacer"></span>
+          <form class="search-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>Search</mat-label>
+              <input type="text" matInput placeholder="Search" />
+            </mat-form-field>
+          </form>
+        </mat-toolbar>
+        <table mat-table [dataSource]="dsSongs" matSort>
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+            <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+          </ng-container>
+
+          <!-- Artist Column -->
+          <ng-container matColumnDef="artist">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Artist
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.artist }}
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedSongColumns"></tr>
+          <tr
+            mat-row
+            (dblclick)="onAddSetlistSong(row)"
+            *matRowDef="let row; columns: displayedSongColumns"
+          ></tr>
+        </table>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Setlist Songs Grid -->
+  <div fxFlex="75%">
+    <mat-card>
+      <mat-card-content>
+        <mat-toolbar>
+          <button mat-icon-button aria-label="Add Song" (click)="onAddBreak()">
+            <mat-icon>add</mat-icon>
+          </button>
+          <span class="spacer"></span>
+          <form class="search-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>Search</mat-label>
+              <input type="text" matInput placeholder="Search" />
+            </mat-form-field>
+          </form>
+        </mat-toolbar>
+        <table mat-table [dataSource]="dsSetlistSongs" matSort>
+          <ng-container matColumnDef="sequence">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Num. </th>
+            <td mat-cell *matCellDef="let element;">{{element.isBreak === false ? getSequenceNumber(dsSetlistSongs.filteredData.indexOf(element), false) : incrementSetBreakCount() }} </td>
+          </ng-container>
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+            <td mat-cell *matCellDef="let element">{{ element.name  ?? ''}}</td>
+          </ng-container>
+
+          <!-- Artist Column -->  
+          <ng-container matColumnDef="artist">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Artist
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.artist ?? ''}}
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr
+            mat-row
+            (dblclick)="onEditSetlistSong(row)"
+            *matRowDef="let row; columns: displayedColumns"
+            [ngClass]="{'selected': selectedRowSequence == row.sequenceNumber}"
+            (click)="selectRow(row)"
+          ></tr>
+        </table>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

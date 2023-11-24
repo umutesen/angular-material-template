@@ -1,19 +1,20 @@
 
 import {Song, SongHelper} from './song';
 
-export interface SetlistSong extends Song {
+export interface SetlistBreak {
    sequenceNumber: number;
    songId: string;
    isBreak: boolean;
+   name: string;
 }
 
-export class SetlistSongHelper{
-   static getSetlistSongForAddOrUpdate(data: SetlistSong): SetlistSong {
+export class SetlistBreakHelper{
+   static getSetlistBreakForAddOrUpdate(data: SetlistBreak): SetlistBreak {
        return {
          sequenceNumber: data.sequenceNumber ?? 1,
           songId: data.songId ?? "",
           isBreak: data.isBreak ?? false,
-          ...SongHelper.getSongForAddOrUpdate(data)
+          name: data.name ?? ''
        };
      }
  }

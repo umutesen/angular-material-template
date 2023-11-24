@@ -4,6 +4,7 @@ import {
   RouterModule,
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
+  ExtraOptions,
 } from "@angular/router";
 import {
   AngularFireAuthGuard,
@@ -20,25 +21,11 @@ const appRoutes: Routes = [
       import("./features/auth/auth.module").then((m) => m.AuthModule),
   },
   {
-    path: "dashboard",
+    path: "accounts",
     loadChildren: () =>
       import("./features/accounts/account.module").then(
-        (m) => m.DashboardModule
+        (m) => m.AccountsModule
       ),
-    canActivate: [AngularFireAuthGuard],
-    data: { authGuardPipe: redirectUnauthorizedToLogin },
-  },
-  {
-    path: "songs",
-    loadChildren: () =>
-      import("./features/songs/songs.module").then((m) => m.SongsModule),
-    canActivate: [AngularFireAuthGuard],
-    data: { authGuardPipe: redirectUnauthorizedToLogin },
-  },
-  {
-    path: "setlists",
-    loadChildren: () =>
-      import("./features/setlists/setlist.module").then((m) => m.SetlistModule),
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToLogin },
   },
@@ -58,13 +45,17 @@ const appRoutes: Routes = [
   },
   {
     path: "**",
-    redirectTo: "dashboard",
+    redirectTo: "accounts",
     pathMatch: "full",
   },
 ];
 
+export const routingConfiguration: ExtraOptions = {
+  paramsInheritanceStrategy: 'always'
+};
+
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes)],
+  imports: [RouterModule.forRoot(appRoutes, routingConfiguration)],
   exports: [RouterModule],
   providers: [],
 })

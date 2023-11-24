@@ -33,7 +33,8 @@ export class AccountHomeComponent implements OnInit {
     private logger: NGXLogger,
     private accountService: AccountService,
     public dialog: MatDialog,
-    private userService: UserService
+    private userService: UserService,
+    private route: ActivatedRoute
   ) {
     this.authService.user$.subscribe((user) => {
       if(user && user.uid){
@@ -50,7 +51,7 @@ export class AccountHomeComponent implements OnInit {
 
   onSelectAccount(selectAccount: Account) {
     this.store.dispatch(new AccountActions.selectAccount(selectAccount));
-    this.router.navigate(['/songs/' + selectAccount.id]);
+    this.router.navigate([selectAccount.id + '/songs'], { relativeTo: this.route });
   }
 
   onAddAccount() {

@@ -3,14 +3,16 @@ import { CommonModule } from '@angular/common';
 import { LayoutComponent } from 'src/app/shared/layout/layout.component';
 import { SetlistListComponent } from './setlist-list/setlist-list.component';
 import { RouterModule, Routes } from '@angular/router';
+import { SetlistSongsListComponent } from './setlist-songs-list/setlist-songs-list.component';
 
 
 const routes: Routes = [
   {
-    path: ':accountid',
+    path: '',
     component: LayoutComponent,
     children: [
       { path: '', component: SetlistListComponent },
+      { path: ':setlistid/songs', component: SetlistSongsListComponent },
     ]
   }
 ];

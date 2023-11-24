@@ -20,4 +20,4 @@ import { AccountUsersComponent } from './account-users/account-users.component';
         MatCardModule, MatDividerModule, MatButtonModule, MatProgressBarModule
     ]
 })
-export class    DashboardModule { }
+export class    AccountsModule { }
