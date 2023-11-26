@@ -9,12 +9,3 @@ th.mat-sort-header-sorted {
 .spacer {
     flex: 1 1 auto;
   }
-
-  
-.mat-row {
-    min-height: 65px;
-    
-    &.selected {
-        background: #dddddd;
-    }
-}

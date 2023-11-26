@@ -35,9 +35,10 @@ export class SetlistSongsListComponent {
   displaySequence = 1;
   //Used for numbering the rows to skip the
   setlistBreakCount = 0;
+
   //Use to select the row.
   selectedRowSequence = -1;
-  selection;
+  
   
   constructor(private logger: NGXLogger,
     private route: ActivatedRoute,
@@ -85,7 +86,7 @@ export class SetlistSongsListComponent {
 
   }
 
-  getSequenceNumber(rowIndex: number, isBreak: boolean){
+  getSequenceNumber(rowIndex: number){
     if(rowIndex === 0){
       this.setlistBreakCount = 0;
     }

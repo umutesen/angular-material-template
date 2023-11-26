@@ -165,3 +165,11 @@ p .mat-icon {
 .dialog-input-full-width {
   width: 100%;
 }
+
+.mat-row {
+  min-height: 65px;
+  
+  &.selected {
+      background: #dddddd;
+  }
+}

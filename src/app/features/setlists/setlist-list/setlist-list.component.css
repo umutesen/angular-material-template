@@ -9,3 +9,26 @@ th.mat-sort-header-sorted {
 .spacer {
     flex: 1 1 auto;
   }
+
+  li.break {
+    list-style: none;
+    color: #999;
+}
+
+.setlist-songs-static{
+    height: calc(100vh - 190px);
+    overflow-y: scroll;
+    
+    font-size: 19px;
+}
+
+.setlist-songs-static li{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.header-container{
+    padding-left: 15px;
+    padding-bottom: 15px;
+    margin-top: 18px;
+}

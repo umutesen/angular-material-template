@@ -59,7 +59,7 @@
         <table mat-table [dataSource]="dsSetlistSongs" matSort>
           <ng-container matColumnDef="sequence">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Num. </th>
-            <td mat-cell *matCellDef="let element;">{{element.isBreak === false ? getSequenceNumber(dsSetlistSongs.filteredData.indexOf(element), false) : incrementSetBreakCount() }} </td>
+            <td mat-cell *matCellDef="let element;">{{element.isBreak === false ? getSequenceNumber(dsSetlistSongs.filteredData.indexOf(element)) : incrementSetBreakCount() }} </td>
           </ng-container>
           <!-- Name Column -->
           <ng-container matColumnDef="name">

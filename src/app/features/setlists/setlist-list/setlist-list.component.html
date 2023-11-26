@@ -1,44 +1,90 @@
 <div class="container" fxLayout="row" fxLayoutAlign="center none">
-    <div fxFlex="95%">
-  
-      <mat-card>
-        <mat-card-content>
-          <mat-toolbar  >
-            <button mat-icon-button aria-label="Add Song" (click)="onAddSetlist()">
-              <mat-icon>add</mat-icon>
-            </button>
-            <span class="spacer"></span>
-            <form class="search-form">
-              <mat-form-field class="example-full-width">
-                <mat-label>Search</mat-label>
-                <input type="text" matInput 
-                       placeholder="Search">
-              </mat-form-field>
-            </form>
-          </mat-toolbar>
-          <table mat-table [dataSource]="dataSource" matSort>
-  
-            
-            <!-- Name Column -->
-            <ng-container matColumnDef="name">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-            </ng-container>
-  
-            <!-- Artist Column -->
-            <ng-container matColumnDef="gigLocation">
-              <th mat-header-cell *matHeaderCellDef mat-sort-header> Gig Location </th>
-              <td mat-cell *matCellDef="let element"> {{element.gigLocation}} </td>
-            </ng-container>
-          
-            
-          
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row (dblclick)="onViewSetlistSongs(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
-          
-        </mat-card-content>
-      </mat-card>
-  
-    </div>
+  <div fxFlex="50%">
+    <mat-card>
+      <mat-card-content>
+        <mat-toolbar>
+          <button
+            mat-icon-button
+            aria-label="Add Song"
+            (click)="onAddSetlist()"
+          >
+            <mat-icon>add</mat-icon>
+          </button>
+          <span class="spacer"></span>
+          <form class="search-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>Search</mat-label>
+              <input type="text" matInput placeholder="Search" />
+            </mat-form-field>
+          </form>
+        </mat-toolbar>
+        <table mat-table [dataSource]="dataSource" matSort>
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+            <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+          </ng-container>
+
+          <!-- Artist Column -->
+          <ng-container matColumnDef="gigLocation">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              Gig Location
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.gigLocation }}
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr
+            mat-row
+            (dblclick)="onViewSetlistSongs(row)"
+            *matRowDef="let row; columns: displayedColumns"
+            [ngClass]="{'selected': selectedSetlist?.id == row.id}"
+            (click)="selectRow(row)"
+          ></tr>
+        </table>
+      </mat-card-content>
+    </mat-card>
   </div>
+  <!-- Setlist Songs Grid -->
+  <div fxFlex="50%">
+    <mat-toolbar>
+      <div class="header-container">
+        <h2 style="float: left;">{{selectedSetlist?.name}}</h2><span style="float: left;margin-left: 15px;">{{selectedSetlist?.gigLocation}}</span>
+      </div>
+      <span class="spacer"></span>
+      <button
+        mat-icon-button
+        aria-label="Edit Setlist Songs"
+        title="Edit Setlist Songs"
+        (click)="onViewSetlistSongs(selectedSetlist)"
+      >
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        aria-label="Edit Setlist Songs"
+        title="Edit Setlist Songs"
+        (click)="onPrintSetlist()"
+      >
+        <mat-icon>print</mat-icon>
+      </button>
+    </mat-toolbar>
+    
+    <mat-card>
+      <mat-card-content class="setlist-songs-static">
+        <ol>
+          <li *ngFor="let song of setlistSongs; index as i;" [ngClass]="{'break': song.isBreak === true}" [value]="song.sequenceNumber">
+            <div>
+            {{song.name}}
+            </div>
+            <div>
+              {{song.artist}}
+            </div>
+          </li>
+        </ol>  
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
