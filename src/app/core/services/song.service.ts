@@ -9,6 +9,7 @@ import {
   where,
   doc,
   DocumentReference,
+  increment
 } from "@angular/fire/firestore";
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Song, SongHelper } from '../model/song';
@@ -21,6 +22,20 @@ export class SongService {
 
   constructor(private db: AngularFirestore) {
     
+  }
+
+  getSong(accountId: string, songId: string): Observable<any> {
+    const dbPath = `/accounts/${accountId}/songs`;
+    const songRef = this.db.collection(dbPath).doc(songId);
+    return songRef.snapshotChanges().pipe(
+      map((resultSong) =>
+          {
+            const song = resultSong.payload.data() as Song;
+            song.id = songId;
+            return song;
+          }
+      )
+    );
   }
 
   getSongs(accountId: string): Observable<any> {

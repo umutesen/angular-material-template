@@ -18,6 +18,7 @@ export interface Song {
     createdByUserId: string,
     lengthMin: number,
     lengthSec: number,
+    countOfLyrics: number,
     id?: string,
     
   }
@@ -42,13 +43,14 @@ export class SongHelper{
          deleted: data.deleted ?? false,
          deprecated: data.deprecated ?? false,
          notes: data.notes ?? "",
-         other: data.name ?? "",
-         lastEdit: data.name ?? "",
+         other: data.other ?? "",
+         lastEdit: data.lastEdit ?? "",
          noteValue: data.noteValue ?? 0,
          beatValue: data.beatValue ?? 0,
-         youTubeUrl: data.name ?? "",
-         createdByUserId: data.name ?? "",
+         youTubeUrl: data.youTubeUrl ?? "",
+         createdByUserId: data.createdByUserId ?? "",
          lengthMin: data.lengthMin ?? 3,
+         countOfLyrics: data.countOfLyrics ?? 0,
          lengthSec: data.lengthSec ?? 0,
       };
     }

@@ -1,0 +1,31 @@
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+  <div fxFlex="95%">
+    <mat-card>
+      <mat-card-content>
+        <mat-toolbar>
+          <button
+            mat-icon-button
+            aria-label="Add Song"
+            (click)="onBackToSong()"
+          >
+            <mat-icon>back</mat-icon>
+          </button>
+          <span class="spacer"></span>
+          <form class="search-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>Search</mat-label>
+              <input type="text" matInput placeholder="Search" />
+            </mat-form-field>
+          </form>
+        </mat-toolbar>
+        <span *ngIf="!lyrics"
+          >There are no lyrics for this song.
+          <button mat-icon-button aria-label="Add Lyric" (click)="onAddLyric()">
+            <mat-icon>add</mat-icon>
+          </button>
+        </span>
+        <pre *ngIf="lyrics">Some lyrics here</pre>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

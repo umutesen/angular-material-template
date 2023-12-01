@@ -1,0 +1,27 @@
+<form class="dialog-form" [formGroup]="lyricForm">
+    <div mat-dialog-content>
+      <p *ngIf="!isNew">Enter a name for the lyrics such as Version 1. </p>
+      <p *ngIf="isNew">Edit Lyric Details</p>
+      <p>
+        <mat-form-field appearance="outline" class="dialog-input-full-width">
+          <mat-label>Lyric Name</mat-label>
+          <input matInput formControlName="name" />
+        </mat-form-field>
+      </p>
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()">Cancel</button>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="onSave()"
+        [disabled]="!lyricForm.valid || !lyricForm.dirty"
+      >
+        Save
+        <mat-icon *ngIf="saving"
+          ><mat-spinner color="accent" diameter="20"> </mat-spinner
+        ></mat-icon>
+      </button>
+    </div>
+  </form>
+  

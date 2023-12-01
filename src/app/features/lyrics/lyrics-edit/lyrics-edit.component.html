@@ -1,0 +1,20 @@
+<div class="container" fxLayout="row" fxLayoutAlign="center none">
+    <div fxFlex="95%">
+      
+      <mat-card>
+        <mat-card-content>
+          <mat-toolbar  >
+            <button mat-icon-button aria-label="Add Song" (click)="onSaveSong()">
+              <mat-icon>save</mat-icon>
+            </button>
+            <button mat-icon-button aria-label="Add Song" (click)="onCancel()">
+                <mat-icon>cancel</mat-icon>
+            </button>
+            <span class="spacer"></span>
+          </mat-toolbar>
+          <textarea id="lyrics-edit" #lyrics>I should edit these</textarea>
+        </mat-card-content>
+      </mat-card>
+  
+    </div>
+  </div>
