@@ -12,7 +12,9 @@
             </button>
             <span class="spacer"></span>
           </mat-toolbar>
-          <textarea id="lyrics-edit" #lyrics>I should edit these</textarea>
+          <form class="dialog-form" [formGroup]="lyricsForm">
+            <textarea id="lyrics" formControlName="lyrics"></textarea>
+          </form>
         </mat-card-content>
       </mat-card>
   

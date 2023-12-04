@@ -1,0 +1,8 @@
+.spacer {
+    flex: 1 1 auto;
+  }
+
+  li.break {
+    list-style: none;
+    color: #999;
+}

@@ -9,6 +9,9 @@ import { SongService } from "src/app/core/services/song.service";
 import { AccountState } from "src/app/core/store/account.state";
 import { LyricAddDialogComponent } from "../lyric-add-dialog/lyric-add-dialog.component";
 import { MatDialog } from "@angular/material/dialog";
+import { Song } from "src/app/core/model/song";
+import { take } from "rxjs";
+import { FormControl } from "@angular/forms";
 
 @Component({
   selector: "app-lyrics",
@@ -18,8 +21,11 @@ import { MatDialog } from "@angular/material/dialog";
 export class LyricsComponent {
   accountId?: string;
   songId?: string;
+  song?: Song;
+  selectedLyric?: Lyric;
   lyrics: Lyric[];
-
+  lyricVersions = new FormControl('');
+  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
   constructor(
     private route: ActivatedRoute,
     private titleService: Title,
@@ -37,15 +43,31 @@ export class LyricsComponent {
     if (accountId && songId) {
       this.accountId = accountId;
       this.songId = songId;
+      this.songService
+        .getSong(this.accountId, this.songId)
+        .pipe(take(1))
+        .subscribe((song) => {
+          this.song = song;
+        });
+
       this.lyricsService
         .getSongLyrics(this.accountId, this.songId)
+        .pipe(take(1))
         .subscribe((lyrics) => {
           this.lyrics = lyrics;
+          this.selectedLyric = lyrics[0];
         });
     }
+    
   }
 
   onAddLyric() {}
 
-  onBackToSong() {}
+  onEditLyric() {
+    this.router.navigate([`/accounts/${this.accountId}/songs/${this.songId}/lyrics/${this.selectedLyric?.id}/edit`]);
+  }
+
+  onBackToSong() {
+    this.router.navigateByUrl('/accounts/' + this.accountId  + '/songs');
+  }
 }

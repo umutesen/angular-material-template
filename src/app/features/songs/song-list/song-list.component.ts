@@ -82,7 +82,7 @@ export class SongListComponent implements OnInit {
 
   onViewLyrics(event, row: any){
     event.preventDefault();
-    this.router.navigate([row.id + `/lyrics/${row.id}`], { relativeTo: this.route });
+    this.router.navigate([row.id + `/lyrics`], { relativeTo: this.route });
   }
 
   onAddLyric(event, row: Song){

@@ -28,6 +28,21 @@ export class LyricsService {
     );
   }
 
+  getSongLyric(accountId: string, songId: string, lyricId: string): Observable<any> {
+    const dbPath = `/accounts/${accountId}/songs/${songId}/lyrics`;
+    const lyricRef = this.db.collection(dbPath).doc(lyricId);
+    return lyricRef.snapshotChanges().pipe(
+      map((resultLyric) =>
+          {
+            const lyric = resultLyric.payload.data() as Lyric;
+            lyric.id = lyricId;
+            console.log(lyric);
+            return lyric;
+          }
+      )
+    );
+  }
+
   addSongLyric(
     accountId: string,
     songId: string,
@@ -56,5 +71,13 @@ export class LyricsService {
         return rtnLyric;
       }),
     );
+  }
+
+  updateLyric(accountId: string, songId: string, lyric: Lyric): Observable<void> {
+    const lyricForUpdate = LyricHelper.getLyricForAddOrUpdate(lyric);
+    const dbPath = `/accounts/${accountId}/songs/${songId}/lyrics`;
+    const lyricRef = this.db.collection(dbPath);
+    
+    return from(lyricRef.doc(lyric.id).update(lyricForUpdate));
   }
 }
