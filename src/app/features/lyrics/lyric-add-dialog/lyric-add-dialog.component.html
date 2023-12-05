@@ -15,7 +15,7 @@
         mat-raised-button
         color="primary"
         (click)="onSave()"
-        [disabled]="!lyricForm.valid || !lyricForm.dirty"
+        [disabled]="!lyricForm.valid"
       >
         Save
         <mat-icon *ngIf="saving"

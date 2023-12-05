@@ -6,3 +6,8 @@
     list-style: none;
     color: #999;
 }
+
+.lyrics-view{
+  height: calc(100vh - 220px);
+  overflow-y: scroll;
+}

@@ -26,8 +26,11 @@ export class LyricAddDialogComponent {
     @Inject(MAT_DIALOG_DATA) public data: {accountLyric: AccountLyric, countOfLyrics: number}, 
   ) {
     
-    if (Object.keys(this.data).length) {
+    if (this.data.countOfLyrics === 0) {
       this.isNew = false;
+    }
+    else{
+        this.name?.setValue( `Version ${this.data.countOfLyrics + 1}`);
     }
   }
 

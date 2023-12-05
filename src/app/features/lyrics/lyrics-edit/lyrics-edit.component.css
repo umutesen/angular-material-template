@@ -1,0 +1,9 @@
+#lyrics{
+    height: calc(100vh - 200px);
+    width: 99.5%;
+  }
+
+.lyrics-view{
+    height: calc(100vh - 130px);
+    overflow-y: scroll;
+  }

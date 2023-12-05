@@ -13,8 +13,8 @@
           <h4>{{ song?.name }}</h4>
           <span class="spacer"></span>
           <mat-form-field  subscriptSizing="dynamic"> 
-            <mat-select [(value)]="selectedLyric!.name"> 
-              <mat-option *ngFor="let lyric of lyrics" [value]="lyric?.name">{{lyric.name}}</mat-option> 
+            <mat-select [(value)]="lyricVersionValue" (selectionChange)="onSelectLyric($event.value)"> 
+              <mat-option *ngFor="let lyric of lyrics" [value]="lyric?.id">{{lyric.name}}</mat-option> 
               <mat-option value="add">Add...</mat-option> 
             </mat-select> 
           </mat-form-field> 
@@ -24,7 +24,7 @@
           <mat-divider [vertical]="true" style="height:50px"></mat-divider>
         </mat-toolbar>
         <mat-card>
-          <mat-card-content class="setlist-songs-static">
+          <mat-card-content class="lyrics-view">
             <span *ngIf="!selectedLyric?.lyrics">There are no lyrics for this song. </span>
             <pre *ngIf="selectedLyric?.lyrics">{{selectedLyric?.lyrics}}</pre>
           </mat-card-content>
