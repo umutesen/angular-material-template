@@ -1,18 +1,10 @@
 import { Injectable } from '@angular/core';
 import { from, map, Observable, of } from "rxjs";
-import {
-  Firestore,
-  collectionData,
-  collection,
-  getDocs,
-  query,
-  where,
-  doc,
-  DocumentReference,
-} from "@angular/fire/firestore";
+import { Timestamp } from "@angular/fire/firestore";
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
-import { Setlist } from '../model/setlist';
+import { Setlist, SetlistHelper } from '../model/setlist';
 import { Account } from '../model/account';
+import { BaseUser } from '../model/user';
 
 @Injectable({
   providedIn: 'root'
@@ -38,19 +30,21 @@ export class SetlistService {
     );
   }
 
-  addSetlist(accountId: string, setlist: Setlist): any {
-    delete setlist.id;
+  addSetlist(accountId: string, setlist: Setlist, editingUser: BaseUser): any {
+    const setlistForUpdate = SetlistHelper.getForAdd(setlist, editingUser);
+    
     const dbPath = `/accounts/${accountId}/setlists`;
     const setlistsRef = this.db.collection(dbPath);
     
-    return setlistsRef.add(setlist);
+    return setlistsRef.add(setlistForUpdate);
   }
 
-  updateSetlist(accountId: string, setlistId: string, setlist: Setlist): Observable<void> {
-    delete setlist.id;
+  updateSetlist(accountId: string, setlistId: string, setlist: Setlist, editingUser: BaseUser): Observable<void> {
+    const setlistForUpdate = SetlistHelper.getForUpdate(setlist, editingUser);
+    
     const dbPath = `/accounts/${accountId}/setlists`;
     const setlistsRef = this.db.collection(dbPath);
     
-    return from(setlistsRef.doc(setlistId).update(setlist));
+    return from(setlistsRef.doc(setlistId).update(setlistForUpdate));
   }
 }

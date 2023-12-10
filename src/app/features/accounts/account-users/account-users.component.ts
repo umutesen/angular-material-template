@@ -13,7 +13,7 @@ import { MatTableDataSource } from "@angular/material/table";
 import { AccountUser } from "src/app/core/model/AccountUser";
 import { Account } from "src/app/core/model/account";
 import { MEMBER, ROLES } from "src/app/core/model/roles";
-import { User } from "src/app/core/model/user";
+import { BaseUser, User, UserHelper } from "src/app/core/model/user";
 import { AccountService } from "src/app/core/services/account.service";
 import { AuthenticationService } from "src/app/core/services/auth.service";
 import { UserService } from "src/app/core/services/user.service";
@@ -40,6 +40,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class AccountUsersComponent {
   displayedColumns: string[] = ["email", "displayName", "role", "remove"];
+  currentUser: BaseUser;
   roles: string[];
   searching = false;
   showUserNotfound = false;
@@ -69,6 +70,12 @@ export class AccountUsersComponent {
       this.dataSource = new MatTableDataSource(users);
     });
     this.roles = ROLES;
+
+    this.authService.user$.subscribe((user) => {
+      if(user && user.uid){
+        this.currentUser = UserHelper.getForUpdate(user);
+      }
+    });
   }
 
   onNoClick(): void {
@@ -84,7 +91,7 @@ export class AccountUsersComponent {
         this.searching = false;
         if (user) {
           const accountUser = {role: MEMBER, ...user}
-          this.accountService.addUserToAccount(this.data, accountUser);
+          this.accountService.addUserToAccount(this.data, this.currentUser, accountUser);
           this.email?.setValue("");
           this.email?.setErrors(null);
         } else {

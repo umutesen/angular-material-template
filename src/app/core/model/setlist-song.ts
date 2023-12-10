@@ -1,5 +1,6 @@
 
 import {Song, SongHelper} from './song';
+import { BaseUser } from './user';
 
 export interface SetlistSong extends Song {
    sequenceNumber: number;
@@ -8,12 +9,12 @@ export interface SetlistSong extends Song {
 }
 
 export class SetlistSongHelper{
-   static getSetlistSongForAddOrUpdate(data: SetlistSong): SetlistSong {
+   static getForUpdate(setlistSong: SetlistSong, userUpdating: BaseUser): SetlistSong {
        return {
-         sequenceNumber: data.sequenceNumber ?? 1,
-          songId: data.songId ?? "",
-          isBreak: data.isBreak ?? false,
-          ...SongHelper.getSongForAddOrUpdate(data)
+         sequenceNumber: setlistSong.sequenceNumber ?? 1,
+          songId: setlistSong.songId ?? "",
+          isBreak: setlistSong.isBreak ?? false,
+          ...SongHelper.getForUpdate(setlistSong, userUpdating)
        };
      }
  }

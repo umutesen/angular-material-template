@@ -1,14 +1,14 @@
-import { User, UserHelper } from "./user";
+import { BaseUser, User, UserHelper } from "./user";
 
 export interface AccountUser extends User  {
   role: string;
 }
 
 export class AccountUserHelper{
-  static getAccountUserForAddOrUpdate(data: AccountUser): AccountUser {
+  static getForUpdate(data: AccountUser): AccountUser {
       return {
         role: data.role ?? "",
-        ...UserHelper.getUserForAddOrUpdate(data)
+        ...UserHelper.getForUpdate(data)
       };
     }
 }

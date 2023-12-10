@@ -38,10 +38,10 @@ import { MAT_DATE_FORMATS } from '@angular/material/core';
 
 export const MY_FORMATS = {
   parse: {
-    dateInput: 'DD MMM YYYY',
+    dateInput: 'MMM DD YYYY',
   },
   display: {
-    dateInput: 'DD MMM YYYY',
+    dateInput: 'MMM DD YYYY',
     monthYearLabel: 'MMM YYYY',
     dateA11yLabel: 'LL',
     monthYearA11yLabel: 'MMMM YYYY'
@@ -75,7 +75,7 @@ export const MY_FORMATS = {
       provide: MAT_DATE_FORMATS,
       useValue: MY_FORMATS
     },
-    { provide: LOCALE_ID, useValue: 'en-gb' }
+    { provide: LOCALE_ID, useValue: 'en-us' }
   ],
   declarations: [SelectCheckAllComponent]
 })

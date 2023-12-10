@@ -1,19 +1,9 @@
 import { Injectable } from '@angular/core';
 import { from, map, Observable, of } from "rxjs";
-import {
-  Firestore,
-  collectionData,
-  collection,
-  getDocs,
-  query,
-  where,
-  doc,
-  DocumentReference,
-  increment
-} from "@angular/fire/firestore";
+import { Timestamp } from "@angular/fire/firestore";
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Song, SongHelper } from '../model/song';
-import { Account } from '../model/account';
+import { BaseUser } from '../model/user';
 
 @Injectable({
   providedIn: 'root'
@@ -54,23 +44,30 @@ export class SongService {
     );
   }
 
-  addSong(accountId: string, song: Song): any {
-    const songForAdd = SongHelper.getSongForAddOrUpdate(song);
+  addSong(accountId: string, songId: string, song: Song, editingUser: BaseUser): Observable<Song> {
+    const songForAdd = SongHelper.getForAdd(song, editingUser);
+    
     const dbPath = `/accounts/${accountId}/songs`;
     const songsRef = this.db.collection(dbPath);
     
-    return songsRef.add(songForAdd);
+    let save$: Observable<any>;
+    save$ = from(songsRef.add(songForAdd));
+    return save$.pipe(
+      map((res) => {
+        const rtnSong = {
+          id: res.id,
+          ...songForAdd,
+        };
+        return rtnSong;
+      })
+    );
   }
 
-  updateSong(accountId: string, songId: string, song: Song): Observable<void> {
-    delete song.id;
+  updateSong(accountId: string, songId: string, song: Song, editingUser: BaseUser): Observable<void> {
+    const songForUpdate = SongHelper.getForUpdate(song, editingUser);
     const dbPath = `/accounts/${accountId}/songs`;
     const songsRef = this.db.collection(dbPath);
     
-    song.artist = song.artist || '';
-    song.genre = song.genre || '';
-    song.key = song.key || '';
-    
-    return from(songsRef.doc(songId).update(song));
+    return from(songsRef.doc(songId).update(songForUpdate));
   }
 }

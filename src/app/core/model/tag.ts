@@ -1,5 +1,5 @@
+import { Base } from "./base";
 
-export class Tag {
-  id: string;
-  name: string
+export interface Tag extends Base {
+  name: string;
 }

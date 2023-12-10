@@ -1,23 +1,14 @@
 import { inject, Injectable } from "@angular/core";
 import { from, map, Observable, of, pipe } from "rxjs";
 import { Account, AccountHelper } from "../model/account";
-import {
-  Firestore,
-  collectionData,
-  collection,
-  getDocs,
-  query,
-  where,
-  doc,
-  DocumentReference,
-} from "@angular/fire/firestore";
+import { Timestamp } from "@angular/fire/firestore";
 import { SAMPLE_SONGS } from "../model/sampleSongs";
 
 import {
   AngularFirestore,
   AngularFirestoreCollection,
 } from "@angular/fire/compat/firestore";
-import { User, UserHelper } from "../model/user";
+import { BaseUser, User, UserHelper } from "../model/user";
 import { AccountUser, AccountUserHelper } from "../model/AccountUser";
 import { ADMIN } from "../model/roles";
 import { convertSnaps } from "./db-utils";
@@ -49,24 +40,28 @@ export class AccountService {
       );
   }
 
-  addAccount(account: Account, userAddingTheAccount: AccountUser): Observable<Account> {
-    const accountToAdd = AccountHelper.getAccountForAddOrUpdate(account);
+  addAccount(account: Account, userAddingTheAccount: BaseUser, userToAdd: AccountUser): Observable<Account> {
+    const accountToAdd = AccountHelper.getForAdd(userAddingTheAccount, account);
+    accountToAdd.dateCreated = Timestamp.fromDate(new Date());
+
+    let save$: Observable<any>;
+    save$ = from(this.accountsRef.add(accountToAdd));
     
-    return from(this.accountsRef.add(accountToAdd)).pipe(
+    return save$.pipe(
       map((res) => {
         const rtnAccount = {
           id: res.id,
           ...accountToAdd,
         };
         //Add the owner to the users.
-        this.addUserToAccount(rtnAccount, userAddingTheAccount);
+        this.addUserToAccount(rtnAccount, userAddingTheAccount, userToAdd);
         return rtnAccount;
       })
     );
   }
 
-  updateAccount(id: string, data: Account): Observable<void> {
-    const accountForUpdate = AccountHelper.getAccountForAddOrUpdate(data);
+  updateAccount(id: string, user: BaseUser, data: Account): Observable<void> {
+    const accountForUpdate = AccountHelper.getForUpdate(user, data);
 
     return from(this.accountsRef.doc(id).update(accountForUpdate));
   }
@@ -93,8 +88,8 @@ export class AccountService {
     );
   }
 
-  addUserToAccount(account: Account, user: AccountUser) {
-    const userToAdd = AccountUserHelper.getAccountUserForAddOrUpdate(user);
+  addUserToAccount(account: Account, userUpdatingAccount: BaseUser, user: AccountUser) {
+    const userToAdd = AccountUserHelper.getForUpdate(user);
     const accountUserRef = this.accountsRef
       .doc(account.id)
       .collection("/users");
@@ -105,7 +100,7 @@ export class AccountService {
     }
 
     if (account.id) {
-      this.updateAccount(account.id, account);
+      this.updateAccount(account.id, userUpdatingAccount, account);
     }
   }
 
@@ -114,7 +109,7 @@ export class AccountService {
       .doc(account.id)
       .collection("/users")
       .doc(user.id);
-      const userToUpdate = AccountUserHelper.getAccountUserForAddOrUpdate(user);
+      const userToUpdate = AccountUserHelper.getForUpdate(user);
       return from(accountUserRef.update(userToUpdate));
   }
 
@@ -133,7 +128,7 @@ export class AccountService {
         // only splice array when item is found
         account.users?.splice(uidIndex, 1); // 2nd parameter means remove one item only
       }
-      this.updateAccount(account.id, account);
+      this.updateAccount(account.id, user, account);
     }
   }
 }

@@ -94,8 +94,9 @@ export class SongListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result: Lyric) => {
-      this.router.navigate([row.id + `/lyrics/${row.id}/edit`], { relativeTo: this.route });
-
+      if(result){
+        this.router.navigate([row.id + `/lyrics/${result.id}/edit`], { relativeTo: this.route });
+      }
     });
   }
 }

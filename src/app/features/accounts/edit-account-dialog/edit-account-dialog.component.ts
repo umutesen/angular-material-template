@@ -1,12 +1,12 @@
 import { Component, Inject, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Account } from 'src/app/core/model/account';
 import { ADMIN } from 'src/app/core/model/roles';
-import { User, UserHelper } from 'src/app/core/model/user';
+import { BaseUser, User, UserHelper } from 'src/app/core/model/user';
 import { AccountService } from 'src/app/core/services/account.service';
 import { AuthenticationService } from 'src/app/core/services/auth.service';
-import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
   selector: 'app-edit-account-dialog',
@@ -16,7 +16,7 @@ import { UserService } from 'src/app/core/services/user.service';
 export class EditAccountDialogComponent implements OnInit {
   saving = false;
   isNew = true;
-  ownerUser: User;
+  currentUser: BaseUser;
   accountForm = new FormGroup({
     id: new FormControl(this.data.id),
     name: new FormControl(this.data.name, Validators.required),
@@ -29,14 +29,15 @@ export class EditAccountDialogComponent implements OnInit {
     public dialogRef: MatDialogRef<EditAccountDialogComponent>,
     private accountService: AccountService,
     private authService: AuthenticationService,
+    private afs: AngularFirestore,
     @Inject(MAT_DIALOG_DATA) public data: Account,
   ) {
     if(Object.keys(data).length){
       this.isNew = false;
     }
-    authService.user$.subscribe((user) => {
+    this.authService.user$.subscribe((user) => {
       if(user && user.uid){
-        this.ownerUser = UserHelper.getUserForAddOrUpdate(user);
+        this.currentUser = UserHelper.getForUpdate(user);
       }
     });
   }
@@ -49,13 +50,12 @@ export class EditAccountDialogComponent implements OnInit {
     this.saving = true;
     const modifiedAccount = {...this.data, ...this.accountForm.value} as Account;
     if(this.data.id){
-      this.accountService.updateAccount(this.data.id, modifiedAccount);
+      this.accountService.updateAccount(this.data.id, this.currentUser, modifiedAccount);
     }else{
       //Adding Account
-      const accountUser = {role: ADMIN, ...this.ownerUser};
-      modifiedAccount.ownerUserId = this.ownerUser.uid;
-      modifiedAccount.users = [this.ownerUser.uid];
-      this.accountService.addAccount(modifiedAccount, accountUser).subscribe();
+      const accountUser = {role: ADMIN, ...this.currentUser};
+      modifiedAccount.users = [this.currentUser.uid];
+      this.accountService.addAccount(modifiedAccount, this.currentUser, accountUser).subscribe();
 
     }
     this.dialogRef.close(modifiedAccount);

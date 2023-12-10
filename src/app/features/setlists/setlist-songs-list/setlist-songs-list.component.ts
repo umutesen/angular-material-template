@@ -10,6 +10,8 @@ import { Observable } from 'rxjs';
 import { Account } from 'src/app/core/model/account';
 import { SetlistSong } from 'src/app/core/model/setlist-song';
 import { Song } from 'src/app/core/model/song';
+import { BaseUser, UserHelper } from 'src/app/core/model/user';
+import { AuthenticationService } from 'src/app/core/services/auth.service';
 import { SetlistSongsService } from 'src/app/core/services/setlist-songs.service';
 import { SetlistService } from 'src/app/core/services/setlist.service';
 import { SongService } from 'src/app/core/services/song.service';
@@ -23,7 +25,7 @@ import { AccountState } from 'src/app/core/store/account.state';
 export class SetlistSongsListComponent {
   @Select(AccountState.selectedAccount) 
   selectedAccount$!: Observable<Account>;
-  
+  currentUser: BaseUser;
   displayedSongColumns: string[] = [ 'name', 'artist'];
   displayedColumns: string[] = [ 'sequence', 'name', 'artist'];
   dsSetlistSongs =  new MatTableDataSource();
@@ -46,8 +48,15 @@ export class SetlistSongsListComponent {
     private setlistSongsService: SetlistSongsService,
     private songService: SongService,
     private store: Store,
-    private router: Router,
+    private authService: AuthenticationService,
     public dialog: MatDialog) {
+
+    this.authService.user$.subscribe((user) => {
+      if (user && user.uid) {
+        this.currentUser = UserHelper.getForUpdate(user);
+      }
+    });
+
     const selectedAccount = this.store.selectSnapshot(AccountState.selectedAccount);
     const accountId = this.route.snapshot.paramMap.get('accountid');
     const setlistId = this.route.snapshot.paramMap.get('setlistid');
@@ -73,7 +82,7 @@ export class SetlistSongsListComponent {
   onAddSetlistSong(row: Song): void {
     const sequenceNumber = this.getSequenceNumberForAddOrUpdate();
     const setlistSong = {displaySequenceNumber: sequenceNumber, sequenceNumber: sequenceNumber, songId: row.id!, isBreak: false, ...row};
-    this.setlistSongsService.addSetlistSong(this.accountId!, this.setlistId!, setlistSong)
+    this.setlistSongsService.addSetlistSong(this.accountId!, this.setlistId!, setlistSong, this.currentUser)
   }
 
   onAddBreak(){

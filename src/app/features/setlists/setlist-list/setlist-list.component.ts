@@ -25,7 +25,7 @@ export class SetlistListComponent implements OnInit {
   @Select(AccountState.selectedAccount)
   selectedAccount$!: Observable<Account>;
 
-  displayedColumns: string[] = ["name", "gigLocation"];
+  displayedColumns: string[] = ["name", "gigLocation", "gigDate"];
   dataSource = new MatTableDataSource();
   accountId?: string;
   selectedSetlist?: Setlist;
@@ -85,7 +85,7 @@ export class SetlistListComponent implements OnInit {
   }
 
   onViewSetlistSongs(row: any) {
-    this.router.navigate([row.id + "/songs"], { relativeTo: this.route });
+    this.onEditSetlist(row)
   }
 
   onPrintSetlist(){

@@ -4,6 +4,7 @@ import { Observable, map } from 'rxjs';
 import { Song } from '../model/song';
 import { SetlistSong, SetlistSongHelper } from '../model/setlist-song';
 import { SetlistBreak, SetlistBreakHelper } from '../model/setlist-break';
+import { BaseUser } from '../model/user';
 
 @Injectable({
   providedIn: 'root'
@@ -38,8 +39,8 @@ export class SetlistSongsService {
     return setlistSongsRef.add(songForAdd);
   }
 
-  addSetlistSong(accountId: string, setlistId: string, setlistSong: SetlistSong): any {
-    const songForAdd = SetlistSongHelper.getSetlistSongForAddOrUpdate(setlistSong);
+  addSetlistSong(accountId: string, setlistId: string, setlistSong: SetlistSong, editingUser: BaseUser): any {
+    const songForAdd = SetlistSongHelper.getForUpdate(setlistSong, editingUser);
     const dbPath = `/accounts/${accountId}/setlists/${setlistId}/songs`;
     const setlistSongsRef = this.db.collection(dbPath);
     

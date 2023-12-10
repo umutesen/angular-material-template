@@ -1,33 +1,47 @@
 <form class="dialog-form" [formGroup]="setlistForm">
-    <div mat-dialog-content>
-      <p *ngIf="!isNew">Edit Song</p>
-      <p *ngIf="isNew">Add Song</p>
-      <p>
-        <mat-form-field appearance="outline" class="dialog-input-full-width">
-          <mat-label>Setlist Name</mat-label>
-          <input matInput formControlName="name" />
-        </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field appearance="outline" class="dialog-input-full-width">
-          <mat-label>Gig Location</mat-label>
-          <input matInput formControlName="gigLocation" />
-        </mat-form-field>
-      </p>
-    </div>
-    <div mat-dialog-actions>
-      <button mat-button (click)="onNoClick()">Cancel</button>
-      <button
-        mat-raised-button
-        color="primary"
-        (click)="onSave()"
-        [disabled]="!setlistForm.valid || !setlistForm.dirty"
-      >
-        Save
-        <mat-icon *ngIf="saving"
-          ><mat-spinner color="accent" diameter="20"> </mat-spinner
-        ></mat-icon>
-      </button>
-    </div>
-  </form>
-  
+  <div mat-dialog-content>
+    <p *ngIf="!isNew">Edit Setlist</p>
+    <p *ngIf="isNew">Add Setlist</p>
+    <p>
+      <mat-form-field appearance="outline" class="dialog-input-full-width">
+        <mat-label>Setlist Name</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline" class="dialog-input-full-width">
+        <mat-label>Gig Location</mat-label>
+        <input matInput formControlName="gigLocation" />
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Gig Date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="gigDatePicker"
+          formControlName="gigDatePicker"
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="gigDatePicker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #gigDatePicker></mat-datepicker>
+      </mat-form-field>
+    </p>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="onSave()"
+      [disabled]="!setlistForm.valid || !setlistForm.dirty"
+    >
+      Save
+      <mat-icon *ngIf="saving"
+        ><mat-spinner color="accent" diameter="20"> </mat-spinner
+      ></mat-icon>
+    </button>
+  </div>
+</form>

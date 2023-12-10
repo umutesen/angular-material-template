@@ -1,23 +1,34 @@
-import { Timestamp } from 'firebase/firestore'
+import { Timestamp } from "@angular/fire/firestore";
+import { Base } from './base';
+import { BaseUser, UserHelper } from "./user";
 
-export interface Account{
+export interface Account extends Base{
     name: string;
-    id?: string;
     description?: string;
     users?: string[];
-    ownerUserId: string;
-    //url:string;
-    //iconUrl: string;
-    //createDate: Timestamp;
+    ownerUser: any;
 }
 
 export class AccountHelper{
-    static getAccountForAddOrUpdate(data: Account): Account {
+  static getForAdd(user: BaseUser, account: Account): Account {
+    const accountForAdd = this.getForUpdate(user, account);
+    accountForAdd.dateCreated = Timestamp.fromDate(new Date());
+    accountForAdd.createdByUser = user;
+    accountForAdd.ownerUser = UserHelper.getForUpdate(user);
+
+    return accountForAdd;
+  }
+
+  static getForUpdate(user: BaseUser, data: Account): Account {
         return {
           name: data.name ?? "",
           description: data.description ?? "",
           users: data.users ?? [],
-          ownerUserId: data.ownerUserId ?? "",
+          ownerUser: data.ownerUser ?? undefined,
+          createdByUser: data.createdByUser ?? "",
+          dateCreated: data.dateCreated ?? "",
+          lastEdit: Timestamp.fromDate(new Date()),
+          lastUpdatedByUser: user
         };
       }
 }
