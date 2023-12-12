@@ -38,8 +38,8 @@ body {
   margin-left: unset !important;
 }
 
-.mat-list-item,
-.mat-menu-item {
+.mat-mdc-list-item,
+.mat-mdc-menu-item {
   font-size: 14px !important;
 }
 
@@ -48,7 +48,7 @@ body {
   margin-bottom: 5px;
 }
 
-.mat-dialog-title {
+.mat-mdc-dialog-title {
   margin: 0 !important;
 }
 
@@ -56,27 +56,27 @@ body {
   flex: 0 0 60px;
 }
 
-.mat-table .mat-row:hover {
+.mat-mdc-table .mat-mdc-row:hover {
   background-color: rgba(0, 0, 0, 0.075);
 }
 
-.mat-table td.mat-cell a:hover {
+.mat-mdc-table td.mat-mdc-cell a:hover {
   text-decoration: underline;
 }
 
-.mat-table td.mat-cell:first-child,
-.mat-table td.mat-footer-cell:first-child,
-.mat-table th.mat-header-cell:first-child {
+.mat-mdc-table td.mat-mdc-cell:first-child,
+.mat-table td.mat-mdc-footer-cell:first-child,
+.mat-table th.mat-mdc-header-cell:first-child {
   padding-left: 20px !important;
 }
 
-.mat-table td.mat-cell:last-child,
-.mat-table td.mat-footer-cell:last-child,
-.mat-table th.mat-header-cell:last-child {
+.mat-mdc-table td.mat-mdc-cell:last-child,
+.mat-table td.mat-mdc-footer-cell:last-child,
+.mat-table th.mat-mdc-header-cell:last-child {
   padding-right: 10px !important;
 }
 
-.mat-table .mat-cell a {
+.mat-mdc-table .mat-mdc-cell a {
   color: inherit;
   text-decoration: none;
 }
@@ -101,12 +101,12 @@ p .mat-icon {
   vertical-align: middle;
 }
 
-.mat-slide-toggle.full-width {
+.mat-mdc-slide-toggle.full-width {
   margin-top: 15px;
   margin-bottom: 15px;
 }
 
-.mat-tooltip {
+.mat-mdc-tooltip {
   font-size: 14px;
 }
 
