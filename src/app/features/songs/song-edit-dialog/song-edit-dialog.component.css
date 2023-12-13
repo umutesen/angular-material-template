@@ -1,0 +1,19 @@
+.inline-container mat-form-field + mat-form-field {
+    margin-left: 8px;
+}
+
+.input-right-align {
+    text-align: right;
+}
+
+input.input-right-align {
+    -moz-appearance: textfield;
+}
+
+.min-sec{
+    width: 70px;
+}
+
+.beat-note{
+    width: 70px;
+}

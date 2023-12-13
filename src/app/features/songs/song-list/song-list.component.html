@@ -42,6 +42,24 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Key </th>
             <td mat-cell *matCellDef="let element"> {{element.key}} </td>
           </ng-container>
+
+          <!-- Tempo Column -->
+          <ng-container matColumnDef="tempo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Tempo </th>
+            <td mat-cell *matCellDef="let element"> {{element.tempo}} </td>
+          </ng-container>
+
+          <!-- Song Length Column -->
+          <ng-container matColumnDef="timeSignature">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Time Signature </th>
+            <td mat-cell *matCellDef="let element"> {{element.beatValue ? element.beatValue + '/' + element.noteValue : ''}} </td>
+          </ng-container>
+
+          <!-- Song Length Column -->
+          <ng-container matColumnDef="songLength">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Song Length </th>
+            <td mat-cell *matCellDef="let element"> {{element.lengthMin ? element.lengthMin + ':' + element.lengthSec?.toString().padStart(2, '0') : ''}} </td>
+          </ng-container>
           
           <ng-container matColumnDef="lyrics">
             <th mat-header-cell *matHeaderCellDef>Lyrics</th>

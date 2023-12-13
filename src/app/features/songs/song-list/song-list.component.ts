@@ -28,7 +28,7 @@ export class SongListComponent implements OnInit {
   @Select(AccountState.selectedAccount) 
   selectedAccount$!: Observable<Account>;
   currentUser: any;
-  displayedColumns: string[] = [ 'name', 'artist', 'genre', 'key', 'lyrics'];
+  displayedColumns: string[] = [ 'name', 'artist', 'genre', 'key', 'tempo', 'timeSignature', 'songLength', 'lyrics'];
   dataSource =  new MatTableDataSource();
   accountId?: string;
   @ViewChild(MatSort, { static: true })

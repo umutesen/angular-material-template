@@ -43,7 +43,12 @@ export class SongEditDialogComponent {
     name: new FormControl(this.data.song?.name || '', Validators.required),
     artist: new FormControl(this.data.song?.artist || ''),
     genre: new FormControl(this.data.song?.genre || ''),
-    key: new FormControl(this.data.song?.key || ''),
+    key: new FormControl(this.data.song?.key || 'C'),
+    tempo: new FormControl(this.data.song?.tempo || 120, [Validators.min(0), Validators.max(400)] ),
+    lengthMin: new FormControl(this.data.song?.lengthMin || 3, [Validators.min(0), Validators.max(59)] ),
+    lengthSec: new FormControl(this.data.song?.lengthSec || 0, [Validators.min(0), Validators.max(59)] ),
+    beatValue: new FormControl(this.data.song?.beatValue || 4, [Validators.min(1), Validators.max(12)] ),
+    noteValue: new FormControl(this.data.song?.noteValue || 4, [Validators.min(1), Validators.max(12)] ),
   });
 
   onNoClick(): void {

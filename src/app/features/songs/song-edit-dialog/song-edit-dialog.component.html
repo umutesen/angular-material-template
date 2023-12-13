@@ -1,45 +1,77 @@
 <form class="dialog-form" [formGroup]="songForm">
-    <div mat-dialog-content>
-      <p *ngIf="!isNew">Edit Song</p>
-      <p *ngIf="isNew">Add Song</p>
-      <p>
-        <mat-form-field appearance="outline" class="dialog-input-full-width">
-          <mat-label>Song Name</mat-label>
-          <input matInput formControlName="name" />
-        </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field appearance="outline" class="dialog-input-full-width">
-          <mat-label>Artist</mat-label>
-          <input matInput formControlName="artist" />
-        </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field appearance="outline" class="dialog-input-full-width">
-          <mat-label>Genre</mat-label>
-          <input matInput formControlName="genre" />
-        </mat-form-field>
-      </p>
-      <p>
-        <mat-form-field appearance="outline" class="dialog-input-full-width">
-          <mat-label>Key</mat-label>
-          <input matInput formControlName="key" />
-        </mat-form-field>
-      </p>
+  <div mat-dialog-content>
+    <p *ngIf="!isNew">Edit Song</p>
+    <p *ngIf="isNew">Add Song</p>
+    <mat-form-field appearance="outline" class="dialog-input-full-width">
+      <mat-label>Song Name</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="dialog-input-full-width">
+      <mat-label>Artist</mat-label>
+      <input matInput formControlName="artist" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="dialog-input-full-width">
+      <mat-label>Genre</mat-label>
+      <input matInput formControlName="genre" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="dialog-input-full-width">
+      <mat-label>Key</mat-label>
+      <mat-select formControlName="key">
+        <mat-option>None</mat-option>
+        <mat-option value="B">B</mat-option>
+        <mat-option value="Bb">Bb</mat-option>
+        <mat-option value="A">A</mat-option>
+        <mat-option value="Ab">Ab</mat-option>
+        <mat-option value="G">G</mat-option>
+        <mat-option value="Gb">Gb</mat-option>
+        <mat-option value="F#">F#</mat-option>
+        <mat-option value="F">F</mat-option>
+        <mat-option value="E">E</mat-option>
+        <mat-option value="Eb">Eb</mat-option>
+        <mat-option value="D">D</mat-option>
+        <mat-option value="Db">Db</mat-option>
+        <mat-option value="C#">C#</mat-option>
+        <mat-option value="C">C</mat-option>
+        <mat-option value="Cb">Cb</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="dialog-input-full-width">
+      <mat-label>Tempo</mat-label>
+      <input matInput type="number" formControlName="tempo" />
+    </mat-form-field>
+    <div class="inline-container">
+      <mat-form-field appearance="outline" class="beat-note">
+        <mat-label>Time</mat-label>
+        <input matInput type="number" class="input-right-align" formControlName="beatValue" />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="beat-note">
+        <mat-label>Signature</mat-label>
+        <input matInput type="number" class="input-right-align" formControlName="noteValue" />
+      </mat-form-field>
     </div>
-    <div mat-dialog-actions>
-      <button mat-button (click)="onNoClick()">Cancel</button>
-      <button
-        mat-raised-button
-        color="primary"
-        (click)="onSave()"
-        [disabled]="!songForm.valid || !songForm.dirty"
-      >
-        Save
-        <mat-icon *ngIf="saving"
-          ><mat-spinner color="accent" diameter="20"> </mat-spinner
-        ></mat-icon>
-      </button>
+    <div class="inline-container">
+      <mat-form-field appearance="outline" class="min-sec">
+        <mat-label>Song Minutes</mat-label>
+        <input matInput type="number" class="input-right-align" formControlName="lengthMin" />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="min-sec">
+        <mat-label>Song Seconds</mat-label>
+        <input matInput type="number" class="input-right-align" formControlName="lengthSec" />
+      </mat-form-field>
     </div>
-  </form>
-  
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="onSave()"
+      [disabled]="!songForm.valid || !songForm.dirty"
+    >
+      Save
+      <mat-icon *ngIf="saving"
+        ><mat-spinner color="accent" diameter="20"> </mat-spinner
+      ></mat-icon>
+    </button>
+  </div>
+</form>
