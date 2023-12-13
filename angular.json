@@ -17,6 +17,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "moment"
+            ],
             "outputPath": "dist/angular-material-template",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -68,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular-material-template:build:production"
+              "buildTarget": "angular-material-template:build:production"
             },
             "development": {
-              "browserTarget": "angular-material-template:build:development"
+              "buildTarget": "angular-material-template:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-material-template:build"
+            "buildTarget": "angular-material-template:build"
           }
         },
         "test": {
@@ -107,6 +110,14 @@
               "src/**/*.html"
             ]
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "https://damingerdai.github.io/angular-material-template/",
+            "name": "Daming Core UI",
+            "email": "mingguobin@live.com"
+          }
         }
       }
     }
@@ -114,6 +125,15 @@
   "cli": {
     "schematicCollections": [
       "@angular-eslint/schematics"
-    ]
+    ],
+    "analytics": "ff04d825-6b4c-43f9-b910-42657ba3d5ea"
+  },
+  "schematics": {
+    "@angular-eslint/schematics:application": {
+      "setParserOptionsProject": true
+    },
+    "@angular-eslint/schematics:library": {
+      "setParserOptionsProject": true
+    }
   }
 }

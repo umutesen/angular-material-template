@@ -54,7 +54,7 @@ mat-sidenav {
   height: 5px;
 }
 
-a.mat-list-item.active {
+a.mat-mdc-list-item.active {
   background: rgba(0, 0, 0, .04);
 }
 
