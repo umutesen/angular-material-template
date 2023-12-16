@@ -42,22 +42,53 @@
     <div class="inline-container">
       <mat-form-field appearance="outline" class="beat-note">
         <mat-label>Time</mat-label>
-        <input matInput type="number" class="input-right-align" formControlName="beatValue" />
+        <input
+          matInput
+          type="number"
+          class="input-right-align"
+          formControlName="beatValue"
+        />
       </mat-form-field>
       <mat-form-field appearance="outline" class="beat-note">
         <mat-label>Signature</mat-label>
-        <input matInput type="number" class="input-right-align" formControlName="noteValue" />
+        <input
+          matInput
+          type="number"
+          class="input-right-align"
+          formControlName="noteValue"
+        />
       </mat-form-field>
     </div>
     <div class="inline-container">
       <mat-form-field appearance="outline" class="min-sec">
         <mat-label>Song Minutes</mat-label>
-        <input matInput type="number" class="input-right-align" formControlName="lengthMin" />
+        <input
+          matInput
+          type="number"
+          class="input-right-align"
+          formControlName="lengthMin"
+        />
       </mat-form-field>
       <mat-form-field appearance="outline" class="min-sec">
         <mat-label>Song Seconds</mat-label>
-        <input matInput type="number" class="input-right-align" formControlName="lengthSec" />
+        <input
+          matInput
+          type="number"
+          class="input-right-align"
+          formControlName="lengthSec"
+        />
       </mat-form-field>
+    </div>
+    <mat-form-field appearance="outline" class="dialog-input-full-width">
+      <mat-label>Notes</mat-label>
+      <input matInput formControlName="notes" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="dialog-input-full-width">
+      <mat-label>Other</mat-label>
+      <input matInput formControlName="other" />
+    </mat-form-field>
+    <div>
+      <mat-checkbox formControlName="deactivated"> Deactivated </mat-checkbox>
     </div>
   </div>
   <div mat-dialog-actions>

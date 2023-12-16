@@ -41,7 +41,9 @@
               Gig Date
             </th>
             <td mat-cell *matCellDef="let element">
-              {{ element.gigDate.seconds * 1000 | date:'MM/dd/yyyy h:mm:ss a' }}
+              <ng-container *ngIf="element.gigDate">
+              {{  element.gigDate?.seconds * 1000 | date:'MM/dd/yyyy h:mm:ss a' }}
+              </ng-container>
             </td>
           </ng-container>
 
@@ -52,6 +54,7 @@
             *matRowDef="let row; columns: displayedColumns"
             [ngClass]="{'selected': selectedSetlist?.id == row.id}"
             (click)="selectRow(row)"
+            (dblclick)="onEditSetlist(row)"
           ></tr>
         </table>
       </mat-card-content>

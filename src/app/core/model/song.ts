@@ -9,7 +9,7 @@ export interface Song extends Base {
   key: string;
   songLength: number;
   tempo: number;
-  deprecated: boolean;
+  deactivated: boolean;
   notes: string;
   other: string;
   noteValue: number;
@@ -44,7 +44,7 @@ export class SongHelper {
       key: data.key ?? "",
       songLength: data.songLength ?? 0,
       tempo: data.tempo ?? 120,
-      deprecated: data.deprecated ?? false,
+      deactivated: data.deactivated ?? false,
       notes: data.notes ?? "",
       other: data.other ?? "",
       lastEdit: Timestamp.fromDate(new Date()),

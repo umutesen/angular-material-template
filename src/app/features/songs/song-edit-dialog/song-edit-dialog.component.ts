@@ -49,6 +49,9 @@ export class SongEditDialogComponent {
     lengthSec: new FormControl(this.data.song?.lengthSec || 0, [Validators.min(0), Validators.max(59)] ),
     beatValue: new FormControl(this.data.song?.beatValue || 4, [Validators.min(1), Validators.max(12)] ),
     noteValue: new FormControl(this.data.song?.noteValue || 4, [Validators.min(1), Validators.max(12)] ),
+    notes: new FormControl(this.data.song?.notes || ''),
+    other: new FormControl(this.data.song?.other || ''),
+    deactivated: new FormControl(this.data.song?.deactivated || false),
   });
 
   onNoClick(): void {

@@ -85,7 +85,7 @@ export class SetlistListComponent implements OnInit {
   }
 
   onViewSetlistSongs(row: any) {
-    this.onEditSetlist(row)
+    this.router.navigate([row.id + '/songs'], { relativeTo: this.route } );
   }
 
   onPrintSetlist(){
