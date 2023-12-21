@@ -18,4 +18,4 @@ import { LyricAddDialogComponent } from './lyric-add-dialog/lyric-add-dialog.com
         LyricAddDialogComponent
     ]
 })
-export class SongsModule { }
+export class LyricsModule { }

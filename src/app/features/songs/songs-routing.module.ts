@@ -16,7 +16,7 @@ const routes: Routes = [
   {
     path: ":songid/lyrics",
     loadChildren: () =>
-      import("../lyrics/lyrics.module").then((m) => m.SongsModule),
+      import("../lyrics/lyrics.module").then((m) => m.LyricsModule),
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectUnauthorizedTo },
   },

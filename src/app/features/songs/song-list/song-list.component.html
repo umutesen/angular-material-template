@@ -64,8 +64,7 @@
           <ng-container matColumnDef="lyrics">
             <th mat-header-cell *matHeaderCellDef>Lyrics</th>
             <td mat-cell *matCellDef="let element">
-              <a href="#" *ngIf="!element.countOfLyrics || element.countOfLyrics === 0" (click)="onAddLyric($event, element)" >Add</a>
-              <a href="#" *ngIf="element.countOfLyrics || element.countOfLyrics > 0" (click)="onViewLyrics($event, element)" >View</a>
+              <a href="#" (click)="onViewLyrics($event, element)" >View</a>
             </td>
           </ng-container>
 

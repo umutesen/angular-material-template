@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { MatTableDataSource } from "@angular/material/table";
 import { Title } from "@angular/platform-browser";
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
 import { Store } from "@ngxs/store";
 import { AccountLyric, Lyric } from "src/app/core/model/lyric";
 import { LyricsService } from "src/app/core/services/lyrics.service";
@@ -23,15 +23,16 @@ export class LyricsComponent {
   accountId?: string;
   songId?: string;
   lyricId?: string;
+  setlistId?: string;
   song?: Song;
   selectedLyric?: Lyric;
-  lyricVersionValue = 'add';
+  lyricVersionValue = "add";
   lyrics: Lyric[];
   lyricVersions = new FormControl("");
   currentUser: any;
 
   constructor(
-    private route: ActivatedRoute,
+    private activeRoute: ActivatedRoute,
     private titleService: Title,
     private lyricsService: LyricsService,
     private songService: SongService,
@@ -50,20 +51,22 @@ export class LyricsComponent {
       }
     });
 
-    route.params.subscribe(val => {
+    //The version can change on the page. This will subscribe to the page change event
+    //Normally navigating to the same component is not supported. 
+    //I added the onSameUrlNavigation: 'reload' on the router config.
+    activeRoute.params.subscribe(val => {
       this.initLyrics();
     });
-    
   }
 
   private initLyrics() {
-    const accountId = this.route.snapshot.paramMap.get("accountid");
-    const songId = this.route.snapshot.paramMap.get("songid");
-    const lyricId = this.route.snapshot.paramMap.get("lyricid");
+    const accountId = this.activeRoute.snapshot.paramMap.get("accountid");
+    const songId = this.activeRoute.snapshot.paramMap.get("songid");
+    this.lyricId = this.activeRoute.snapshot.paramMap.get("lyricid") || undefined;
+    this.setlistId = this.activeRoute.snapshot.paramMap.get("setlistid") || undefined;
     if (accountId && songId) {
       this.accountId = accountId;
       this.songId = songId;
-      this.lyricId = lyricId || undefined;
       this.songService
         .getSong(this.accountId, this.songId)
         .pipe(take(1))
@@ -78,22 +81,48 @@ export class LyricsComponent {
           this.lyrics = lyrics;
           if (!this.lyricId) {
             this.selectedLyric = lyrics[0];
-          }
-          else {
-            this.selectedLyric = lyrics.find((lyric) => lyric.id === this.lyricId);
+          } else {
+            this.selectedLyric = lyrics.find(
+              (lyric) => lyric.id === this.lyricId
+            );
           }
 
-          this.lyricVersionValue = this.selectedLyric?.id || 'add';
+          this.lyricVersionValue = this.selectedLyric?.id || "add";
         });
     }
   }
 
-  onAddLyric() {}
+  onAddLyric(event) {
+    event.preventDefault();
+    const accountLyric = {
+      accountId: this.accountId,
+      songId: this.songId,
+      createdByUserId: this.currentUser.uid,
+    };
+    const dialogRef = this.dialog.open(LyricAddDialogComponent, {
+      data: { accountLyric: accountLyric, countOfLyrics: 0 },
+      panelClass: "dialog-responsive",
+    });
+
+    dialogRef.afterClosed().subscribe((result: Lyric) => {
+      if (result) {
+        this.router.navigate([`${result.id}/edit`], { relativeTo: this.activeRoute });
+      }
+    });
+  }
 
   onEditLyric() {
-    this.router.navigate([
-      `/accounts/${this.accountId}/songs/${this.songId}/lyrics/${this.selectedLyric?.id}/edit`,
-    ]);
+    if(this.lyricId){
+        this.router.navigate([`../${this.selectedLyric?.id}/edit`], {
+          relativeTo: this.activeRoute,
+        });
+      }
+      else{
+        this.router.navigate([`${this.selectedLyric?.id}/edit`], {
+          relativeTo: this.activeRoute,
+        });
+      }
+    
   }
 
   onSelectLyric(value: string) {
@@ -110,15 +139,31 @@ export class LyricsComponent {
 
       dialogRef.afterClosed().subscribe((result: Lyric) => {
         this.router.navigate([`/${result.id}/edit`], {
-          relativeTo: this.route,
+          relativeTo: this.activeRoute,
         });
       });
-    }
-    else{
-      this.router.navigate([`/accounts/${this.accountId}/songs/${this.songId}/lyrics/${value}`]);
+    } else {
+      //Switch to another lyrics. If there is no lyric id the route is different. 
+      //You may get here without a lyric id when selecting from the song list.
+      if(this.lyricId){
+        this.router.navigate([`../${value}`], {
+          relativeTo: this.activeRoute,
+        });
+      }
+      else{
+        //Switch to another lyrics
+        this.router.navigate([`../lyrics/${value}`], {
+          relativeTo: this.activeRoute,
+        });
+      }
     }
   }
   onBackToSong() {
-    this.router.navigateByUrl("/accounts/" + this.accountId + "/songs");
+    if(this.lyricId){
+    this.router.navigate(["../../.."], { relativeTo: this.activeRoute });
+    }
+    else{
+      this.router.navigate(["../.."], { relativeTo: this.activeRoute });
+    }
   }
 }

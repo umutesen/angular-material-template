@@ -30,7 +30,7 @@ export class LyricsEditComponent implements OnInit {
   
   
   get lyrics() { return this.lyricsForm.get('lyrics'); }
-  constructor(private route: ActivatedRoute,
+  constructor(private activeRoute: ActivatedRoute,
     private titleService: Title,
     private lyricsService: LyricsService,
     private songService: SongService,
@@ -52,9 +52,9 @@ export class LyricsEditComponent implements OnInit {
         lyrics: new FormControl(this.selectedLyric?.name),
       });
 
-      const accountId = this.route.snapshot.paramMap.get("accountid");
-      const songId = this.route.snapshot.paramMap.get("songid");
-      const lyricId = this.route.snapshot.paramMap.get("lyricid");
+      const accountId = this.activeRoute.snapshot.paramMap.get("accountid");
+      const songId = this.activeRoute.snapshot.paramMap.get("songid");
+      const lyricId = this.activeRoute.snapshot.paramMap.get("lyricid");
       if (accountId && songId && lyricId) {
         this.accountId = accountId;
         this.songId = songId;
@@ -84,13 +84,13 @@ export class LyricsEditComponent implements OnInit {
   onSaveSong(){
     this.selectedLyric.lyrics = this.lyrics?.value;
     this.lyricsService.updateLyric(this.accountId!, this.songId!, this.selectedLyric, this.currentUser).subscribe((result) => {
-      this.router.navigate([`/accounts/${this.accountId}/songs/${this.songId}/lyrics/${this.selectedLyric?.id}`])
+      this.router.navigate([`../../../lyrics/${this.selectedLyric?.id}`], { relativeTo: this.activeRoute });
     });
   }
 
   onCancel(){
     //TODO: ADD ARE YOU SURE.
-    this.router.navigate([`/accounts/${this.accountId}/songs/${this.songId}/lyrics/${this.selectedLyric?.id}`])
+    this.router.navigate([`../../../lyrics/${this.selectedLyric?.id}`], { relativeTo: this.activeRoute });
   }
 
 }

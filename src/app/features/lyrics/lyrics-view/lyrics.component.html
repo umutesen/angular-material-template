@@ -12,20 +12,27 @@
           </button>
           <h4>{{ song?.name }}</h4>
           <span class="spacer"></span>
-          <mat-form-field  subscriptSizing="dynamic"> 
-            <mat-select [(value)]="lyricVersionValue" (selectionChange)="onSelectLyric($event.value)"> 
-              <mat-option *ngFor="let lyric of lyrics" [value]="lyric?.id">{{lyric.name}}</mat-option> 
-              <mat-option value="add">Add...</mat-option> 
-            </mat-select> 
-          </mat-form-field> 
-          <button mat-icon-button aria-label="Edit Lyrics" (click)="onEditLyric()">
-            <mat-icon>edit</mat-icon>
+          <button mat-icon-button aria-label="Add Lyric" *ngIf="!selectedLyric" (click)="onAddLyric($event)">
+            <mat-icon>add</mat-icon>
           </button>
-          <mat-divider [vertical]="true" style="height:50px"></mat-divider>
+          <ng-container *ngIf="selectedLyric">
+            <mat-form-field  subscriptSizing="dynamic"> 
+              <mat-select [(value)]="lyricVersionValue" (selectionChange)="onSelectLyric($event.value)"> 
+                <mat-option *ngFor="let lyric of lyrics" [value]="lyric?.id">{{lyric.name}}</mat-option> 
+                <mat-option value="add">Add...</mat-option> 
+              </mat-select> 
+            </mat-form-field> 
+            
+            <button mat-icon-button aria-label="Edit Lyrics" (click)="onEditLyric()">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </ng-container>
+          
         </mat-toolbar>
         <mat-card>
           <mat-card-content class="lyrics-view">
-            <span *ngIf="!selectedLyric?.lyrics">There are no lyrics for this song. </span>
+            <span *ngIf="!selectedLyric"> <a href="#" (click)="onAddLyric($event)">Click here to create lyric version.</a></span>
+            <span *ngIf="!selectedLyric?.lyrics">The lyrics are empty.</span>
             <pre *ngIf="selectedLyric?.lyrics">{{selectedLyric?.lyrics}}</pre>
           </mat-card-content>
         </mat-card>

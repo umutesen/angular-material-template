@@ -16,6 +16,8 @@ import { SetlistSongsService } from 'src/app/core/services/setlist-songs.service
 import { SetlistService } from 'src/app/core/services/setlist.service';
 import { SongService } from 'src/app/core/services/song.service';
 import { AccountState } from 'src/app/core/store/account.state';
+import { LyricAddDialogComponent } from '../../lyrics/lyric-add-dialog/lyric-add-dialog.component';
+import { Lyric } from 'src/app/core/model/lyric';
 
 @Component({
   selector: 'app-setlist-songs-list',
@@ -27,7 +29,7 @@ export class SetlistSongsListComponent {
   selectedAccount$!: Observable<Account>;
   currentUser: BaseUser;
   displayedSongColumns: string[] = [ 'name', 'artist'];
-  displayedColumns: string[] = [ 'sequence', 'name', 'artist'];
+  displayedColumns: string[] = [ 'name', 'artist', 'genre', 'key', 'tempo', 'timeSignature', 'songLength', 'lyrics'];
   dsSetlistSongs =  new MatTableDataSource();
   dsSongs = new MatTableDataSource();
   accountId?: string;
@@ -49,6 +51,7 @@ export class SetlistSongsListComponent {
     private songService: SongService,
     private store: Store,
     private authService: AuthenticationService,
+    private router: Router,
     public dialog: MatDialog) {
 
     this.authService.user$.subscribe((user) => {
@@ -91,8 +94,28 @@ export class SetlistSongsListComponent {
     this.setlistSongsService.addSetlistBreak(this.accountId!, this.setlistId!, setlistSong)
   }
 
-  onEditSetlistSong(row): void{
+  onEditSong(row): void{
 
+  }
+
+  onViewLyrics(event, row: any){
+    event.preventDefault();
+    this.router.navigate([`${row.songId}/lyrics`], {relativeTo: this.route});
+  }
+
+  onAddLyric(event, row: Song){
+    event.preventDefault();
+    const accountLyric = { accountId: this.accountId, songId: row.id, createdByUserId: this.currentUser.uid };
+    const dialogRef = this.dialog.open(LyricAddDialogComponent, {
+      data: {accountLyric: accountLyric, countOfLyrics: 0},
+      panelClass: "dialog-responsive",
+    });
+
+    dialogRef.afterClosed().subscribe((result: Lyric) => {
+      if(result){
+        this.router.navigate([row.id + `/lyrics/${result.id}/edit`], { relativeTo: this.route });
+      }
+    });
   }
 
   getSequenceNumber(rowIndex: number){

@@ -5,6 +5,8 @@ import {
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
   ExtraOptions,
+  provideRouter,
+  withDebugTracing,
 } from "@angular/router";
 import {
   AngularFireAuthGuard,
@@ -51,12 +53,13 @@ const appRoutes: Routes = [
 ];
 
 export const routingConfiguration: ExtraOptions = {
-  paramsInheritanceStrategy: 'always'
+  paramsInheritanceStrategy: 'always',
+    onSameUrlNavigation: 'reload'
 };
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes, routingConfiguration)],
   exports: [RouterModule],
-  providers: [],
+  providers: [ provideRouter(appRoutes, withDebugTracing())],
 })
 export class AppRoutingModule {}
