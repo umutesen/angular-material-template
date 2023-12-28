@@ -92,21 +92,24 @@ export class LyricsComponent {
     }
   }
 
-  onAddLyric(event) {
-    event.preventDefault();
+  onAddLyric(event?) {
+    event?.preventDefault();
     const accountLyric = {
       accountId: this.accountId,
       songId: this.songId,
       createdByUserId: this.currentUser.uid,
     };
     const dialogRef = this.dialog.open(LyricAddDialogComponent, {
-      data: { accountLyric: accountLyric, countOfLyrics: 0 },
+      data: { accountLyric: accountLyric, countOfLyrics: this.lyrics.length },
       panelClass: "dialog-responsive",
     });
 
     dialogRef.afterClosed().subscribe((result: Lyric) => {
       if (result) {
-        this.router.navigate([`${result.id}/edit`], { relativeTo: this.activeRoute });
+        this.selectedLyric = result;
+        this.onEditLyric();
+      }{
+        this.lyricVersionValue = this.selectedLyric?.id || "add";
       }
     });
   }
@@ -127,21 +130,7 @@ export class LyricsComponent {
 
   onSelectLyric(value: string) {
     if (value === "add") {
-      const accountLyric = {
-        accountId: this.accountId,
-        songId: this.songId,
-        createdByUserId: this.currentUser.uid,
-      };
-      const dialogRef = this.dialog.open(LyricAddDialogComponent, {
-        data: { accountLyric: accountLyric, countOfLyrics: this.lyrics.length },
-        panelClass: "dialog-responsive",
-      });
-
-      dialogRef.afterClosed().subscribe((result: Lyric) => {
-        this.router.navigate([`/${result.id}/edit`], {
-          relativeTo: this.activeRoute,
-        });
-      });
+      this.onAddLyric();
     } else {
       //Switch to another lyrics. If there is no lyric id the route is different. 
       //You may get here without a lyric id when selecting from the song list.
@@ -158,6 +147,7 @@ export class LyricsComponent {
       }
     }
   }
+
   onBackToSong() {
     if(this.lyricId){
     this.router.navigate(["../../.."], { relativeTo: this.activeRoute });

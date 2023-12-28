@@ -16,7 +16,7 @@ th.mat-sort-header-sorted {
 }
 
 .setlist-songs-static{
-    height: calc(100vh - 190px);
+    height: calc(100vh - 180px);
     overflow-y: scroll;
     
     font-size: 19px;
@@ -31,4 +31,13 @@ th.mat-sort-header-sorted {
     padding-left: 15px;
     padding-bottom: 15px;
     margin-top: 18px;
+}
+
+.card-content{
+    height: calc(100vh - 116px);
+}
+
+.table-container {
+    max-height: calc(100vh - 180px);
+    overflow: auto;
 }

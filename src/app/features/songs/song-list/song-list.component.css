@@ -9,3 +9,69 @@ th.mat-sort-header-sorted {
 .spacer {
     flex: 1 1 auto;
 }
+
+.card-content{
+    height: calc(100vh - 140px);
+}
+
+.table-container {
+    max-height: calc(100vh - 215px);;
+    min-width: 300px;
+    overflow: auto;
+}
+.song-table {
+    overflow: auto;
+    max-height: 200px;
+}
+
+.mat-cell,
+.mat-header-cell {
+  word-wrap: initial;
+  display: table-cell;
+  padding: 0px 10px;
+  line-break: unset;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: middle;
+}
+.mat-row,
+.mat-header-row {
+  display: table-row;
+}
+
+.mat-column-name {
+    width: 25% !important;
+}
+
+.mat-column-artist {
+    width: 15% !important;
+}
+
+.mat-column-genre {
+    width: 15% !important;
+}
+
+.mat-column-key {
+    width: 5% !important;
+}
+
+.mat-column-tempo {
+    width: 5% !important;
+}
+
+.mat-column-timeSignature {
+    width: 8% !important;
+}
+
+.mat-column-songLength {
+    width: 8% !important;
+}
+
+.mat-column-lyrics {
+    width: 4% !important;
+}
+
+.spinner-container mat-spinner {
+    margin: 130px auto 0 auto;
+}

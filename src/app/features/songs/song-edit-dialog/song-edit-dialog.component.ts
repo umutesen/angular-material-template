@@ -26,7 +26,7 @@ export class SongEditDialogComponent {
     private authService: AuthenticationService,
     private afs: AngularFirestore,
     @Inject(MAT_DIALOG_DATA) public data: AccountSong,
-  ) {
+  ) { 
     
     if(Object.keys(this.data).length){
       this.isNew = false;

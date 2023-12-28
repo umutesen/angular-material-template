@@ -12,6 +12,7 @@ import { AuthenticationService } from 'src/app/core/services/auth.service';
 import { LyricsService } from 'src/app/core/services/lyrics.service';
 import { SongService } from 'src/app/core/services/song.service';
 import { AccountState } from 'src/app/core/store/account.state';
+import { ConfirmDialogComponent } from 'src/app/shared/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-lyrics-edit',
@@ -36,6 +37,7 @@ export class LyricsEditComponent implements OnInit {
     private songService: SongService,
     private store: Store,
     private authService: AuthenticationService,
+    //private confirmDialog: ConfirmDialogComponent,
     private router: Router,
     public dialog: MatDialog) { 
       const selectedAccount = this.store.selectSnapshot(
@@ -89,7 +91,7 @@ export class LyricsEditComponent implements OnInit {
   }
 
   onCancel(){
-    //TODO: ADD ARE YOU SURE.
+    
     this.router.navigate([`../../../lyrics/${this.selectedLyric?.id}`], { relativeTo: this.activeRoute });
   }
 

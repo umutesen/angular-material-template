@@ -6,7 +6,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { SetlistEditDialogComponent } from './setlist-edit-dialog/setlist-edit-dialog.component';
 import { SetlistSongsListComponent } from './setlist-songs-list/setlist-songs-list.component';
 import { LyricsModule } from '../lyrics/lyrics.module';
-import { LyrcTestComponent } from './lyrc-test/lyrc-test.component';
 
 
 
@@ -21,7 +20,6 @@ import { LyrcTestComponent } from './lyrc-test/lyrc-test.component';
       SetlistListComponent,
       SetlistEditDialogComponent,
       SetlistSongsListComponent,
-      LyrcTestComponent
   ]
 })
 export class SetlistModule { }

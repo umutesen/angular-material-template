@@ -60,6 +60,6 @@ export const routingConfiguration: ExtraOptions = {
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes, routingConfiguration)],
   exports: [RouterModule],
-  providers: [ provideRouter(appRoutes, withDebugTracing())],
+  providers: [ provideRouter(appRoutes)],
 })
 export class AppRoutingModule {}

@@ -31,7 +31,7 @@ export class SetlistSongsListComponent {
   displayedSongColumns: string[] = [ 'name', 'artist'];
   displayedColumns: string[] = [ 'name', 'artist', 'genre', 'key', 'tempo', 'timeSignature', 'songLength', 'lyrics'];
   dsSetlistSongs =  new MatTableDataSource();
-  dsSongs = new MatTableDataSource();
+  dsSongs = new MatTableDataSource<Song>();
   accountId?: string;
   setlistId?: string;
   setlistSongCount: number;

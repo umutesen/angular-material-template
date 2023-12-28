@@ -1,7 +1,7 @@
-<div class="container" fxLayout="row" fxLayoutAlign="center none">
-  <div fxFlex="50%">
+<div class="container" fxLayoutGap="10px grid" fxLayout="row" fxLayoutAlign="center none">
+  <div fxFlex="49%">
     <mat-card>
-      <mat-card-content>
+      <mat-card-content class="card-content"> 
         <mat-toolbar>
           <button
             mat-icon-button
@@ -18,50 +18,53 @@
             </mat-form-field>
           </form>
         </mat-toolbar>
-        <table mat-table [dataSource]="dataSource" matSort>
-          <!-- Name Column -->
-          <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-            <td mat-cell *matCellDef="let element">{{ element.name }}</td>
-          </ng-container>
+        <div class="table-container">
+          <table mat-table [dataSource]="dataSource" matSort class="setlist-table">
+            <!-- Name Column -->
+            <ng-container matColumnDef="name">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+              <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+            </ng-container>
 
-          <!-- Gig Location Column -->
-          <ng-container matColumnDef="gigLocation">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>
-              Gig Location
-            </th>
-            <td mat-cell *matCellDef="let element">
-              {{ element.gigLocation }}
-            </td>
-          </ng-container>
+            <!-- Gig Location Column -->
+            <ng-container matColumnDef="gigLocation">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Gig Location
+              </th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.gigLocation }}
+              </td>
+            </ng-container>
 
-          <!-- Gig Location Column -->
-          <ng-container matColumnDef="gigDate">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>
-              Gig Date
-            </th>
-            <td mat-cell *matCellDef="let element">
-              <ng-container *ngIf="element.gigDate">
-              {{  element.gigDate?.seconds * 1000 | date:'MM/dd/yyyy h:mm:ss a' }}
-              </ng-container>
-            </td>
-          </ng-container>
+            <!-- Gig Location Column -->
+            <ng-container matColumnDef="gigDate">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Gig Date
+              </th>
+              <td mat-cell *matCellDef="let element">
+                <ng-container *ngIf="element.gigDate">
+                {{  element.gigDate?.seconds * 1000 | date:'MM/dd/yyyy h:mm:ss a' }}
+                </ng-container>
+              </td>
+            </ng-container>
 
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr
-            mat-row
-            (dblclick)="onViewSetlistSongs(row)"
-            *matRowDef="let row; columns: displayedColumns"
-            [ngClass]="{'selected': selectedSetlist?.id == row.id}"
-            (click)="selectRow(row)"
-            (dblclick)="onEditSetlist(row)"
-          ></tr>
-        </table>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr
+              mat-row
+              (dblclick)="onViewSetlistSongs(row)"
+              *matRowDef="let row; columns: displayedColumns"
+              [ngClass]="{'selected': selectedSetlist?.id == row.id}"
+              (click)="selectRow(row)"
+              (dblclick)="onEditSetlist(row)"
+            ></tr>
+          </table>
+        </div>
       </mat-card-content>
     </mat-card>
   </div>
+
   <!-- Setlist Songs Grid -->
-  <div fxFlex="50%">
+  <div fxFlex="49%">
     <mat-toolbar>
       <div class="header-container">
         <h2 style="float: left;">{{selectedSetlist?.name}}</h2><span style="float: left;margin-left: 15px;">{{selectedSetlist?.gigLocation}}</span>

@@ -8,4 +8,13 @@ th.mat-sort-header-sorted {
 
 .spacer {
     flex: 1 1 auto;
-  }
+}
+
+.card-content{
+    height: calc(100vh - 116px);
+}
+
+.table-container {
+    max-height: calc(100vh - 174px);
+    overflow: auto;
+}

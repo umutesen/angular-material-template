@@ -4,6 +4,7 @@ import { SongRoutingModule } from './songs-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { SongListComponent } from './song-list/song-list.component';
 import { SongEditDialogComponent } from './song-edit-dialog/song-edit-dialog.component';
+import { SongImportComponent } from './song-import/song-import.component';
 
 @NgModule({
     imports: [
@@ -13,7 +14,8 @@ import { SongEditDialogComponent } from './song-edit-dialog/song-edit-dialog.com
     ],
     declarations: [
         SongListComponent,
-        SongEditDialogComponent
+        SongEditDialogComponent,
+        SongImportComponent
     ]
 })
 export class SongsModule { }

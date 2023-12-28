@@ -4,6 +4,7 @@ import { LayoutComponent } from 'src/app/shared/layout/layout.component';
 
 import { SongListComponent } from './song-list/song-list.component';
 import { AngularFireAuthGuard, redirectUnauthorizedTo } from '@angular/fire/compat/auth-guard';
+import { SongImportComponent } from './song-import/song-import.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,13 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       { path: '', component: SongListComponent, canActivate: [AngularFireAuthGuard], },
+    ]
+  },
+  {
+    path: 'addmultiple',
+    component: LayoutComponent,
+    children: [
+      { path: '', component: SongImportComponent, canActivate: [AngularFireAuthGuard], },
     ]
   },
   {

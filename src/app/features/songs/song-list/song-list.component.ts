@@ -6,7 +6,7 @@ import { Title } from '@angular/platform-browser';
 import { NotificationService } from 'src/app/core/services/notification.service';
 import { SongService } from 'src/app/core/services/song.service';
 import { SAMPLE_SONGS } from 'src/app/core/model/sampleSongs';
-import { Observable } from 'rxjs';
+import { Observable, finalize } from 'rxjs';
 import { Song } from 'src/app/core/model/song';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SongEditDialogComponent } from '../song-edit-dialog/song-edit-dialog.component';
@@ -29,10 +29,12 @@ export class SongListComponent implements OnInit {
   selectedAccount$!: Observable<Account>;
   currentUser: any;
   displayedColumns: string[] = [ 'name', 'artist', 'genre', 'key', 'tempo', 'timeSignature', 'songLength', 'lyrics'];
-  dataSource =  new MatTableDataSource();
-  accountId?: string;
+  dataSource : Song[];
+  accountId: string;
   @ViewChild(MatSort, { static: true })
   sort: MatSort = new MatSort;
+  loading = false;
+  lastPageLoaded = 0;
 
   constructor(
     private logger: NGXLogger,
@@ -53,17 +55,34 @@ export class SongListComponent implements OnInit {
     const selectedAccount = this.store.selectSnapshot(AccountState.selectedAccount);
     const id = this.route.snapshot.paramMap.get('accountid');
     if(id){
+      this.loading = true;
       this.accountId = id;
-      this.songService.getSongs(this.accountId).subscribe((songs) => {
-        this.dataSource =  new MatTableDataSource(songs);
-      });
+      this.songService.getSongs(this.accountId)
+        .pipe(
+          finalize(() => this.loading = false)
+        )
+        .subscribe((songs) => {
+          this.dataSource =  songs;
+        });
     }
   }
 
   ngOnInit() {
     this.titleService.setTitle('Songs');
     
-    this.dataSource.sort = this.sort;
+    //this.dataSource.sort = this.sort;
+  }
+
+  loadMore(){
+    this.lastPageLoaded++;
+    this.loading = true;
+    this.songService.getSongs(this.accountId, "asc", this.lastPageLoaded)
+        .pipe(
+          finalize(() => this.loading = false)
+        )
+        .subscribe((songs) => {
+          this.dataSource =  this.dataSource.concat(songs);
+        });
   }
 
   onAddSong(){
@@ -71,6 +90,10 @@ export class SongListComponent implements OnInit {
       data: { accountId: this.accountId} as AccountSong,
       panelClass: "dialog-responsive",
     });
+  }
+
+  onAddMultipleSongs(){
+    this.router.navigate([`addmultiple`], { relativeTo: this.route });
   }
 
   onEditSong(row: any){

@@ -4,6 +4,8 @@ import { Timestamp } from "@angular/fire/firestore";
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Song, SongHelper } from '../model/song';
 import { BaseUser } from '../model/user';
+import { OrderByDirection } from 'firebase/firestore';
+import { convertSnaps } from './db-utils';
 
 @Injectable({
   providedIn: 'root'
@@ -28,19 +30,13 @@ export class SongService {
     );
   }
 
-  getSongs(accountId: string): Observable<any> {
+  getSongs(accountId: string, sortOrder: OrderByDirection = 'asc', pageNumber = 0, pageSize = 10): Observable<Song[]> {
     const dbPath = `/accounts/${accountId}/songs`;
-    const songsRef = this.db.collection(dbPath);
-    return songsRef.snapshotChanges().pipe(
-      map(changes =>
-        changes.map(c =>
-          {
-            const song = c.payload.doc.data() as Song;
-            song.id = c.payload.doc.id;
-            return song;
-          }
-        )
-      )
+    const songsRef = this.db.collection(dbPath, ref => ref.orderBy("name", sortOrder)
+                                                          .limit(pageSize)
+                                                          .startAfter(pageNumber * pageSize));
+    return songsRef.get().pipe(
+      map(results => convertSnaps<Song>(results))
     );
   }
 

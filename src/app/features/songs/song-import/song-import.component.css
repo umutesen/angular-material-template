@@ -1,0 +1,28 @@
+
+.ibox-content{
+  height: 'calc(100vh - 122px)';
+}
+.ibox-content .import-text{
+  width:100%;
+  height:'calc(100vh - 290px)';
+  padding:5px;
+}
+    
+.wizard  .body{
+  padding:1.5%
+}
+.wizard .content{
+  height:'calc(100vh - 200px)';
+  overflow: auto;
+}
+    
+  
+.step-two-container{
+  height:'calc(100vh - 188px)';
+  overflow: auto;
+}
+
+#import-list{
+  height: calc(100vh - 305px);
+  width: 99.5%;
+}
