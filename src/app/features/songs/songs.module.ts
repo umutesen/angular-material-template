@@ -10,9 +10,7 @@ import { SongImportComponent } from './song-import/song-import.component';
     imports: [
         CommonModule,
         SongRoutingModule,
-        SharedModule
-    ],
-    declarations: [
+        SharedModule,
         SongListComponent,
         SongEditDialogComponent,
         SongImportComponent

@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { SetlistEditDialogComponent } from "../setlist-edit-dialog/setlist-edit-dialog.component";
-import { MatTableDataSource as MatTableDataSource } from "@angular/material/table";
+import { MatTableDataSource as MatTableDataSource, MatTableModule } from "@angular/material/table";
 import { AccountActions, AccountState } from "src/app/core/store/account.state";
 import { MatDialog as MatDialog } from "@angular/material/dialog";
-import { MatSort } from "@angular/material/sort";
+import { MatSort, MatSortModule } from "@angular/material/sort";
 import { Title } from "@angular/platform-browser";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Select, Store } from "@ngxs/store";
@@ -15,11 +15,39 @@ import { AccountSetlist } from "src/app/core/model/account-setlist";
 import { Setlist } from "src/app/core/model/setlist";
 import { SetlistSongsService } from "src/app/core/services/setlist-songs.service";
 import { SetlistSong } from "src/app/core/model/setlist-song";
+import { ExtendedModule } from "@angular/flex-layout/extended";
+import { NgIf, NgClass, NgFor, DatePipe } from "@angular/common";
+import { MatInputModule } from "@angular/material/input";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { FormsModule } from "@angular/forms";
+import { MatIconModule } from "@angular/material/icon";
+import { MatButtonModule } from "@angular/material/button";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatCardModule } from "@angular/material/card";
+import { FlexModule } from "@angular/flex-layout/flex";
 
 @Component({
-  selector: "app-setlist-list",
-  templateUrl: "./setlist-list.component.html",
-  styleUrls: ["./setlist-list.component.css"],
+    selector: "app-setlist-list",
+    templateUrl: "./setlist-list.component.html",
+    styleUrls: ["./setlist-list.component.css"],
+    standalone: true,
+    imports: [
+        FlexModule,
+        MatCardModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatIconModule,
+        FormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatTableModule,
+        MatSortModule,
+        NgIf,
+        NgClass,
+        ExtendedModule,
+        NgFor,
+        DatePipe,
+    ],
 })
 export class SetlistListComponent implements OnInit {
   @Select(AccountState.selectedAccount)

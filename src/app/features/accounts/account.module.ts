@@ -12,12 +12,12 @@ import { EditAccountDialogComponent } from './edit-account-dialog/edit-account-d
 import { AccountUsersComponent } from './account-users/account-users.component';
 
 @NgModule({
-    declarations: [AccountHomeComponent, EditAccountDialogComponent, AccountUsersComponent],
     imports: [
         CommonModule,
         AccountsRoutingModule,
         SharedModule,
-        MatCardModule, MatDividerModule, MatButtonModule, MatProgressBarModule
+        MatCardModule, MatDividerModule, MatButtonModule, MatProgressBarModule,
+        AccountHomeComponent, EditAccountDialogComponent, AccountUsersComponent
     ]
 })
 export class    AccountsModule { }

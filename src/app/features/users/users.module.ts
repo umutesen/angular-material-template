@@ -6,11 +6,11 @@ import { UserListComponent } from './user-list/user-list.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    SharedModule,
-    UsersRoutingModule
-  ],
-  declarations: [UserListComponent]
+    imports: [
+        CommonModule,
+        SharedModule,
+        UsersRoutingModule,
+        UserListComponent
+    ]
 })
 export class UsersModule { }

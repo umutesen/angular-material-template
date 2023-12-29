@@ -12,10 +12,35 @@ import { Subscription } from "rxjs";
 import { AuthenticationService } from "src/app/core/services/auth.service";
 import { SpinnerService } from "../../core/services/spinner.service";
 import { UserService } from "src/app/core/services/user.service";
+import { MatProgressBarModule } from "@angular/material/progress-bar";
+import { NgIf, AsyncPipe } from "@angular/common";
+import { ExtendedModule } from "@angular/flex-layout/extended";
+import { MatBadgeModule } from "@angular/material/badge";
+import { MatIconModule } from "@angular/material/icon";
+import { MatMenuModule } from "@angular/material/menu";
+import { MatButtonModule } from "@angular/material/button";
+import { RouterLink, RouterOutlet } from "@angular/router";
+import { MatTooltipModule } from "@angular/material/tooltip";
+import { MatToolbarModule } from "@angular/material/toolbar";
 @Component({
-  selector: "app-layout-no-sidebar",
-  templateUrl: "./layout-no-sidebar.component.html",
-  styleUrls: ["./layout-no-sidebar.component.css"],
+    selector: "app-layout-no-sidebar",
+    templateUrl: "./layout-no-sidebar.component.html",
+    styleUrls: ["./layout-no-sidebar.component.css"],
+    standalone: true,
+    imports: [
+        MatToolbarModule,
+        MatTooltipModule,
+        RouterLink,
+        MatButtonModule,
+        MatMenuModule,
+        MatIconModule,
+        MatBadgeModule,
+        ExtendedModule,
+        NgIf,
+        MatProgressBarModule,
+        RouterOutlet,
+        AsyncPipe,
+    ],
 })
 export class LayoutNoSidebarComponent
   implements OnInit, OnDestroy, AfterViewInit

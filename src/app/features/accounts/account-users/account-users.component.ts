@@ -1,15 +1,9 @@
 import { Component, Inject, OnInit } from "@angular/core";
-import {
-  FormControl,
-  FormGroup,
-  FormGroupDirective,
-  NgForm,
-  Validators,
-} from "@angular/forms";
+import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators, FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ErrorStateMatcher } from "@angular/material/core";
-import { MAT_DIALOG_DATA, MatDialogRef as MatDialogRef } from "@angular/material/dialog";
-import { MatSort } from "@angular/material/sort";
-import { MatTableDataSource as MatTableDataSource } from "@angular/material/table";
+import { MAT_DIALOG_DATA, MatDialogRef as MatDialogRef, MatDialogModule } from "@angular/material/dialog";
+import { MatSort, MatSortModule } from "@angular/material/sort";
+import { MatTableDataSource as MatTableDataSource, MatTableModule } from "@angular/material/table";
 import { AccountUser } from "src/app/core/model/AccountUser";
 import { Account } from "src/app/core/model/account";
 import { MEMBER, ROLES } from "src/app/core/model/roles";
@@ -17,6 +11,15 @@ import { BaseUser, User, UserHelper } from "src/app/core/model/user";
 import { AccountService } from "src/app/core/services/account.service";
 import { AuthenticationService } from "src/app/core/services/auth.service";
 import { UserService } from "src/app/core/services/user.service";
+import { AutoFocusDirective } from "../../../shared/directives/auto-focus/auto-focus.directive";
+import { MatInputModule } from "@angular/material/input";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatMenuModule } from "@angular/material/menu";
+import { NgIf, NgFor } from "@angular/common";
+import { MatCardModule } from "@angular/material/card";
+import { MatIconModule } from "@angular/material/icon";
+import { MatButtonModule } from "@angular/material/button";
+import { FlexModule } from "@angular/flex-layout/flex";
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -34,9 +37,27 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 }
 
 @Component({
-  selector: "app-account-users",
-  templateUrl: "./account-users.component.html",
-  styleUrls: ["./account-users.component.css"],
+    selector: "app-account-users",
+    templateUrl: "./account-users.component.html",
+    styleUrls: ["./account-users.component.css"],
+    standalone: true,
+    imports: [
+        FlexModule,
+        MatDialogModule,
+        MatButtonModule,
+        MatIconModule,
+        MatCardModule,
+        MatTableModule,
+        MatSortModule,
+        NgIf,
+        MatMenuModule,
+        NgFor,
+        FormsModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        AutoFocusDirective,
+    ],
 })
 export class AccountUsersComponent {
   displayedColumns: string[] = ["email", "displayName", "role", "remove"];

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource as MatTableDataSource } from '@angular/material/table';
+import { MatSort, MatSortModule } from '@angular/material/sort';
+import { MatTableDataSource as MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { NGXLogger } from 'ngx-logger';
 import { Title } from '@angular/platform-browser';
 import { NotificationService } from 'src/app/core/services/notification.service';
@@ -18,11 +18,23 @@ import { Account } from 'src/app/core/model/account';
 import { LyricAddDialogComponent } from '../../lyrics/lyric-add-dialog/lyric-add-dialog.component';
 import { AccountLyric, Lyric } from 'src/app/core/model/lyric';
 import { AuthenticationService } from 'src/app/core/services/auth.service';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NgIf } from '@angular/common';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { FlexModule } from '@angular/flex-layout/flex';
 
 @Component({
-  selector: 'app-song-list',
-  templateUrl: './song-list.component.html',
-  styleUrls: ['./song-list.component.css']
+    selector: 'app-song-list',
+    templateUrl: './song-list.component.html',
+    styleUrls: ['./song-list.component.css'],
+    standalone: true,
+    imports: [FlexModule, MatCardModule, MatToolbarModule, MatButtonModule, MatIconModule, FormsModule, MatFormFieldModule, MatInputModule, NgIf, MatProgressSpinnerModule, MatTableModule, MatSortModule]
 })
 export class SongListComponent implements OnInit {
   @Select(AccountState.selectedAccount) 

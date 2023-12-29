@@ -10,11 +10,14 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import EmailAuthProvider = firebase.auth.EmailAuthProvider;
 import GoogleAuthProvider = firebase.auth.GoogleAuthProvider;
 import { UserService } from 'src/app/core/services/user.service';
+import { FlexModule } from '@angular/flex-layout/flex';
 
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
-    styleUrls: ['./login.component.css']
+    styleUrls: ['./login.component.css'],
+    standalone: true,
+    imports: [FlexModule]
 })
 export class LoginComponent implements OnInit, OnDestroy {
     ui: firebaseui.auth.AuthUI;

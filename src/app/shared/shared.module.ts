@@ -20,8 +20,6 @@ import { AutoFocusDirective } from './directives/auto-focus/auto-focus.directive
         FormsModule,
         ReactiveFormsModule,
         FlexLayoutModule,
-    ],
-    declarations: [
         ConfirmDialogComponent,
         ContentPlaceholderAnimationComponent,
         LimitToPipe,

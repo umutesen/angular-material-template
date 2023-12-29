@@ -10,9 +10,7 @@ import { LyricAddDialogComponent } from './lyric-add-dialog/lyric-add-dialog.com
     imports: [
         CommonModule,
         LyricsRoutingModule,
-        SharedModule
-    ],
-    declarations: [
+        SharedModule,
         LyricsComponent,
         LyricsEditComponent,
         LyricAddDialogComponent

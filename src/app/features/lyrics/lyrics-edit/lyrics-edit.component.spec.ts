@@ -8,8 +8,8 @@ describe('LyricsEditComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LyricsEditComponent ]
-    })
+    imports: [LyricsEditComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(LyricsEditComponent);

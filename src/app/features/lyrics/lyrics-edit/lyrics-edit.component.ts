@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialog as MatDialog } from '@angular/material/dialog';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -13,11 +13,18 @@ import { LyricsService } from 'src/app/core/services/lyrics.service';
 import { SongService } from 'src/app/core/services/song.service';
 import { AccountState } from 'src/app/core/store/account.state';
 import { ConfirmDialogComponent } from 'src/app/shared/confirm-dialog/confirm-dialog.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
+import { FlexModule } from '@angular/flex-layout/flex';
 
 @Component({
-  selector: 'app-lyrics-edit',
-  templateUrl: './lyrics-edit.component.html',
-  styleUrls: ['./lyrics-edit.component.css']
+    selector: 'app-lyrics-edit',
+    templateUrl: './lyrics-edit.component.html',
+    styleUrls: ['./lyrics-edit.component.css'],
+    standalone: true,
+    imports: [FlexModule, MatCardModule, MatToolbarModule, MatButtonModule, MatIconModule, FormsModule, ReactiveFormsModule]
 })
 export class LyricsEditComponent implements OnInit {
   @ViewChild('lyrics') lyricsInput: ElementRef;

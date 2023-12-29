@@ -8,8 +8,8 @@ describe('SongEditDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SongEditDialogComponent ]
-    })
+    imports: [SongEditDialogComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(SongEditDialogComponent);

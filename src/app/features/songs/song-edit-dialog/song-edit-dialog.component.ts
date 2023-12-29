@@ -1,18 +1,29 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef as MatDialogRef } from '@angular/material/dialog';
+import { FormControl, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef as MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { catchError, tap, throwError } from 'rxjs';
 import { AccountSong } from 'src/app/core/model/account-song';
 import { Song } from 'src/app/core/model/song';
 import { BaseUser, UserHelper } from 'src/app/core/model/user';
 import { AuthenticationService } from 'src/app/core/services/auth.service';
 import { SongService } from 'src/app/core/services/song.service';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-song-edit-dialog',
-  templateUrl: './song-edit-dialog.component.html',
-  styleUrls: ['./song-edit-dialog.component.css']
+    selector: 'app-song-edit-dialog',
+    templateUrl: './song-edit-dialog.component.html',
+    styleUrls: ['./song-edit-dialog.component.css'],
+    standalone: true,
+    imports: [FormsModule, ReactiveFormsModule, MatDialogModule, NgIf, MatFormFieldModule, MatInputModule, MatSelectModule, MatOptionModule, MatCheckboxModule, MatButtonModule, MatIconModule, MatProgressSpinnerModule]
 })
 export class SongEditDialogComponent {
   currentUser: BaseUser;

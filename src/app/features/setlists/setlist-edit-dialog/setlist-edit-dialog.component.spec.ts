@@ -8,8 +8,8 @@ describe('SetlistEditDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SetlistEditDialogComponent ]
-    })
+    imports: [SetlistEditDialogComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(SetlistEditDialogComponent);

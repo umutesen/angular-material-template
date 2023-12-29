@@ -49,35 +49,35 @@ export const MY_FORMATS = {
 };
 
 @NgModule({
-  imports: [
-    CommonModule,
-    MatMomentDateModule,
-    MatSidenavModule, MatIconModule, MatToolbarModule, MatButtonModule,
-    MatListModule, MatCardModule, MatProgressBarModule, MatInputModule,
-    MatSnackBarModule, MatProgressSpinnerModule, MatDatepickerModule,
-    MatAutocompleteModule, MatTableModule, MatDialogModule, MatTabsModule,
-    MatTooltipModule, MatSelectModule, MatPaginatorModule, MatChipsModule,
-    MatButtonToggleModule, MatSlideToggleModule, MatBadgeModule, MatCheckboxModule,
-    MatExpansionModule, DragDropModule, MatSortModule
-  ],
-  exports: [
-    CommonModule,
-    MatSidenavModule, MatIconModule, MatToolbarModule, MatButtonModule,
-    MatListModule, MatCardModule, MatProgressBarModule, MatInputModule,
-    MatSnackBarModule, MatMenuModule, MatProgressSpinnerModule, MatDatepickerModule,
-    MatAutocompleteModule, MatTableModule, MatDialogModule, MatTabsModule,
-    MatTooltipModule, MatSelectModule, MatPaginatorModule, MatChipsModule,
-    MatButtonToggleModule, MatSlideToggleModule, MatBadgeModule, MatCheckboxModule,
-    MatExpansionModule, SelectCheckAllComponent, DragDropModule, MatSortModule
-  ],
-  providers: [
-    {
-      provide: MAT_DATE_FORMATS,
-      useValue: MY_FORMATS
-    },
-    { provide: LOCALE_ID, useValue: 'en-us' }
-  ],
-  declarations: [SelectCheckAllComponent]
+    imports: [
+        CommonModule,
+        MatMomentDateModule,
+        MatSidenavModule, MatIconModule, MatToolbarModule, MatButtonModule,
+        MatListModule, MatCardModule, MatProgressBarModule, MatInputModule,
+        MatSnackBarModule, MatProgressSpinnerModule, MatDatepickerModule,
+        MatAutocompleteModule, MatTableModule, MatDialogModule, MatTabsModule,
+        MatTooltipModule, MatSelectModule, MatPaginatorModule, MatChipsModule,
+        MatButtonToggleModule, MatSlideToggleModule, MatBadgeModule, MatCheckboxModule,
+        MatExpansionModule, DragDropModule, MatSortModule,
+        SelectCheckAllComponent
+    ],
+    exports: [
+        CommonModule,
+        MatSidenavModule, MatIconModule, MatToolbarModule, MatButtonModule,
+        MatListModule, MatCardModule, MatProgressBarModule, MatInputModule,
+        MatSnackBarModule, MatMenuModule, MatProgressSpinnerModule, MatDatepickerModule,
+        MatAutocompleteModule, MatTableModule, MatDialogModule, MatTabsModule,
+        MatTooltipModule, MatSelectModule, MatPaginatorModule, MatChipsModule,
+        MatButtonToggleModule, MatSlideToggleModule, MatBadgeModule, MatCheckboxModule,
+        MatExpansionModule, SelectCheckAllComponent, DragDropModule, MatSortModule
+    ],
+    providers: [
+        {
+            provide: MAT_DATE_FORMATS,
+            useValue: MY_FORMATS
+        },
+        { provide: LOCALE_ID, useValue: 'en-us' }
+    ]
 })
 export class CustomMaterialModule {
   static forRoot() {

@@ -1,17 +1,25 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef as MatDialogRef } from '@angular/material/dialog';
+import { FormControl, FormGroup, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef as MatDialogRef, MatDialogModule } from '@angular/material/dialog';
 import { Account } from 'src/app/core/model/account';
 import { ADMIN } from 'src/app/core/model/roles';
 import { BaseUser, User, UserHelper } from 'src/app/core/model/user';
 import { AccountService } from 'src/app/core/services/account.service';
 import { AuthenticationService } from 'src/app/core/services/auth.service';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-edit-account-dialog',
-  templateUrl: './edit-account-dialog.component.html',
-  styleUrls: ['./edit-account-dialog.component.css']
+    selector: 'app-edit-account-dialog',
+    templateUrl: './edit-account-dialog.component.html',
+    styleUrls: ['./edit-account-dialog.component.css'],
+    standalone: true,
+    imports: [FormsModule, ReactiveFormsModule, MatDialogModule, NgIf, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule, MatProgressSpinnerModule]
 })
 export class EditAccountDialogComponent implements OnInit {
   saving = false;

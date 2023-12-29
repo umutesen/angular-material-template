@@ -13,11 +13,33 @@ import { Song } from "src/app/core/model/song";
 import { take } from "rxjs";
 import { FormControl } from "@angular/forms";
 import { AuthenticationService } from "src/app/core/services/auth.service";
+import { MatOptionModule } from "@angular/material/core";
+import { MatSelectModule } from "@angular/material/select";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { NgIf, NgFor } from "@angular/common";
+import { MatIconModule } from "@angular/material/icon";
+import { MatButtonModule } from "@angular/material/button";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatCardModule } from "@angular/material/card";
+import { FlexModule } from "@angular/flex-layout/flex";
 
 @Component({
-  selector: "app-lyrics",
-  templateUrl: "./lyrics.component.html",
-  styleUrls: ["./lyrics.component.css"],
+    selector: "app-lyrics",
+    templateUrl: "./lyrics.component.html",
+    styleUrls: ["./lyrics.component.css"],
+    standalone: true,
+    imports: [
+        FlexModule,
+        MatCardModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatIconModule,
+        NgIf,
+        MatFormFieldModule,
+        MatSelectModule,
+        NgFor,
+        MatOptionModule,
+    ],
 })
 export class LyricsComponent {
   accountId?: string;

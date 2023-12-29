@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { MatDialogRef as MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FormGroup, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDialogRef as MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 import { Timestamp } from "@angular/fire/firestore";
 import { AccountSetlist } from 'src/app/core/model/account-setlist';
 import { Setlist } from 'src/app/core/model/setlist';
@@ -8,11 +8,20 @@ import { BaseUser, UserHelper } from 'src/app/core/model/user';
 import { AuthenticationService } from 'src/app/core/services/auth.service';
 import { SetlistService } from 'src/app/core/services/setlist.service';
 import * as moment from "moment";
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-setlist-edit-dialog',
-  templateUrl: './setlist-edit-dialog.component.html',
-  styleUrls: ['./setlist-edit-dialog.component.css']
+    selector: 'app-setlist-edit-dialog',
+    templateUrl: './setlist-edit-dialog.component.html',
+    styleUrls: ['./setlist-edit-dialog.component.css'],
+    standalone: true,
+    imports: [FormsModule, ReactiveFormsModule, MatDialogModule, NgIf, MatFormFieldModule, MatInputModule, MatDatepickerModule, MatButtonModule, MatIconModule, MatProgressSpinnerModule]
 })
 export class SetlistEditDialogComponent {
   currentUser: BaseUser;

@@ -8,8 +8,8 @@ describe('LyricAddDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LyricAddDialogComponent ]
-    })
+    imports: [LyricAddDialogComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(LyricAddDialogComponent);

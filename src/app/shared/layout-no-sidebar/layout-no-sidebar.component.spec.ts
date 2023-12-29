@@ -8,8 +8,8 @@ describe('LayoutNoSidebarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LayoutNoSidebarComponent ]
-    })
+    imports: [LayoutNoSidebarComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(LayoutNoSidebarComponent);

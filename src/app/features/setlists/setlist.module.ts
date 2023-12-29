@@ -10,16 +10,14 @@ import { LyricsModule } from '../lyrics/lyrics.module';
 
 
 @NgModule({
-  imports: [
-      CommonModule,
-      SetlistRoutingModule,
-      LyricsModule,
-      SharedModule
-  ],
-  declarations: [
-      SetlistListComponent,
-      SetlistEditDialogComponent,
-      SetlistSongsListComponent,
-  ]
+    imports: [
+        CommonModule,
+        SetlistRoutingModule,
+        LyricsModule,
+        SharedModule,
+        SetlistListComponent,
+        SetlistEditDialogComponent,
+        SetlistSongsListComponent
+    ]
 })
 export class SetlistModule { }
