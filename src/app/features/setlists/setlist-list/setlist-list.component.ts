@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { SetlistEditDialogComponent } from "../setlist-edit-dialog/setlist-edit-dialog.component";
-import { MatTableDataSource } from "@angular/material/table";
+import { MatLegacyTableDataSource as MatTableDataSource } from "@angular/material/legacy-table";
 import { AccountActions, AccountState } from "src/app/core/store/account.state";
-import { MatDialog } from "@angular/material/dialog";
+import { MatLegacyDialog as MatDialog } from "@angular/material/legacy-dialog";
 import { MatSort } from "@angular/material/sort";
 import { Title } from "@angular/platform-browser";
 import { ActivatedRoute, Router } from "@angular/router";

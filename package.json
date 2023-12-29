@@ -12,19 +12,19 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^14.2.1",
-    "@angular/cdk": "^14.2.1",
-    "@angular/common": "^14.2.1",
-    "@angular/compiler": "^14.2.1",
-    "@angular/core": "^14.2.1",
+    "@angular/animations": "^16.2.12",
+    "@angular/cdk": "^15.2.9",
+    "@angular/common": "^16.2.12",
+    "@angular/compiler": "^16.2.12",
+    "@angular/core": "^16.2.12",
     "@angular/fire": "^7.6.1",
     "@angular/flex-layout": "^14.0.0-beta.40",
-    "@angular/forms": "^14.2.1",
-    "@angular/material": "^14.2.1",
-    "@angular/material-moment-adapter": "^14.2.1",
-    "@angular/platform-browser": "^14.2.1",
-    "@angular/platform-browser-dynamic": "^14.2.1",
-    "@angular/router": "^14.2.1",
+    "@angular/forms": "^16.2.12",
+    "@angular/material": "^15.2.9",
+    "@angular/material-moment-adapter": "^15.2.9",
+    "@angular/platform-browser": "^16.2.12",
+    "@angular/platform-browser-dynamic": "^16.2.12",
+    "@angular/router": "^16.2.12",
     "@ngrx/store": "^14.0.0",
     "@ngxs/storage-plugin": "^3.8.2",
     "@ngxs/store": "^3.8.1",
@@ -37,7 +37,7 @@
     "ngx-logger": "^5.0.7",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.13.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^15.2.10",
@@ -47,7 +47,7 @@
     "@angular-eslint/schematics": "14.1.1",
     "@angular-eslint/template-parser": "14.1.1",
     "@angular/cli": "^15.2.10",
-    "@angular/compiler-cli": "^14.2.1",
+    "@angular/compiler-cli": "^16.2.12",
     "@types/jasmine": "~3.10.0",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^12.11.1",
@@ -60,6 +60,6 @@
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
-    "typescript": "~4.8.3"
+    "typescript": "~5.1.6"
   }
 }

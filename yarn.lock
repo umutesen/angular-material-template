@@ -7,7 +7,7 @@
   resolved "https://registry.npmjs.org/@aashutoshrathi/word-wrap/-/word-wrap-1.2.6.tgz"
   integrity sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==
 
-"@ampproject/remapping@^2.1.0", "@ampproject/remapping@2.2.0":
+"@ampproject/remapping@^2.1.0", "@ampproject/remapping@^2.2.0", "@ampproject/remapping@2.2.0":
   version "2.2.0"
   resolved "https://registry.npmjs.org/@ampproject/remapping/-/remapping-2.2.0.tgz"
   integrity sha512-qRmjj8nj9qmLTQXXmaR1cck3UXSRMPrbsLJAasZpF+t3riI71BXed5ebIOYwQntykeZuhjsdweEc9BxH5Jc26w==
@@ -180,21 +180,21 @@
     "@angular-eslint/bundled-angular-compiler" "14.1.1"
     "@typescript-eslint/utils" "5.37.0"
 
-"@angular/animations@^14.0.0 || ^15.0.0", "@angular/animations@^14.2.1", "@angular/animations@14.3.0":
-  version "14.3.0"
-  resolved "https://registry.npmjs.org/@angular/animations/-/animations-14.3.0.tgz"
-  integrity sha512-QoBcIKy1ZiU+4qJsAh5Ls20BupWiXiZzKb0s6L9/dntPt5Msr4Ao289XR2P6O1L+kTsCprH9Kt41zyGQ/bkRqg==
+"@angular/animations@^15.0.0 || ^16.0.0", "@angular/animations@^16.2.12", "@angular/animations@16.2.12":
+  version "16.2.12"
+  resolved "https://registry.npmjs.org/@angular/animations/-/animations-16.2.12.tgz"
+  integrity sha512-MD0ElviEfAJY8qMOd6/jjSSvtqER2RDAi0lxe6EtUacC1DHCYkaPrKW4vLqY+tmZBg1yf+6n+uS77pXcHHcA3w==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/cdk@^14.0.0", "@angular/cdk@^14.2.1", "@angular/cdk@14.2.7":
-  version "14.2.7"
-  resolved "https://registry.npmjs.org/@angular/cdk/-/cdk-14.2.7.tgz"
-  integrity sha512-/tEsYaUbDSnfEmKVvAMramIptmhI67O+9STjOV0i+74XR2NospeK0fkbywIANu1n3w6AHGMotvRWJrjmbCElFg==
+"@angular/cdk@^14.0.0", "@angular/cdk@^15.2.9", "@angular/cdk@15.2.9":
+  version "15.2.9"
+  resolved "https://registry.npmjs.org/@angular/cdk/-/cdk-15.2.9.tgz"
+  integrity sha512-koaM07N1AIQ5oHU27l0/FoQSSoYAwlAYwVZ4Di3bYrJsTBNCN2Xsby7wI8gZxdepMnV4Fe9si382BDBov+oO4Q==
   dependencies:
     tslib "^2.3.0"
   optionalDependencies:
-    parse5 "^5.0.0"
+    parse5 "^7.1.2"
 
 "@angular/cli@^15.2.10", "@angular/cli@>= 14.0.0 < 15.0.0":
   version "15.2.10"
@@ -220,40 +220,38 @@
     symbol-observable "4.0.0"
     yargs "17.6.2"
 
-"@angular/common@^12.0.0 || ^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "@angular/common@^14.0.0", "@angular/common@^14.0.0 || ^15.0.0", "@angular/common@^14.2.1", "@angular/common@14.3.0":
-  version "14.3.0"
-  resolved "https://registry.npmjs.org/@angular/common/-/common-14.3.0.tgz"
-  integrity sha512-pV9oyG3JhGWeQ+TFB0Qub6a1VZWMNZ6/7zEopvYivdqa5yDLLDSBRWb6P80RuONXyGnM1pa7l5nYopX+r/23GQ==
+"@angular/common@^12.0.0 || ^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "@angular/common@^14.0.0", "@angular/common@^15.0.0 || ^16.0.0", "@angular/common@^16.2.12", "@angular/common@16.2.12":
+  version "16.2.12"
+  resolved "https://registry.npmjs.org/@angular/common/-/common-16.2.12.tgz"
+  integrity sha512-B+WY/cT2VgEaz9HfJitBmgdk4I333XG/ybC98CMC4Wz8E49T8yzivmmxXB3OD6qvjcOB6ftuicl6WBqLbZNg2w==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/compiler-cli@^14.2.1", "@angular/compiler-cli@^15.0.0":
-  version "14.3.0"
-  resolved "https://registry.npmjs.org/@angular/compiler-cli/-/compiler-cli-14.3.0.tgz"
-  integrity sha512-eoKpKdQ2X6axMgzcPUMZVYl3bIlTMzMeTo5V29No4BzgiUB+QoOTYGNJZkGRyqTNpwD9uSBJvmT2vG9+eC4ghQ==
+"@angular/compiler-cli@^15.0.0", "@angular/compiler-cli@^16.2.12":
+  version "16.2.12"
+  resolved "https://registry.npmjs.org/@angular/compiler-cli/-/compiler-cli-16.2.12.tgz"
+  integrity sha512-pWSrr152562ujh6lsFZR8NfNc5Ljj+zSTQO44DsuB0tZjwEpnRcjJEgzuhGXr+CoiBf+jTSPZKemtSktDk5aaA==
   dependencies:
-    "@babel/core" "^7.17.2"
+    "@babel/core" "7.23.2"
+    "@jridgewell/sourcemap-codec" "^1.4.14"
     chokidar "^3.0.0"
     convert-source-map "^1.5.1"
-    dependency-graph "^0.11.0"
-    magic-string "^0.26.0"
     reflect-metadata "^0.1.2"
     semver "^7.0.0"
-    sourcemap-codec "^1.4.8"
     tslib "^2.3.0"
     yargs "^17.2.1"
 
-"@angular/compiler@^14.2.1", "@angular/compiler@14.3.0":
-  version "14.3.0"
-  resolved "https://registry.npmjs.org/@angular/compiler/-/compiler-14.3.0.tgz"
-  integrity sha512-E15Rh0t3vA+bctbKnBCaDmLvc3ix+ZBt6yFZmhZalReQ+KpOlvOJv+L9oiFEgg+rYVl2QdvN7US1fvT0PqswLw==
+"@angular/compiler@^16.2.12", "@angular/compiler@16.2.12":
+  version "16.2.12"
+  resolved "https://registry.npmjs.org/@angular/compiler/-/compiler-16.2.12.tgz"
+  integrity sha512-6SMXUgSVekGM7R6l1Z9rCtUGtlg58GFmgbpMCsGf+VXxP468Njw8rjT2YZkf5aEPxEuRpSHhDYjqz7n14cwCXQ==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/core@^12.0.0 || ^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "@angular/core@^14.0.0", "@angular/core@^14.0.0 || ^15.0.0", "@angular/core@^14.2.1", "@angular/core@>=12.0.0 <18.0.0", "@angular/core@14.3.0":
-  version "14.3.0"
-  resolved "https://registry.npmjs.org/@angular/core/-/core-14.3.0.tgz"
-  integrity sha512-wYiwItc0Uyn4FWZ/OAx/Ubp2/WrD3EgUJ476y1XI7yATGPF8n9Ld5iCXT08HOvc4eBcYlDfh90kTXR6/MfhzdQ==
+"@angular/core@^12.0.0 || ^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "@angular/core@^14.0.0", "@angular/core@^15.0.0 || ^16.0.0", "@angular/core@^16.2.12", "@angular/core@>=12.0.0 <18.0.0", "@angular/core@16.2.12":
+  version "16.2.12"
+  resolved "https://registry.npmjs.org/@angular/core/-/core-16.2.12.tgz"
+  integrity sha512-GLLlDeke/NjroaLYOks0uyzFVo6HyLl7VOm0K1QpLXnYvW63W9Ql/T3yguRZa7tRkOAeFZ3jw+1wnBD4O8MoUA==
   dependencies:
     tslib "^2.3.0"
 
@@ -286,45 +284,92 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/forms@^14.0.0 || ^15.0.0", "@angular/forms@^14.2.1":
-  version "14.3.0"
-  resolved "https://registry.npmjs.org/@angular/forms/-/forms-14.3.0.tgz"
-  integrity sha512-fBZZC2UFMom2AZPjGQzROPXFWO6kvCsPDKctjJwClVC8PuMrkm+RRyiYRdBbt2qxWHEqOZM2OCQo73xUyZOYHw==
+"@angular/forms@^15.0.0 || ^16.0.0", "@angular/forms@^16.2.12":
+  version "16.2.12"
+  resolved "https://registry.npmjs.org/@angular/forms/-/forms-16.2.12.tgz"
+  integrity sha512-1Eao89hlBgLR3v8tU91vccn21BBKL06WWxl7zLpQmG6Hun+2jrThgOE4Pf3os4fkkbH4Apj0tWL2fNIWe/blbw==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/material-moment-adapter@^14.2.1":
-  version "14.2.7"
-  resolved "https://registry.npmjs.org/@angular/material-moment-adapter/-/material-moment-adapter-14.2.7.tgz"
-  integrity sha512-uadhugTqgETxCTis4da/TpYfIUQDQSfGAxgH1n93eFNhGdW+aof3T4uKcbZ5d18RzU+lgO6RELuPnWW2PPlmCA==
+"@angular/material-moment-adapter@^15.2.9":
+  version "15.2.9"
+  resolved "https://registry.npmjs.org/@angular/material-moment-adapter/-/material-moment-adapter-15.2.9.tgz"
+  integrity sha512-DHG8z8DG1/+oO/bRC/k+1nXwRGg0qDsCEYulUoEUtpYmQRHj8Tid/9V2JiibYqTh4s0DJeAnx64CAO9K/k9EZg==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/material@^14.2.1", "@angular/material@14.2.7":
-  version "14.2.7"
-  resolved "https://registry.npmjs.org/@angular/material/-/material-14.2.7.tgz"
-  integrity sha512-WXHh8pEStpgkXZJmYOg2cI8BSHkV82ET4XTJCNPdveumaCn1UYnaNzsXD13kw5z+zmy8CufhFEzdXTrv/yt7KQ==
+"@angular/material@^15.2.9", "@angular/material@15.2.9":
+  version "15.2.9"
+  resolved "https://registry.npmjs.org/@angular/material/-/material-15.2.9.tgz"
+  integrity sha512-emuFF/7+91Jq+6kVCl3FiVoFLtAZoh+woFQWNuK8nhx0HmD4ckLFI8d9a6ERYR3zRuKhq5deSRE2kYsfpjrrsQ==
+  dependencies:
+    "@material/animation" "15.0.0-canary.684e33d25.0"
+    "@material/auto-init" "15.0.0-canary.684e33d25.0"
+    "@material/banner" "15.0.0-canary.684e33d25.0"
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/button" "15.0.0-canary.684e33d25.0"
+    "@material/card" "15.0.0-canary.684e33d25.0"
+    "@material/checkbox" "15.0.0-canary.684e33d25.0"
+    "@material/chips" "15.0.0-canary.684e33d25.0"
+    "@material/circular-progress" "15.0.0-canary.684e33d25.0"
+    "@material/data-table" "15.0.0-canary.684e33d25.0"
+    "@material/density" "15.0.0-canary.684e33d25.0"
+    "@material/dialog" "15.0.0-canary.684e33d25.0"
+    "@material/dom" "15.0.0-canary.684e33d25.0"
+    "@material/drawer" "15.0.0-canary.684e33d25.0"
+    "@material/elevation" "15.0.0-canary.684e33d25.0"
+    "@material/fab" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/floating-label" "15.0.0-canary.684e33d25.0"
+    "@material/form-field" "15.0.0-canary.684e33d25.0"
+    "@material/icon-button" "15.0.0-canary.684e33d25.0"
+    "@material/image-list" "15.0.0-canary.684e33d25.0"
+    "@material/layout-grid" "15.0.0-canary.684e33d25.0"
+    "@material/line-ripple" "15.0.0-canary.684e33d25.0"
+    "@material/linear-progress" "15.0.0-canary.684e33d25.0"
+    "@material/list" "15.0.0-canary.684e33d25.0"
+    "@material/menu" "15.0.0-canary.684e33d25.0"
+    "@material/menu-surface" "15.0.0-canary.684e33d25.0"
+    "@material/notched-outline" "15.0.0-canary.684e33d25.0"
+    "@material/radio" "15.0.0-canary.684e33d25.0"
+    "@material/ripple" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    "@material/segmented-button" "15.0.0-canary.684e33d25.0"
+    "@material/select" "15.0.0-canary.684e33d25.0"
+    "@material/shape" "15.0.0-canary.684e33d25.0"
+    "@material/slider" "15.0.0-canary.684e33d25.0"
+    "@material/snackbar" "15.0.0-canary.684e33d25.0"
+    "@material/switch" "15.0.0-canary.684e33d25.0"
+    "@material/tab" "15.0.0-canary.684e33d25.0"
+    "@material/tab-bar" "15.0.0-canary.684e33d25.0"
+    "@material/tab-indicator" "15.0.0-canary.684e33d25.0"
+    "@material/tab-scroller" "15.0.0-canary.684e33d25.0"
+    "@material/textfield" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    "@material/tooltip" "15.0.0-canary.684e33d25.0"
+    "@material/top-app-bar" "15.0.0-canary.684e33d25.0"
+    "@material/touch-target" "15.0.0-canary.684e33d25.0"
+    "@material/typography" "15.0.0-canary.684e33d25.0"
+    tslib "^2.3.0"
+
+"@angular/platform-browser-dynamic@^12.0.0 || ^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "@angular/platform-browser-dynamic@^16.2.12":
+  version "16.2.12"
+  resolved "https://registry.npmjs.org/@angular/platform-browser-dynamic/-/platform-browser-dynamic-16.2.12.tgz"
+  integrity sha512-ya54jerNgreCVAR278wZavwjrUWImMr2F8yM5n9HBvsMBbFaAQ83anwbOEiHEF2BlR+gJiEBLfpuPRMw20pHqw==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/platform-browser-dynamic@^12.0.0 || ^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "@angular/platform-browser-dynamic@^14.2.1":
-  version "14.3.0"
-  resolved "https://registry.npmjs.org/@angular/platform-browser-dynamic/-/platform-browser-dynamic-14.3.0.tgz"
-  integrity sha512-rneZiMrIiYRhrkQvdL40E2ErKRn4Zdo6EtjBM9pAmWeyoM8oMnOZb9gz5vhrkNWg06kVMVg0yKqluP5How7j3A==
+"@angular/platform-browser@^12.0.0 || ^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "@angular/platform-browser@^14.0.0", "@angular/platform-browser@^15.0.0 || ^16.0.0", "@angular/platform-browser@^16.2.12", "@angular/platform-browser@16.2.12":
+  version "16.2.12"
+  resolved "https://registry.npmjs.org/@angular/platform-browser/-/platform-browser-16.2.12.tgz"
+  integrity sha512-NnH7ju1iirmVEsUq432DTm0nZBGQsBrU40M3ZeVHMQ2subnGiyUs3QyzDz8+VWLL/T5xTxWLt9BkDn65vgzlIQ==
   dependencies:
     tslib "^2.3.0"
 
-"@angular/platform-browser@^12.0.0 || ^13.0.0 || ^14.0.0 || ^15.0.0 || ^16.0.0", "@angular/platform-browser@^14.0.0", "@angular/platform-browser@^14.0.0 || ^15.0.0", "@angular/platform-browser@^14.2.1", "@angular/platform-browser@14.3.0":
-  version "14.3.0"
-  resolved "https://registry.npmjs.org/@angular/platform-browser/-/platform-browser-14.3.0.tgz"
-  integrity sha512-w9Y3740UmTz44T0Egvc+4QV9sEbO61L+aRHbpkLTJdlEGzHByZvxJmJyBYmdqeyTPwc/Zpy7c02frlpfAlyB7A==
-  dependencies:
-    tslib "^2.3.0"
-
-"@angular/router@^14.2.1":
-  version "14.3.0"
-  resolved "https://registry.npmjs.org/@angular/router/-/router-14.3.0.tgz"
-  integrity sha512-uip0V7w7k7xyxxpTPbr7EuMnYLj3FzJrwkLVJSEw3TMMGHt5VU5t4BBa9veGZOta2C205XFrTAHnp8mD+XYY1w==
+"@angular/router@^16.2.12":
+  version "16.2.12"
+  resolved "https://registry.npmjs.org/@angular/router/-/router-16.2.12.tgz"
+  integrity sha512-aU6QnYSza005V9P3W6PpkieL56O0IHps96DjqI1RS8yOJUl3THmokqYN4Fm5+HXy4f390FN9i6ftadYQDKeWmA==
   dependencies:
     tslib "^2.3.0"
 
@@ -356,7 +401,7 @@
   resolved "https://registry.npmjs.org/@babel/compat-data/-/compat-data-7.23.2.tgz"
   integrity sha512-0S9TQMmDHlqAZ2ITT95irXKfxN9bncq8ZCoJhun3nHL/lLUxd2NKBJYoNGWH7S0hz6fRQwWlAWn/ILM0C70KZQ==
 
-"@babel/core@^7.0.0", "@babel/core@^7.0.0-0", "@babel/core@^7.0.0-0 || ^8.0.0-0 <8.0.0", "@babel/core@^7.12.0", "@babel/core@^7.12.3", "@babel/core@^7.13.0", "@babel/core@^7.17.2", "@babel/core@^7.4.0-0", "@babel/core@^7.7.5", "@babel/core@7.20.12":
+"@babel/core@^7.0.0", "@babel/core@^7.0.0-0", "@babel/core@^7.0.0-0 || ^8.0.0-0 <8.0.0", "@babel/core@^7.12.0", "@babel/core@^7.12.3", "@babel/core@^7.13.0", "@babel/core@^7.4.0-0", "@babel/core@^7.7.5", "@babel/core@7.20.12":
   version "7.20.12"
   resolved "https://registry.npmjs.org/@babel/core/-/core-7.20.12.tgz"
   integrity sha512-XsMfHovsUYHFMdrIHkZphTN/2Hzzi78R08NuHfDBehym2VsPDL6Zn/JAD/JQdnRvbSsbQc4mVaU1m6JgtTEElg==
@@ -377,6 +422,27 @@
     json5 "^2.2.2"
     semver "^6.3.0"
 
+"@babel/core@7.23.2":
+  version "7.23.2"
+  resolved "https://registry.npmjs.org/@babel/core/-/core-7.23.2.tgz"
+  integrity sha512-n7s51eWdaWZ3vGT2tD4T7J6eJs3QoBXydv7vkUM06Bf1cbVD2Kc2UrkzhiQwobfV7NwOnQXYL7UBJ5VPU+RGoQ==
+  dependencies:
+    "@ampproject/remapping" "^2.2.0"
+    "@babel/code-frame" "^7.22.13"
+    "@babel/generator" "^7.23.0"
+    "@babel/helper-compilation-targets" "^7.22.15"
+    "@babel/helper-module-transforms" "^7.23.0"
+    "@babel/helpers" "^7.23.2"
+    "@babel/parser" "^7.23.0"
+    "@babel/template" "^7.22.15"
+    "@babel/traverse" "^7.23.2"
+    "@babel/types" "^7.23.0"
+    convert-source-map "^2.0.0"
+    debug "^4.1.0"
+    gensync "^1.0.0-beta.2"
+    json5 "^2.2.3"
+    semver "^6.3.1"
+
 "@babel/generator@^7.20.7", "@babel/generator@7.20.14":
   version "7.20.14"
   resolved "https://registry.npmjs.org/@babel/generator/-/generator-7.20.14.tgz"
@@ -387,11 +453,11 @@
     jsesc "^2.5.1"
 
 "@babel/generator@^7.23.0":
-  version "7.23.0"
-  resolved "https://registry.npmjs.org/@babel/generator/-/generator-7.23.0.tgz"
-  integrity sha512-lN85QRR+5IbYrMWM6Y4pE/noaQtg4pNiqeNGX60eqOfo6gtEj6uw/JagelB8vVztSd7R6M5n1+PQkDbHbBRU4g==
+  version "7.23.6"
+  resolved "https://registry.npmjs.org/@babel/generator/-/generator-7.23.6.tgz"
+  integrity sha512-qrSfCYxYQB5owCmGLbl8XRpX1ytXlpueOb0N0UmQwA073KZxejgQTzAmJezxvpwQD9uGtK2shHdi55QT+MbjIw==
   dependencies:
-    "@babel/types" "^7.23.0"
+    "@babel/types" "^7.23.6"
     "@jridgewell/gen-mapping" "^0.3.2"
     "@jridgewell/trace-mapping" "^0.3.17"
     jsesc "^2.5.1"
@@ -498,7 +564,7 @@
   dependencies:
     "@babel/types" "^7.22.15"
 
-"@babel/helper-module-transforms@^7.20.11", "@babel/helper-module-transforms@^7.23.3":
+"@babel/helper-module-transforms@^7.20.11", "@babel/helper-module-transforms@^7.23.0", "@babel/helper-module-transforms@^7.23.3":
   version "7.23.3"
   resolved "https://registry.npmjs.org/@babel/helper-module-transforms/-/helper-module-transforms-7.23.3.tgz"
   integrity sha512-7bBs4ED9OmswdfDzpz4MpWgSrV7FXlc3zIagvLFjS5H+Mk7Snr21vQ6QwrsoCGMfNC4e4LQPdoULEt4ykz0SRQ==
@@ -567,10 +633,10 @@
   dependencies:
     "@babel/types" "^7.18.6"
 
-"@babel/helper-string-parser@^7.22.5":
-  version "7.22.5"
-  resolved "https://registry.npmjs.org/@babel/helper-string-parser/-/helper-string-parser-7.22.5.tgz"
-  integrity sha512-mM4COjgZox8U+JcXQwPijIZLElkgEpO5rsERVDJTc2qfCDfERyob6k5WegS14SX18IIjv+XD+GrqNumY5JRCDw==
+"@babel/helper-string-parser@^7.23.4":
+  version "7.23.4"
+  resolved "https://registry.npmjs.org/@babel/helper-string-parser/-/helper-string-parser-7.23.4.tgz"
+  integrity sha512-803gmbQdqwdf4olxrX4AJyFBV/RTr3rSmOj0rKwesmzlfhYNDEs+/iOcznzpNWlJlIlTJC2QfPFcHB6DlzdVLQ==
 
 "@babel/helper-validator-identifier@^7.22.20":
   version "7.22.20"
@@ -591,7 +657,7 @@
     "@babel/template" "^7.22.15"
     "@babel/types" "^7.22.19"
 
-"@babel/helpers@^7.20.7":
+"@babel/helpers@^7.20.7", "@babel/helpers@^7.23.2":
   version "7.23.2"
   resolved "https://registry.npmjs.org/@babel/helpers/-/helpers-7.23.2.tgz"
   integrity sha512-lzchcp8SjTSVe/fPmLwtWVBFC7+Tbn8LGHDVfDp9JGxpAY5opSaEFgt8UQvrnECWOTdji2mOWMz1rOhkHscmGQ==
@@ -1275,12 +1341,12 @@
     debug "^4.1.0"
     globals "^11.1.0"
 
-"@babel/types@^7.18.6", "@babel/types@^7.20.2", "@babel/types@^7.20.7", "@babel/types@^7.22.15", "@babel/types@^7.22.19", "@babel/types@^7.22.5", "@babel/types@^7.23.0", "@babel/types@^7.4.4":
-  version "7.23.0"
-  resolved "https://registry.npmjs.org/@babel/types/-/types-7.23.0.tgz"
-  integrity sha512-0oIyUfKoI3mSqMvsxBdclDwxXKXAUA8v/apZbc+iSyARYou1o8ZGDxbUYyLFoW2arqS2jDGqJuZvv1d/io1axg==
+"@babel/types@^7.18.6", "@babel/types@^7.20.2", "@babel/types@^7.20.7", "@babel/types@^7.22.15", "@babel/types@^7.22.19", "@babel/types@^7.22.5", "@babel/types@^7.23.0", "@babel/types@^7.23.6", "@babel/types@^7.4.4":
+  version "7.23.6"
+  resolved "https://registry.npmjs.org/@babel/types/-/types-7.23.6.tgz"
+  integrity sha512-+uarb83brBzPKN38NX1MkB6vb6+mwvR6amUulqAE7ccQw1pEl+bCia9TbdG1lsnFP7lZySvUn37CHyXQdfTwzg==
   dependencies:
-    "@babel/helper-string-parser" "^7.22.5"
+    "@babel/helper-string-parser" "^7.23.4"
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
@@ -2139,6 +2205,707 @@
   version "2.0.4"
   resolved "https://registry.npmjs.org/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
+
+"@material/animation@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/animation/-/animation-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-5osi1z4JQIXcklPALbH/zTfOm2pDzHt9Fxm7ZyURy250xIZj6QjULRzPTnzOhC2ropfix9ra2Cfggbf0dcRbEQ==
+  dependencies:
+    tslib "^2.1.0"
+
+"@material/auto-init@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/auto-init/-/auto-init-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-OigQTmrVzkcGvxNjOaIe5oItTFPgrO9xLewvharDI6m6yvO1z7OBnkcW+sFN6ggLNYNxd0O1u9v64vMsmeDABQ==
+  dependencies:
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/banner@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/banner/-/banner-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-PqtGp3KWzdu58rWv/DIvSfe38m5YKOBbAAbBinSvgadBb/da+IE1t5F7YPNKE1T5lJsQBGVUYx6QBIeXm+aI/A==
+  dependencies:
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/button" "15.0.0-canary.684e33d25.0"
+    "@material/dom" "15.0.0-canary.684e33d25.0"
+    "@material/elevation" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/ripple" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    "@material/shape" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    "@material/tokens" "15.0.0-canary.684e33d25.0"
+    "@material/typography" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/base@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/base/-/base-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-oOaqb/SfjWwTKsdJUZmeh/Qrs41nIJI0N+zELsxnvbGjSIN1ZMAKYZFPMahqvC68OJ6+5CvJM8PoTNs5l+B8IQ==
+  dependencies:
+    tslib "^2.1.0"
+
+"@material/button@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/button/-/button-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-Nkekk4edeX+ObVOa7UlwavaHdmckPV5wU4SAJf3iA3R61cmz+KsgAgpzfcwv5WfNhIlc2nLu8QYEecpHdo9d/w==
+  dependencies:
+    "@material/density" "15.0.0-canary.684e33d25.0"
+    "@material/dom" "15.0.0-canary.684e33d25.0"
+    "@material/elevation" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/focus-ring" "15.0.0-canary.684e33d25.0"
+    "@material/ripple" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    "@material/shape" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    "@material/tokens" "15.0.0-canary.684e33d25.0"
+    "@material/touch-target" "15.0.0-canary.684e33d25.0"
+    "@material/typography" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/card@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/card/-/card-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-xhyB7XX5KkEiCEqwSPkl58ZGYL6xFdnY62zimyBXJRG/Eaa0Swj3kW20hVCpt4f7c9Zmp8Se27rg8vnKmhvO3g==
+  dependencies:
+    "@material/dom" "15.0.0-canary.684e33d25.0"
+    "@material/elevation" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/ripple" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    "@material/shape" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    "@material/tokens" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/checkbox@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/checkbox/-/checkbox-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-NFpM3TS924PmVsk2KQLNU95OYCf8ZwYgzeqfnAexU0bEfjUJXINBun2Go0AaeOUMjuvWUe+byjrXgv8SFYbMUA==
+  dependencies:
+    "@material/animation" "15.0.0-canary.684e33d25.0"
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/density" "15.0.0-canary.684e33d25.0"
+    "@material/dom" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/focus-ring" "15.0.0-canary.684e33d25.0"
+    "@material/ripple" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    "@material/touch-target" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/chips@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/chips/-/chips-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-z4ajQ4NnsAQ/Si9tZ4xmxzjj2Qb+vW++4QjCjjjwAGIZbCe0xglAnMh2t66XLJUxt7RoKZuZVEO7ZqcFZpvJFQ==
+  dependencies:
+    "@material/animation" "15.0.0-canary.684e33d25.0"
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/checkbox" "15.0.0-canary.684e33d25.0"
+    "@material/density" "15.0.0-canary.684e33d25.0"
+    "@material/dom" "15.0.0-canary.684e33d25.0"
+    "@material/elevation" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/focus-ring" "15.0.0-canary.684e33d25.0"
+    "@material/ripple" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    "@material/shape" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    "@material/tokens" "15.0.0-canary.684e33d25.0"
+    "@material/touch-target" "15.0.0-canary.684e33d25.0"
+    "@material/typography" "15.0.0-canary.684e33d25.0"
+    safevalues "^0.3.4"
+    tslib "^2.1.0"
+
+"@material/circular-progress@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/circular-progress/-/circular-progress-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-G6qD0nGNtEUwWnAMJuA9INYFpZoKtx7KFjBaPF4Ol2YLHtmShALNAYyn54TMAK8AZ2IpW08PXjGS7Ye88vrdEQ==
+  dependencies:
+    "@material/animation" "15.0.0-canary.684e33d25.0"
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/dom" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/progress-indicator" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/data-table@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/data-table/-/data-table-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-+wDw1DDDFfAsKAMzs84f/5GCjux39zjNfW8tL4wFbkWNwewmQrG9zaQMJhBpVOtLCrM8Gj6SOgOANqgqoCjvGg==
+  dependencies:
+    "@material/animation" "15.0.0-canary.684e33d25.0"
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/checkbox" "15.0.0-canary.684e33d25.0"
+    "@material/density" "15.0.0-canary.684e33d25.0"
+    "@material/dom" "15.0.0-canary.684e33d25.0"
+    "@material/elevation" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/icon-button" "15.0.0-canary.684e33d25.0"
+    "@material/linear-progress" "15.0.0-canary.684e33d25.0"
+    "@material/list" "15.0.0-canary.684e33d25.0"
+    "@material/menu" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    "@material/select" "15.0.0-canary.684e33d25.0"
+    "@material/shape" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    "@material/tokens" "15.0.0-canary.684e33d25.0"
+    "@material/touch-target" "15.0.0-canary.684e33d25.0"
+    "@material/typography" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/density@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/density/-/density-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-661yEVRMGrlq6S6WuSbPRO+ZwpdUOg2glCc7y96doM6itSLOa3UEAldjOLfsYZVB74GnKCiuDp//QmfoRyYTfA==
+  dependencies:
+    tslib "^2.1.0"
+
+"@material/dialog@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/dialog/-/dialog-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-szn0dHnfeQTSOC6SSRSGAzX6Tnx+4NnSMUwNkXm+3bwjds8ZVK26+DXwLrP5f3ID5F1K5sFsRf2INo5/TNTHyQ==
+  dependencies:
+    "@material/animation" "15.0.0-canary.684e33d25.0"
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/button" "15.0.0-canary.684e33d25.0"
+    "@material/dom" "15.0.0-canary.684e33d25.0"
+    "@material/elevation" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/icon-button" "15.0.0-canary.684e33d25.0"
+    "@material/ripple" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    "@material/shape" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    "@material/tokens" "15.0.0-canary.684e33d25.0"
+    "@material/touch-target" "15.0.0-canary.684e33d25.0"
+    "@material/typography" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/dom@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/dom/-/dom-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-7pEJLYov+tGgfuD8mZxoVU6rWtPI8ppjTAhz+F27Hz9FG0JETMWTKpDPBXLnKvX7vhIxL83GvZ9geNHCe8Hfog==
+  dependencies:
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/drawer@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/drawer/-/drawer-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-/KMckLf1PYU/H3PXnS4e0aFl03qG3JlSv4LGgX6juJufcONqGTl/m63EMO/L/eUy6H1CRrXmVDjik/jzHLyDhg==
+  dependencies:
+    "@material/animation" "15.0.0-canary.684e33d25.0"
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/dom" "15.0.0-canary.684e33d25.0"
+    "@material/elevation" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/list" "15.0.0-canary.684e33d25.0"
+    "@material/ripple" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    "@material/shape" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    "@material/typography" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/elevation@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/elevation/-/elevation-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-WDF8SsRtq3rXUbVVbd9K4DUijIPH0bUFSOreVYxudpuxAfTlDS5+aeS1EK9UIBFYLuba4u5wVT2tDv6e1RTfrQ==
+  dependencies:
+    "@material/animation" "15.0.0-canary.684e33d25.0"
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/fab@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/fab/-/fab-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-KCu87rWOKEAe9vZcAm6K8XazYSWPNjMG+OhrbPjHW6bCO7as1YCgtmkBkhff7csY/rFmcVpIy884xtUfLmSudQ==
+  dependencies:
+    "@material/animation" "15.0.0-canary.684e33d25.0"
+    "@material/dom" "15.0.0-canary.684e33d25.0"
+    "@material/elevation" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/focus-ring" "15.0.0-canary.684e33d25.0"
+    "@material/ripple" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    "@material/shape" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    "@material/tokens" "15.0.0-canary.684e33d25.0"
+    "@material/touch-target" "15.0.0-canary.684e33d25.0"
+    "@material/typography" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/feature-targeting@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/feature-targeting/-/feature-targeting-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-HyH1erNTSjS63sigNSUMaCd0nJhTNdDFeC+myrxwtDaQm+uYJ8troCNtQM3g6mx0XATNtX5aTOoPmrM6yVVi1A==
+  dependencies:
+    tslib "^2.1.0"
+
+"@material/floating-label@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/floating-label/-/floating-label-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-f7TPp6bKpGvV3sYYiZHSGlrixXKkXXITW3Esp7KB9jRq42c0H82novmdwvY0eTef4ootmA2JEysr78KQfHBUPg==
+  dependencies:
+    "@material/animation" "15.0.0-canary.684e33d25.0"
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/dom" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    "@material/typography" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/focus-ring@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/focus-ring/-/focus-ring-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-ikw2RVUfgzXChpWIzPH1VzRvTjYb5ZKj4H+CZf7jqPUXMstFOZg90Bp7ARLZHqYiyNMuUq3zUTHozS6iHorSqg==
+  dependencies:
+    "@material/dom" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+
+"@material/form-field@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/form-field/-/form-field-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-vpF9N/uq5no/7+8GAbEH0868FhOuBgxAWRr1Sfb+jthKfBr8OS/wPU/AHzZHdHdAm7PQynbeOXfDsX2dI//PDA==
+  dependencies:
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/ripple" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    "@material/typography" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/icon-button@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/icon-button/-/icon-button-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-wMI+XGzmIN/o2ePBKg2hLyx7H4pXCRAyyIKMQS1FMp1UKa2tYmiHVX/V8skhKwCqxg3i6Ls/LxMjfPxTR18WvQ==
+  dependencies:
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/density" "15.0.0-canary.684e33d25.0"
+    "@material/dom" "15.0.0-canary.684e33d25.0"
+    "@material/elevation" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/focus-ring" "15.0.0-canary.684e33d25.0"
+    "@material/ripple" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    "@material/touch-target" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/image-list@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/image-list/-/image-list-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-Ol+uaHYBe5R/cgzlfh5ONnMVX0wO6fV74JMUcQCQlxP6lXau/edARo4tkRc7A7UJUkU3VRv0EpEjLoCRNUPGaA==
+  dependencies:
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/shape" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    "@material/typography" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/layout-grid@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/layout-grid/-/layout-grid-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-ALXE1mqFNb/RB2lVRQ3/r1Aufw2mFZnOjRE+boYDVepmAG/xWyPCyaGoavELJF5l4GAb0tXi8wA/8HeGbLOpuA==
+  dependencies:
+    tslib "^2.1.0"
+
+"@material/line-ripple@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/line-ripple/-/line-ripple-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-7hRx8C/e9i0P6pgQpNOMfTwSS2r1fwEvBL72QDVGLtLuoKKwsjjgP6Z0Jat/GeHJe87u9LQvGBoD4upt+of/HA==
+  dependencies:
+    "@material/animation" "15.0.0-canary.684e33d25.0"
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/linear-progress@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/linear-progress/-/linear-progress-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-iJclt7mKmcMk6pqD7ocXKfCWZhqBoODp7N593jYlxVpTJuEz2wiVAjZUDn/YGj/Uz3CRH+2YFfOiLr9pwWjhDg==
+  dependencies:
+    "@material/animation" "15.0.0-canary.684e33d25.0"
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/dom" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/progress-indicator" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/list@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/list/-/list-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-rQ+FCSdzmwTcT00IYE0uRV3CS4oGSccKFl9hkcF+aHFW61L7ORh/SCGUDPrEfQFrFkMn5f8qroVJjpUAMXBz4g==
+  dependencies:
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/density" "15.0.0-canary.684e33d25.0"
+    "@material/dom" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/ripple" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    "@material/shape" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    "@material/tokens" "15.0.0-canary.684e33d25.0"
+    "@material/typography" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/menu-surface@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/menu-surface/-/menu-surface-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-RVO5GAYcfWPaKwxsF/NhUAmrYXQCQBKvRQW0TIlbmAJz6lcFeTs6YZqF3u1C7qrL3ZQGz+sur/7ywj6QU0oMow==
+  dependencies:
+    "@material/animation" "15.0.0-canary.684e33d25.0"
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/elevation" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    "@material/shape" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/menu@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/menu/-/menu-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-r7wzDLSGSI9629/mfpvsMzkVxpmV75kcD3IrW0Pcu6/Bv/1xi0EvjcUXzNJJoQlwN4Zj35Ymz/PCjZkIDIz68Q==
+  dependencies:
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/dom" "15.0.0-canary.684e33d25.0"
+    "@material/elevation" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/list" "15.0.0-canary.684e33d25.0"
+    "@material/menu-surface" "15.0.0-canary.684e33d25.0"
+    "@material/ripple" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    "@material/shape" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    "@material/tokens" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/notched-outline@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/notched-outline/-/notched-outline-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-9YHcBkvJLPVYzkHcWoTpBZAFrEd+j1hjhGxLhh0LuNrZe8VroUkZD1TTnUAPHRG3os6EqEWWaKb0RN+aPIF2yQ==
+  dependencies:
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/floating-label" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    "@material/shape" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/progress-indicator@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/progress-indicator/-/progress-indicator-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-c0icji4faeNWUoqGENGC7Hav0Puxh0RwXIDVizffaUxKIGbajpIp5+4Zop73fK/xFLGMB/npg7TbP+aCGjQ3fw==
+  dependencies:
+    tslib "^2.1.0"
+
+"@material/radio@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/radio/-/radio-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-U3Eh8sNUA8trDla1Bq8Bo02foxYvtoewaKeF8A8tAju81XZ4jRiftfOsOWZDZEHCVbbCB2QwvutvFlnay5n+Aw==
+  dependencies:
+    "@material/animation" "15.0.0-canary.684e33d25.0"
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/density" "15.0.0-canary.684e33d25.0"
+    "@material/dom" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/focus-ring" "15.0.0-canary.684e33d25.0"
+    "@material/ripple" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    "@material/touch-target" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/ripple@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/ripple/-/ripple-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-RyePu7SjIm/OuyyEieZ/gxiPYkNZOZHeid72WRcN9ofdlljj2pifcdPvcfZA+v/DMS33xo5GjG2L/Qj6ClWrKw==
+  dependencies:
+    "@material/animation" "15.0.0-canary.684e33d25.0"
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/dom" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/rtl@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/rtl/-/rtl-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-NqdJl8Ayupp1Th+vCNCpVQHbUFOuF7TCte9LD1norTIBUF/QizIxWby2W5uUEiPbnh5j9PmE1CJtfLwKun3pcw==
+  dependencies:
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/segmented-button@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/segmented-button/-/segmented-button-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-bEGgg8vgXNLyukyV8HRjFMuQ6t6nm5LQ4Pgm22um61Yc8qyi0BOqV41OR4SVdUrUqZxh1aVD+p+4NN03+LfQXw==
+  dependencies:
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/elevation" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/ripple" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    "@material/touch-target" "15.0.0-canary.684e33d25.0"
+    "@material/typography" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/select@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/select/-/select-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-kf178/2TeEinTv0mgmSBcmmExQ2h7a7dtR1E3WuqQgisJ/R6+zVLMkC2CnfIyzxYX2vkuUTG0ue3Reh/6XiqSg==
+  dependencies:
+    "@material/animation" "15.0.0-canary.684e33d25.0"
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/density" "15.0.0-canary.684e33d25.0"
+    "@material/dom" "15.0.0-canary.684e33d25.0"
+    "@material/elevation" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/floating-label" "15.0.0-canary.684e33d25.0"
+    "@material/line-ripple" "15.0.0-canary.684e33d25.0"
+    "@material/list" "15.0.0-canary.684e33d25.0"
+    "@material/menu" "15.0.0-canary.684e33d25.0"
+    "@material/menu-surface" "15.0.0-canary.684e33d25.0"
+    "@material/notched-outline" "15.0.0-canary.684e33d25.0"
+    "@material/ripple" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    "@material/shape" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    "@material/tokens" "15.0.0-canary.684e33d25.0"
+    "@material/typography" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/shape@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/shape/-/shape-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-aEelpaTFmpnCji3TUGP9bVCS/bRVjUmLTHBPZtuu1gOrUVVtJ6kYOg73dZNJF+XOoNL2yOX/LRcKwsop29tptA==
+  dependencies:
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/slider@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/slider/-/slider-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-WVyK+2pSNSZmj07M2K/a3TADoQ9FBCndfNC/vE7/wGIg4dddJJK5KvQ+yruf9R2cSzTL/S1sZ5WpyyeM8E9HTw==
+  dependencies:
+    "@material/animation" "15.0.0-canary.684e33d25.0"
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/dom" "15.0.0-canary.684e33d25.0"
+    "@material/elevation" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/ripple" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    "@material/tokens" "15.0.0-canary.684e33d25.0"
+    "@material/typography" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/snackbar@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/snackbar/-/snackbar-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-itO+DCkOannZzR1/cCHcqAm7ifhuFvXmDItNoA8qLEcAyJDJJRkhpwj3XQ01yuo9gBFcSctp7Txt7e+Hncm/Jg==
+  dependencies:
+    "@material/animation" "15.0.0-canary.684e33d25.0"
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/button" "15.0.0-canary.684e33d25.0"
+    "@material/dom" "15.0.0-canary.684e33d25.0"
+    "@material/elevation" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/icon-button" "15.0.0-canary.684e33d25.0"
+    "@material/ripple" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    "@material/shape" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    "@material/tokens" "15.0.0-canary.684e33d25.0"
+    "@material/typography" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/switch@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/switch/-/switch-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-Jxi0gl92yvvZZsAPxvVHzXx2ga+T/djMow98jvEczmpUorWnAhgiCr9CsSSRoosahWyRB8NLZOxUQrACxvffjw==
+  dependencies:
+    "@material/animation" "15.0.0-canary.684e33d25.0"
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/density" "15.0.0-canary.684e33d25.0"
+    "@material/dom" "15.0.0-canary.684e33d25.0"
+    "@material/elevation" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/focus-ring" "15.0.0-canary.684e33d25.0"
+    "@material/ripple" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    "@material/shape" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    "@material/tokens" "15.0.0-canary.684e33d25.0"
+    safevalues "^0.3.4"
+    tslib "^2.1.0"
+
+"@material/tab-bar@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/tab-bar/-/tab-bar-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-SW/cMaDsIGGkM1ag3A7GJRlmr8eXmObWsvitQJzh6Azr5zzZtSI+GQygkMesAEE1gbpqOVN8d40rh3H7VVIAcA==
+  dependencies:
+    "@material/animation" "15.0.0-canary.684e33d25.0"
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/density" "15.0.0-canary.684e33d25.0"
+    "@material/elevation" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/tab" "15.0.0-canary.684e33d25.0"
+    "@material/tab-indicator" "15.0.0-canary.684e33d25.0"
+    "@material/tab-scroller" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    "@material/tokens" "15.0.0-canary.684e33d25.0"
+    "@material/typography" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/tab-indicator@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/tab-indicator/-/tab-indicator-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-kKICqSPqOlaf0lzaFFCmuOqPXJC+cK48Qmsc+m5o6fJhkmuZRCYpIwB2JeP+uZSOq/bTH+SrPtCtnVlgWg6ksA==
+  dependencies:
+    "@material/animation" "15.0.0-canary.684e33d25.0"
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/tab-scroller@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/tab-scroller/-/tab-scroller-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-H6EU/TSiK/M2DyyORX5GEtXD9rKYxTMHC2VxsNWARPMFJGzgeW2ugYkFv+rKI1/c0bs0CJ4e+qFnOlBsQXZvyQ==
+  dependencies:
+    "@material/animation" "15.0.0-canary.684e33d25.0"
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/dom" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/tab" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/tab@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/tab/-/tab-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-WQL3wj9syHNcfe8KbgGGUcA34M8C/xZ+n0Fkkh8Kk6puVwaU+xqUNihsxPY6YzKpmh4PZ4oJaBdiN8zvFT1zqQ==
+  dependencies:
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/elevation" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/focus-ring" "15.0.0-canary.684e33d25.0"
+    "@material/ripple" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    "@material/tab-indicator" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    "@material/tokens" "15.0.0-canary.684e33d25.0"
+    "@material/typography" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/textfield@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/textfield/-/textfield-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-OvgpDXjvpyJTtAWskO69IDybFvDNzr9w2PN/Fk7yFm+uNVupaWz1Ew8lZ4gGslaTNSVmh2XcsvmzxcLINSiiNg==
+  dependencies:
+    "@material/animation" "15.0.0-canary.684e33d25.0"
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/density" "15.0.0-canary.684e33d25.0"
+    "@material/dom" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/floating-label" "15.0.0-canary.684e33d25.0"
+    "@material/line-ripple" "15.0.0-canary.684e33d25.0"
+    "@material/notched-outline" "15.0.0-canary.684e33d25.0"
+    "@material/ripple" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    "@material/shape" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    "@material/tokens" "15.0.0-canary.684e33d25.0"
+    "@material/typography" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/theme@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/theme/-/theme-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-AZxaXXAvRKzAi20RlMxzt2U5UmkCWyv7DMWEBXsxtG5Tk54mi1HsbVUp3fxDPTlmL7Pq8p1/DESg/o7TgRCVlw==
+  dependencies:
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/tokens@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/tokens/-/tokens-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-wVwbQOTCXDPKYPdHQHLr026y36MMFelID1CmbfRk6mSol4O8yE9U0fXcShfRDW8Qo5E3X31w9c2A6T3neJY7wQ==
+  dependencies:
+    "@material/elevation" "15.0.0-canary.684e33d25.0"
+
+"@material/tooltip@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/tooltip/-/tooltip-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-dtm26QjxyQdinc8btgz6yys07b7bUW4FZgNF2EBPeGrICrPg7jf+JEvDziz5g8VMaTBQLOQRSCGy0MKuRlOjLw==
+  dependencies:
+    "@material/animation" "15.0.0-canary.684e33d25.0"
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/button" "15.0.0-canary.684e33d25.0"
+    "@material/dom" "15.0.0-canary.684e33d25.0"
+    "@material/elevation" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    "@material/shape" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    "@material/tokens" "15.0.0-canary.684e33d25.0"
+    "@material/typography" "15.0.0-canary.684e33d25.0"
+    safevalues "^0.3.4"
+    tslib "^2.1.0"
+
+"@material/top-app-bar@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/top-app-bar/-/top-app-bar-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-1M+oupUxflfW7u81P1XlxoLZB8bLzwtpKofIfDNRbEsiKhlLTERJR3Yak3BGE9xakNMysAaBHlkb5MrN5bNPFw==
+  dependencies:
+    "@material/animation" "15.0.0-canary.684e33d25.0"
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/elevation" "15.0.0-canary.684e33d25.0"
+    "@material/ripple" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    "@material/shape" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    "@material/typography" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/touch-target@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/touch-target/-/touch-target-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-zdE69Slg8+T7sTn1OwqZ6H7WBYac9mxJ/JlJqfTqthzIjZRcCxBSYymQJcDHjsrPnUojOtr9U4Tpm5YZ96TEkQ==
+  dependencies:
+    "@material/base" "15.0.0-canary.684e33d25.0"
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/rtl" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
+
+"@material/typography@15.0.0-canary.684e33d25.0":
+  version "15.0.0-canary.684e33d25.0"
+  resolved "https://registry.npmjs.org/@material/typography/-/typography-15.0.0-canary.684e33d25.0.tgz"
+  integrity sha512-aVnvgMwcfNa/K4wujzpKDIxjGl2hbkEL+m+OKDSQqWYjKcP9QrbzCXJruJBqxrBoPRHLbqo47k5f9uT8raSgjw==
+  dependencies:
+    "@material/feature-targeting" "15.0.0-canary.684e33d25.0"
+    "@material/theme" "15.0.0-canary.684e33d25.0"
+    tslib "^2.1.0"
 
 "@ngrx/store@^14.0.0":
   version "14.3.3"
@@ -4086,6 +4853,11 @@ convert-source-map@^1.5.1, convert-source-map@^1.7.0:
   resolved "https://registry.npmjs.org/convert-source-map/-/convert-source-map-1.9.0.tgz"
   integrity sha512-ASFBup0Mz1uyiIjANan1jzLQami9z1PoYSZCiiYW2FczPbenXc45FZdBZLzOT+r6+iciuEModtmCti+hjaAk0A==
 
+convert-source-map@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/convert-source-map/-/convert-source-map-2.0.0.tgz"
+  integrity sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==
+
 cookie-signature@1.0.6:
   version "1.0.6"
   resolved "https://registry.npmjs.org/cookie-signature/-/cookie-signature-1.0.6.tgz"
@@ -4375,11 +5147,6 @@ depd@~2.0.0, depd@2.0.0:
   resolved "https://registry.npmjs.org/depd/-/depd-2.0.0.tgz"
   integrity sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==
 
-dependency-graph@^0.11.0:
-  version "0.11.0"
-  resolved "https://registry.npmjs.org/dependency-graph/-/dependency-graph-0.11.0.tgz"
-  integrity sha512-JeMq7fEshyepOWDfcfHK06N3MhyPhz++vtqWhMT5O9A3K42rdsEDpfdVqjaqaAhsw6a+ZqeDvQVtD0hFHQWrzg==
-
 destroy@^1.0.4, destroy@1.2.0:
   version "1.2.0"
   resolved "https://registry.npmjs.org/destroy/-/destroy-1.2.0.tgz"
@@ -4615,7 +5382,12 @@ entities@^2.0.0:
   resolved "https://registry.npmjs.org/entities/-/entities-2.2.0.tgz"
   integrity sha512-p92if5Nz619I0w+akJrLZH0MX0Pb5DX39XOwQTtXSdQQOaYH03S1uIQp4mhOZtAXrxq4ViO67YTiLBo2638o9A==
 
-entities@^4.3.0, entities@^4.4.0:
+entities@^4.3.0:
+  version "4.5.0"
+  resolved "https://registry.npmjs.org/entities/-/entities-4.5.0.tgz"
+  integrity sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==
+
+entities@^4.4.0:
   version "4.5.0"
   resolved "https://registry.npmjs.org/entities/-/entities-4.5.0.tgz"
   integrity sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==
@@ -6659,7 +7431,7 @@ json5@^1.0.2:
   dependencies:
     minimist "^1.2.0"
 
-json5@^2.1.2, json5@^2.2.2:
+json5@^2.1.2, json5@^2.2.2, json5@^2.2.3:
   version "2.2.3"
   resolved "https://registry.npmjs.org/json5/-/json5-2.2.3.tgz"
   integrity sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==
@@ -7144,13 +7916,6 @@ lru-cache@^7.7.1:
   version "10.0.1"
   resolved "https://registry.npmjs.org/lru-cache/-/lru-cache-10.0.1.tgz"
   integrity sha512-IJ4uwUTi2qCccrioU6g9g/5rvvVl13bsdczUUcqbciD9iLr095yj8DQKdObriEvuNSx325N1rV1O0sJFszx75g==
-
-magic-string@^0.26.0:
-  version "0.26.2"
-  resolved "https://registry.npmjs.org/magic-string/-/magic-string-0.26.2.tgz"
-  integrity sha512-NzzlXpclt5zAbmo6h6jNc8zl2gNRGHvmsZW4IvZhTC4W7k4OlLP+S5YLussa/r3ixNT66KOQfNORlXHSOy/X4A==
-  dependencies:
-    sourcemap-codec "^1.4.8"
 
 magic-string@0.29.0:
   version "0.29.0"
@@ -8092,17 +8857,12 @@ parse5-sax-parser@^7.0.0:
   dependencies:
     parse5 "^7.0.0"
 
-parse5@^5.0.0:
-  version "5.1.1"
-  resolved "https://registry.npmjs.org/parse5/-/parse5-5.1.1.tgz"
-  integrity sha512-ugq4DFI0Ptb+WWjAdOK16+u/nHfiIrcE+sh8kZMaM0WllQKLI9rOUq6c2b7cwPkXdzfQESqvoqK6ug7U/Yyzug==
-
 parse5@^6.0.1:
   version "6.0.1"
   resolved "https://registry.npmjs.org/parse5/-/parse5-6.0.1.tgz"
   integrity sha512-Ofn/CTFzRGTTxwpNEs9PP93gXShHcTq255nzRYSKe8AkVpZY7e1fpmTfOyoIvjP5HG7Z2ZM7VS9PPhQGW2pOpw==
 
-parse5@^7.0.0:
+parse5@^7.0.0, parse5@^7.1.2:
   version "7.1.2"
   resolved "https://registry.npmjs.org/parse5/-/parse5-7.1.2.tgz"
   integrity sha512-Czj1WaSVpaoj0wbhMzLmWD69anp2WH7FXMB9n1Sy8/ZFF9jolSQVMu1Ij5WIyGmcBmhk7EOndpO4mIpihVqAXw==
@@ -8887,6 +9647,11 @@ safer-buffer@^2.0.2, safer-buffer@^2.1.0, "safer-buffer@>= 2.1.2 < 3", "safer-bu
   resolved "https://registry.npmjs.org/safer-buffer/-/safer-buffer-2.1.2.tgz"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
+safevalues@^0.3.4:
+  version "0.3.4"
+  resolved "https://registry.npmjs.org/safevalues/-/safevalues-0.3.4.tgz"
+  integrity sha512-LRneZZRXNgjzwG4bDQdOTSbze3fHm1EAKN/8bePxnlEZiBmkYEDggaHbuvHI9/hoqHbGfsEA7tWS9GhYHZBBsw==
+
 sass-loader@13.2.0:
   version "13.2.0"
   resolved "https://registry.npmjs.org/sass-loader/-/sass-loader-13.2.0.tgz"
@@ -9284,11 +10049,6 @@ source-map@0.7.4:
   version "0.7.4"
   resolved "https://registry.npmjs.org/source-map/-/source-map-0.7.4.tgz"
   integrity sha512-l3BikUxvPOcn5E74dZiq5BGsTb5yEwhaTSzccU6t4sDOH8NWJCstKO5QT2CvtFoK6F0saL7p9xHAqHOlCPJygA==
-
-sourcemap-codec@^1.4.8:
-  version "1.4.8"
-  resolved "https://registry.npmjs.org/sourcemap-codec/-/sourcemap-codec-1.4.8.tgz"
-  integrity sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==
 
 spdx-correct@^3.0.0:
   version "3.2.0"
@@ -9834,10 +10594,15 @@ typedarray-to-buffer@^3.1.5:
   dependencies:
     is-typedarray "^1.0.0"
 
-typescript@*, "typescript@^3 || ^4", "typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta", "typescript@>=4.6.2 <4.9", "typescript@>=4.8.2 <5.0", typescript@~4.8.3:
-  version "4.8.4"
-  resolved "https://registry.npmjs.org/typescript/-/typescript-4.8.4.tgz"
-  integrity sha512-QCh+85mCy+h0IGff8r5XWzOVSbBO+KfeYrMQh7NJ58QujwcE22u+NUSmUxqF+un70P9GXKxa2HCNiTTMJknyjQ==
+typescript@*, "typescript@>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta", "typescript@>=4.8.2 <5.0", "typescript@>=4.9.3 <5.2", typescript@~5.1.6:
+  version "5.1.6"
+  resolved "https://registry.npmjs.org/typescript/-/typescript-5.1.6.tgz"
+  integrity sha512-zaWCozRZ6DLEWAWFrVDz1H6FVXzUSfTy5FUMWsQlU8Ym5JP9eO4xkTIROFCQvhQf61z6O/G6ugw3SgAnvvm+HA==
+
+"typescript@^3 || ^4":
+  version "4.9.5"
+  resolved "https://registry.npmjs.org/typescript/-/typescript-4.9.5.tgz"
+  integrity sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==
 
 ua-parser-js@^0.7.30:
   version "0.7.36"
@@ -10456,9 +11221,9 @@ zip-stream@^4.1.0:
     compress-commons "^4.1.2"
     readable-stream "^3.6.0"
 
-zone.js@~0.11.4, "zone.js@~0.11.4 || ~0.12.0":
-  version "0.11.8"
-  resolved "https://registry.npmjs.org/zone.js/-/zone.js-0.11.8.tgz"
-  integrity sha512-82bctBg2hKcEJ21humWIkXRlLBBmrc3nN7DFh5LGGhcyycO2S7FN8NmdvlcKaGFDNVL4/9kFLmwmInTavdJERA==
+zone.js@~0.13.0, zone.js@~0.13.3:
+  version "0.13.3"
+  resolved "https://registry.npmjs.org/zone.js/-/zone.js-0.13.3.tgz"
+  integrity sha512-MKPbmZie6fASC/ps4dkmIhaT5eonHkEt6eAy80K42tAm0G2W+AahLJjbfi6X9NPdciOE9GRFTTM8u2IiF6O3ww==
   dependencies:
     tslib "^2.3.0"

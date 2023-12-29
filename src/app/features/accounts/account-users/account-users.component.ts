@@ -7,9 +7,9 @@ import {
   Validators,
 } from "@angular/forms";
 import { ErrorStateMatcher } from "@angular/material/core";
-import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
+import { MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA, MatLegacyDialogRef as MatDialogRef } from "@angular/material/legacy-dialog";
 import { MatSort } from "@angular/material/sort";
-import { MatTableDataSource } from "@angular/material/table";
+import { MatLegacyTableDataSource as MatTableDataSource } from "@angular/material/legacy-table";
 import { AccountUser } from "src/app/core/model/AccountUser";
 import { Account } from "src/app/core/model/account";
 import { MEMBER, ROLES } from "src/app/core/model/roles";
