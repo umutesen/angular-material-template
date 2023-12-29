@@ -63,20 +63,20 @@
           <mat-icon mat-list-icon>
             people
           </mat-icon>
-          <p mat-line> Accounts </p>
+          <span mat-line>Accounts</span>
         </a>
 
         <a mat-list-item [routerLink]="['/accounts/' + selectedAccount.id  + '/songs/']" routerLinkActive="active">
           <mat-icon mat-list-icon>
             music_note
           </mat-icon>
-          <p mat-line> Songs </p>
+          Songs
         </a>
         <a mat-list-item [routerLink]="['/accounts/' + selectedAccount.id + '/setlists/']" routerLinkActive="active">
           <mat-icon mat-list-icon>
             library_music
           </mat-icon>
-          <p mat-line> Setlists </p>
+          Setlists
         </a>
 
         <mat-divider></mat-divider>

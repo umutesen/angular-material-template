@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { MatLegacyTableDataSource as MatTableDataSource } from "@angular/material/legacy-table";
+import { MatTableDataSource as MatTableDataSource } from "@angular/material/table";
 import { Title } from "@angular/platform-browser";
 import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
 import { Store } from "@ngxs/store";
@@ -8,7 +8,7 @@ import { LyricsService } from "src/app/core/services/lyrics.service";
 import { SongService } from "src/app/core/services/song.service";
 import { AccountState } from "src/app/core/store/account.state";
 import { LyricAddDialogComponent } from "../lyric-add-dialog/lyric-add-dialog.component";
-import { MatLegacyDialog as MatDialog } from "@angular/material/legacy-dialog";
+import { MatDialog as MatDialog } from "@angular/material/dialog";
 import { Song } from "src/app/core/model/song";
 import { take } from "rxjs";
 import { FormControl } from "@angular/forms";

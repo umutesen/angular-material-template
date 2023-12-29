@@ -6,7 +6,7 @@ import { AuthenticationService } from "src/app/core/services/auth.service";
 import { AccountService } from "src/app/core/services/account.service";
 import { Observable, from } from "rxjs";
 import { Account } from "src/app/core/model/account";
-import { MatLegacyDialog as MatDialog } from "@angular/material/legacy-dialog";
+import { MatDialog as MatDialog } from "@angular/material/dialog";
 import { EditAccountDialogComponent } from "../edit-account-dialog/edit-account-dialog.component";
 import { Firestore, collection, collectionData } from "@angular/fire/firestore";
 import { Store } from "@ngxs/store";
