@@ -22,6 +22,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatCardModule } from "@angular/material/card";
 import { FlexModule } from "@angular/flex-layout/flex";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 
 @Component({
     selector: "app-lyrics",
@@ -32,6 +33,7 @@ import { FlexModule } from "@angular/flex-layout/flex";
         FlexModule,
         MatCardModule,
         MatToolbarModule,
+        MatProgressSpinnerModule,
         MatButtonModule,
         MatIconModule,
         NgIf,
@@ -52,6 +54,7 @@ export class LyricsComponent {
   lyrics: Lyric[];
   lyricVersions = new FormControl("");
   currentUser: any;
+  loading = false;
 
   constructor(
     private activeRoute: ActivatedRoute,
@@ -82,6 +85,7 @@ export class LyricsComponent {
   }
 
   private initLyrics() {
+    this.loading = true;
     const accountId = this.activeRoute.snapshot.paramMap.get("accountid");
     const songId = this.activeRoute.snapshot.paramMap.get("songid");
     this.lyricId = this.activeRoute.snapshot.paramMap.get("lyricid") || undefined;
@@ -108,7 +112,7 @@ export class LyricsComponent {
               (lyric) => lyric.id === this.lyricId
             );
           }
-
+          this.loading = false;
           this.lyricVersionValue = this.selectedLyric?.id || "add";
         });
     }

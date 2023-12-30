@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "lint": "ng lint",
     "test": "ng test",
-    "build-production": "ng build --configuration=production --base-href=/angular-material-template/"
+    "build-production": "ng build --configuration=production --base-href=/setlist-helper/"
   },
   "private": true,
   "dependencies": {

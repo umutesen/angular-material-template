@@ -3,6 +3,12 @@
       
       <mat-card>
         <mat-card-content class="lyrics-view">
+          <div class="spinner-container" *ngIf="loading">
+            <mat-spinner>
+  
+            </mat-spinner>
+          </div>
+          <ng-container *ngIf="!loading">
           <mat-toolbar  >
             <button mat-icon-button aria-label="Add Song" (click)="onSaveSong()">
               <mat-icon>save</mat-icon>
@@ -15,6 +21,7 @@
           <form class="dialog-form" [formGroup]="lyricsForm">
             <textarea id="lyrics" formControlName="lyrics"></textarea>
           </form>
+        </ng-container>
         </mat-card-content>
       </mat-card>
   

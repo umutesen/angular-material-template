@@ -11,3 +11,7 @@
   height: calc(100vh - 220px);
   overflow-y: scroll;
 }
+
+.spinner-container mat-spinner {
+  margin: 130px auto 0 auto;
+}

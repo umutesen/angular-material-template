@@ -1,9 +1,13 @@
 #lyrics{
-    height: calc(100vh - 200px);
-    width: 99.5%;
-  }
+  height: calc(100vh - 200px);
+  width: 99.5%;
+}
 
 .lyrics-view{
-    height: calc(100vh - 130px);
-    overflow-y: scroll;
-  }
+  height: calc(100vh - 130px);
+  overflow-y: scroll;
+}
+
+.spinner-container mat-spinner {
+  margin: 130px auto 0 auto;
+}

@@ -18,13 +18,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { FlexModule } from '@angular/flex-layout/flex';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NgIf } from '@angular/common';
 
 @Component({
     selector: 'app-lyrics-edit',
     templateUrl: './lyrics-edit.component.html',
     styleUrls: ['./lyrics-edit.component.css'],
     standalone: true,
-    imports: [FlexModule, MatCardModule, MatToolbarModule, MatButtonModule, MatIconModule, FormsModule, ReactiveFormsModule]
+    imports: [FlexModule, MatCardModule, MatToolbarModule, MatButtonModule, MatIconModule, FormsModule, ReactiveFormsModule, MatProgressSpinnerModule, NgIf]
 })
 export class LyricsEditComponent implements OnInit {
   @ViewChild('lyrics') lyricsInput: ElementRef;
@@ -35,7 +37,7 @@ export class LyricsEditComponent implements OnInit {
   song: Song;
   selectedLyric: Lyric;
   lyricsForm: FormGroup;
-  
+  loading = false;
   
   get lyrics() { return this.lyricsForm.get('lyrics'); }
   constructor(private activeRoute: ActivatedRoute,
@@ -61,6 +63,7 @@ export class LyricsEditComponent implements OnInit {
         lyrics: new FormControl(this.selectedLyric?.name),
       });
 
+      this.loading = true;
       const accountId = this.activeRoute.snapshot.paramMap.get("accountid");
       const songId = this.activeRoute.snapshot.paramMap.get("songid");
       const lyricId = this.activeRoute.snapshot.paramMap.get("lyricid");
@@ -82,6 +85,7 @@ export class LyricsEditComponent implements OnInit {
             this.selectedLyric = lyric;
             const lyricsTextArea = this.lyricsForm.get("lyrics");
             lyricsTextArea?.setValue(this.selectedLyric.lyrics);
+            this.loading = false;
           });
     }
   }
