@@ -40,7 +40,7 @@ export class SongService {
     );
   }
 
-  addSong(accountId: string, songId: string, song: Song, editingUser: BaseUser): Observable<Song> {
+  addSong(accountId: string, song: Song, editingUser: BaseUser): Observable<Song> {
     const songForAdd = SongHelper.getForAdd(song, editingUser);
     
     const dbPath = `/accounts/${accountId}/songs`;

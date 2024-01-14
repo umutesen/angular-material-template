@@ -26,3 +26,9 @@
   height: calc(100vh - 305px);
   width: 99.5%;
 }
+
+.field-list{
+  list-style-type: none;
+  padding: 0; /* Remove padding */
+  margin: 0; /* Remove margins */
+}

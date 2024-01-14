@@ -1,47 +1,99 @@
 <mat-card>
   <mat-card-content class="lyrics-view">
-    <form class="dialog-form" [formGroup]="multiSongForm">
-        <div class="ibox-content">
-          <div *ngIf="stepNumber === 1">
-            <p>
-              <span class="labelText">Add songs into the Song Catalog by typing "Song name", "Artist", "Key" into the space below. There can only one song per line.</span><br>
-              <span class="labelText">For Example:</span><br>
-              <span class="labelText">In the deep, John Smith, A</span><br>
-              <span class="labelText">So Long, New Fossils, B</span><br>
-              <span class="labelText">The comma can be replaced with TAB. This allows songs to be copied from a spreadsheet and pasted below.</span>
-            </p>
-            <textarea class="import-text" name="import-list" id="import-list" formControlName="importText"></textarea>
-            <div>
-              <button mat-raised-button color="primary" type="button" class="btn btn-primary pull-right" (click)="stepOneImport()"> Next</button>
-            </div>
-          </div>
-          <div *ngIf="stepNumber === 2">
-            <div class="container" fxLayout="row wrap">
-              <div class="col-sm-3" *ngFor="let category of categories">
-                <select [(ngModel)]="category.type">
-                  <option *ngFor="let songField of songFieldTypes" [value]="songField">
-                      {{songField}}
-                  </option>
-                </select>
-                <ul class="todo-list m-t small-list ui-sortable">
-                  <li *ngFor="let item of category.items">
-                    <span class="m-l-xs">{{item}}</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div>
-              <button mat-raised-button color="primary" type="button" class="btn btn-primary pull-right" (click)="stepTwoStartImport()"> Start Import</button>
-            </div>
-          </div>
-          <div *ngIf="stepNumber === 3">
-            <textarea class="import-text" name="import-list" id="import-result-list" [(ngModel)]="importSongsResult" ></textarea>
-            <div>
-              <button mat-raised-button color="primary" type="button" class="btn btn-primary pull-right" (click)="stepThreeFinish()"> Finish</button>
-            </div>
-          </div>
+    <div class="ibox-content">
+      <div *ngIf="stepNumber === 1">
+        <p>
+          <span class="labelText"
+            >Add songs into the Song Catalog by typing "Song name", "Artist",
+            "Key" into the space below. There can only one song per line.</span
+          ><br />
+          <span class="labelText">For Example:</span><br />
+          <span class="labelText">In the deep, John Smith, A</span><br />
+          <span class="labelText">So Long, New Fossils, B</span><br />
+          <span class="labelText"
+            >The comma can be replaced with TAB. This allows songs to be copied
+            from a spreadsheet and pasted below.</span
+          >
+        </p>
+        <form class="dialog-form" [formGroup]="multiSongForm">
+          <textarea
+            class="import-text"
+            name="import-list"
+            id="import-list"
+            formControlName="importText"
+          ></textarea>
+        </form>
+        <div>
+          <button
+            mat-raised-button
+            color="primary"
+            type="button"
+            class="btn btn-primary pull-right"
+            (click)="stepOneImport()"
+          >
+            Next
+          </button>
         </div>
-    </form>
+      </div>
+      <div *ngIf="stepNumber === 2">
+        <form [formGroup]="songAttributeForm">
+          <div fxLayout="row" fxLayoutAlign="space-evenly space-between start stretch">
+            <div *ngFor="let category of categories; index as i">
+              <mat-form-field
+                appearance="outline"
+                class="dialog-input-full-width"
+              >
+                <mat-label>Field {{ i + 1 }}</mat-label>
+                <mat-select formControlName="{{ category.type.attribute }}">
+                  <mat-option
+                    *ngFor="let songField of songFieldTypes"
+                    [value]="songField.attribute"
+                  >
+                    {{ songField.displayName }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <ul class="todo-list m-t small-list ui-sortable field-list">
+                <li *ngFor="let item of category.items">
+                  <span>{{ item }}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </form>
+
+        <div>
+          <button
+            mat-raised-button
+            color="primary"
+            type="button"
+            class="btn btn-primary pull-right"
+            (click)="stepTwoStartImport()"
+            [disabled]="!songAttributeForm.valid || !songAttributeForm.dirty"
+          >
+            Start Import
+          </button>
+        </div>
+      </div>
+      <div *ngIf="stepNumber === 3">
+        <textarea
+          class="import-text"
+          name="import-list"
+          id="import-result-list"
+          [(ngModel)]="importSongsResult"
+        ></textarea>
+        <div>
+          <button
+            mat-raised-button
+            color="primary"
+            type="button"
+            class="btn btn-primary pull-right"
+            (click)="stepThreeFinish()"
+          >
+            Finish
+          </button>
+        </div>
+      </div>
+    </div>
   </mat-card-content>
 </mat-card>
-        

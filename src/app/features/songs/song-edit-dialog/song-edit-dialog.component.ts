@@ -84,8 +84,7 @@ export class SongEditDialogComponent {
       )
       .subscribe();
     }else if(this.data.accountId){
-      const newSongId = this.afs.createId();
-      this.songService.addSong(this.data.accountId, newSongId, modifiedSong, this.currentUser)
+      this.songService.addSong(this.data.accountId, modifiedSong, this.currentUser)
       .pipe(
         tap((result) => this.dialogRef.close(modifiedSong)),
         catchError((err) => {

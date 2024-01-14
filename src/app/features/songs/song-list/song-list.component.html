@@ -25,7 +25,7 @@
 
           </mat-spinner>
         </div>
-        <div class="table-container">
+        <div class="table-container" *ngIf="!loading">
           <table mat-table [dataSource]="dataSource" matSort class="song-table">
             <!-- Name Column -->
             <ng-container matColumnDef="name">

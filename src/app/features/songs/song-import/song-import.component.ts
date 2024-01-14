@@ -1,42 +1,63 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, RequiredValidator, Validators } from '@angular/forms';
 
 import {ActivatedRoute, Router} from '@angular/router';
-import { SongHelper } from 'src/app/core/model/song';
+import { Song, SongHelper } from 'src/app/core/model/song';
 import { SongService } from 'src/app/core/services/song.service';
 import { FlexModule } from '@angular/flex-layout/flex';
 import { MatButtonModule } from '@angular/material/button';
-import { NgIf, NgFor } from '@angular/common';
+import { NgIf, NgFor, JsonPipe } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
-
-
-declare var _: any;
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import { BaseUser, UserHelper } from 'src/app/core/model/user';
+import { AuthenticationService } from 'src/app/core/services/auth.service';
+import { tap } from 'rxjs';
+import { SongAttribute } from 'src/app/core/viewModel/song-attribute';
 
 @Component({
     selector: 'app-song-import',
     templateUrl: './song-import.component.html',
     styleUrls: ['song-import.component.css'],
     standalone: true,
-    imports: [MatCardModule, FormsModule, ReactiveFormsModule, NgIf, MatButtonModule, FlexModule, NgFor]
+    imports: [MatCardModule, FormsModule, ReactiveFormsModule, NgIf, MatButtonModule, FlexModule, NgFor, MatSelectModule, MatOptionModule, JsonPipe]
 })
 export class SongImportComponent implements OnInit {
   public stepNumber = 1;
+  currentUser: BaseUser;
   public importSongsResult = '';
   public songsToImport = '';
   public categories: any[] = [];
   public accountId: string;
   private delimiter: string;
   private songLines: string[];
-  public songFieldTypes: string[] = ['Name', 'ArtistName', 'GenreName', 'SongKey', 'Length', 'Tempo', 'Notes', 'Other'];
+  public songFieldTypes: SongAttribute[] = [{displayName: 'Name', attribute: 'name'}, 
+                                            {displayName:'Artist', attribute: 'artist'}, 
+                                            {displayName: 'Genre', attribute: 'genre'}, 
+                                            {displayName: 'Song Key', attribute: 'key'}, 
+                                            {displayName: 'Song Length', attribute: 'songLength'}, 
+                                            {displayName: 'Tempo', attribute: 'tempo'}, 
+                                            {displayName: 'Notes', attribute: 'notes'}, 
+                                            {displayName: 'Other', attribute: 'other'}];
   public multiSongForm: FormGroup;
+  public songAttributeForm: FormGroup;
   
   constructor(
     private route: ActivatedRoute,
     private songService: SongService,
+    private authService: AuthenticationService,
     private router: Router) {
 
+      this.accountId = this.route.snapshot.paramMap.get('accountid') ?? "";
+      
       this.multiSongForm = new FormGroup({
         importText: new FormControl(),
+      });
+
+      this.authService.user$.subscribe((user) => {
+        if (user && user.uid) {
+          this.currentUser = UserHelper.getForUpdate(user);
+        }
       });
 
   }
@@ -71,6 +92,13 @@ export class SongImportComponent implements OnInit {
         }
         this.populateCategories(this.songLines, this.delimiter);
         this.stepNumber = 2;
+
+        this.songAttributeForm = new FormGroup({});
+        
+        let group={}    
+        this.categories.forEach(category=>
+          this.songAttributeForm.addControl(category.type.attribute, new FormControl('', Validators.required))    
+        );
       }
     }
   }
@@ -90,17 +118,19 @@ export class SongImportComponent implements OnInit {
       const songItems = this.songLines[i].split(this.delimiter);
 
       this.createSongFromLine(songItems)
-      //   .do(updatedSong => console.log(`update song ${updatedSong}`))
-      //   .subscribe(updatedSong => {
-      //     this.importSongsResult += `Finished creating ${updatedSong.song.Name}\r\n`;
-      //   });
+        .pipe(tap(updatedSong => console.log(`update song ${updatedSong}`)))
+        .subscribe(updatedSong => {
+          this.importSongsResult += `Finished creating ${updatedSong.name}\r\n`;
+        });
     }
   }
 
   createSongFromLine(songLineArray) {
-    const song = {};
-    _.each(this.categories, function(category, index) {
-      if (category.type === 'length') {
+    const song = {} as Song;
+    let index = 0;
+    for(const field in this.songAttributeForm.controls) {
+      const control = this.songAttributeForm.get(field);
+      if (control?.value === 'length') {
         const p = songLineArray[index].split(':');
         let s = 0, m = 1;
 
@@ -108,13 +138,15 @@ export class SongImportComponent implements OnInit {
           s += m * parseInt(p.pop(), 10);
           m *= 60;
         }
-        song[category.type] = s;
+        song[control?.value] = s;
       } else {
-        song[category.type] = songLineArray[index];
+        song[control?.value] = songLineArray[index];
       }
-    });
-    //this.importSongsResult += `Importing ${song.Name}\r\n`;
-    //return this.songService.createSong(song).do(updatedSong => console.log(`update song ${updatedSong}`));
+      index++;
+    }
+
+    this.importSongsResult += `Importing ${song.name}\r\n`;
+    return this.songService.addSong(this.accountId, song, this.currentUser);
   }
 
   populateCategories(songLines, delimiter) {
@@ -139,9 +171,8 @@ export class SongImportComponent implements OnInit {
           //create the category and push the first item
           let fieldType = this.songFieldTypes[i];
           if (songItems[i].indexOf(':') > -1) {//Assign length to the field type
-            fieldType = _.find(this.songFieldTypes, function(type) {
-              return type === 'length';
-            });
+            const foundFieldType = this.songFieldTypes.find((SongAttribute) => SongAttribute.attribute === 'songLength');
+            fieldType = foundFieldType || {displayName: 'Song Length', attribute: 'songLength'};
           }
           if (!fieldType) {
             fieldType = this.songFieldTypes[i];
