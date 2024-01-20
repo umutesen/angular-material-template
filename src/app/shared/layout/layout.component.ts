@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, OnDestroy, AfterViewInit, AfterContentChecked } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { timer } from 'rxjs';
 import { Subscription } from 'rxjs';
@@ -12,7 +12,7 @@ import { AuthGuard } from 'src/app/core/guards/auth.guard';
     templateUrl: './layout.component.html',
     styleUrls: ['./layout.component.css']
 })
-export class LayoutComponent implements OnInit, OnDestroy, AfterViewInit {
+export class LayoutComponent implements OnInit, OnDestroy, AfterViewInit, AfterContentChecked {
 
     private _mobileQueryListener: () => void;
     mobileQuery: MediaQueryList;
@@ -54,6 +54,10 @@ export class LayoutComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
     ngAfterViewInit(): void {
+        this.changeDetectorRef.detectChanges();
+    }
+
+    ngAfterContentChecked(): void {
         this.changeDetectorRef.detectChanges();
     }
 }
