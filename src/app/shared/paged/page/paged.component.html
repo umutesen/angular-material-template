@@ -1,0 +1,37 @@
+<h1>{{ contentTitle }}</h1>
+
+<mat-form-field>
+    <mat-label i18n="@@paged.label.filter">Filter</mat-label>
+    <input (keyup)="filterChange($event)" matInput placeholder="Ex. ium">
+</mat-form-field>
+
+<div class="mat-shadow-2">
+    <table (matSortChange)="sortChange($event)" [dataSource]="dataSource" class="mat-elevation-z8" mat-table
+           matSort>
+        @for (column of columns; track column.code) {
+            <ng-container matColumnDef="{{column.code}}">
+                <th *matHeaderCellDef mat-header-cell mat-sort-header>{{ column.label }}</th>
+                <td *matCellDef="let elt" mat-cell>
+                    @if (column.type == DataType.BOOLEAN) {
+                        <mat-icon>{{ elt[column.code] | commonFormatter:column.type }}</mat-icon>
+                    } @else {
+                        {{ elt[column.code] | commonFormatter:column.type }}
+                    }
+                </td>
+            </ng-container>
+        }
+
+        <tr *matHeaderRowDef="displayedColumns()" mat-header-row></tr>
+        <tr *matRowDef="let _; columns: displayedColumns();" mat-row></tr>
+    </table>
+
+    @if (loading) {
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    }
+
+    <mat-paginator
+            (page)="pageChange($event)"
+            [pageSizeOptions]="pageSizeOptions"
+            [showFirstLastButtons]="showFirstLastButtons"
+    ></mat-paginator>
+</div>

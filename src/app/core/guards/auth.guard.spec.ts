@@ -1,26 +1,38 @@
-import { AuthGuard } from './auth.guard';
-import * as moment from 'moment';
+import {AuthGuard} from './auth.guard';
+import {Injector} from "@angular/core";
+import {Router} from "@angular/router";
+import {AuthenticationService} from "../services/auth.service";
+import {NotificationService} from "../services/notification.service";
+import moment from "moment";
+
 
 describe('AuthGuard', () => {
-
-    let router;
-    let authService;
-    let notificationService;
+    let guard: AuthGuard;
+    const router = jest.mocked(Router.prototype);
+    const authService = jest.mocked(AuthenticationService.prototype);
+    const notificationService = jest.mocked(NotificationService.prototype);
 
     beforeEach(() => {
-        router = jasmine.createSpyObj(['navigate']);
-        authService = jasmine.createSpyObj(['getCurrentUser']);
-        notificationService = jasmine.createSpyObj(['openSnackBar']);
+        router.navigateByUrl = jest.fn()
+            .mockResolvedValueOnce(Promise.resolve(true));
+        notificationService.openSnackBar = jest.fn();
+        guard = Injector.create({
+            providers: [
+                {provide: AuthGuard},
+                {provide: Router, useValue: router},
+                {provide: AuthenticationService, useValue: authService},
+                {provide: NotificationService, useValue: notificationService},
+            ],
+        }).get(AuthGuard);
     });
 
     it('create an instance', () => {
-        const guard = new AuthGuard(router, notificationService, authService);
         expect(guard).toBeTruthy();
     });
 
     it('returns false if user is null', () => {
-        authService.getCurrentUser.and.returnValue(null);
-        const guard = new AuthGuard(router, notificationService, authService);
+        authService.getCurrentUser = jest.fn()
+            .mockImplementation(() => null);
 
         const result = guard.canActivate();
 
@@ -28,37 +40,38 @@ describe('AuthGuard', () => {
     });
 
     it('redirects to login if user is null', () => {
-        authService.getCurrentUser.and.returnValue(null);
-        const guard = new AuthGuard(router, notificationService, authService);
+        authService.getCurrentUser = jest.fn()
+            .mockImplementation(() => null);
 
         guard.canActivate();
 
-        expect(router.navigate).toHaveBeenCalledWith(['auth/login']);
+        expect(router.navigateByUrl).toHaveBeenCalledWith('auth/login');
     });
 
     it('does not display expired notification if user is null', () => {
-        authService.getCurrentUser.and.returnValue(null);
-        const guard = new AuthGuard(router, notificationService, authService);
+        authService.getCurrentUser = jest.fn()
+            .mockImplementation(() => null);
 
         guard.canActivate();
 
-        expect(notificationService.openSnackBar).toHaveBeenCalledTimes(0);
+        expect(notificationService.openSnackBar)
+            .toHaveBeenCalledTimes(0);
     });
 
     it('redirects to login if user session has expired', () => {
-        const user = { expiration: moment().add(-1, 'minutes') };
-        authService.getCurrentUser.and.returnValue(user);
-        const guard = new AuthGuard(router, notificationService, authService);
+        const user = {expiration: moment().add(-1, 'seconds')};
+        authService.getCurrentUser = jest.fn()
+            .mockImplementation(() => user);
 
         guard.canActivate();
 
-        expect(router.navigate).toHaveBeenCalledWith(['auth/login']);
+        expect(router.navigateByUrl).toHaveBeenCalledTimes(1);
     });
 
     it('displays notification if user session has expired', () => {
-        const user = { expiration: moment().add(-1, 'seconds') };
-        authService.getCurrentUser.and.returnValue(user);
-        const guard = new AuthGuard(router, notificationService, authService);
+        const user = {expiration: moment().add(-1, 'seconds')};
+        authService.getCurrentUser = jest.fn()
+            .mockImplementation(() => user);
 
         guard.canActivate();
 
@@ -67,13 +80,12 @@ describe('AuthGuard', () => {
     });
 
     it('returns true if user session is valid', () => {
-        const user = { expiration: moment().add(1, 'minutes') };
-        authService.getCurrentUser.and.returnValue(user);
-        const guard = new AuthGuard(router, notificationService, authService);
+        const user = {expiration: moment().add(1, 'minutes')};
+        authService.getCurrentUser = jest.fn()
+            .mockImplementation(() => user);
 
         const result = guard.canActivate();
 
         expect(result).toBe(true);
     });
-
 });

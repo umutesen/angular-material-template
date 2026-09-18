@@ -1,4 +1,4 @@
-import { NgxLoggerLevel } from 'ngx-logger';
+import {NgxLoggerLevel} from 'ngx-logger';
 
 // The file contents for the current environment will overwrite these during build.
 // The build system defaults to the dev environment which uses `environment.ts`, but if you do
@@ -6,7 +6,8 @@ import { NgxLoggerLevel } from 'ngx-logger';
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false,
-  logLevel: NgxLoggerLevel.TRACE,
-  serverLogLevel: NgxLoggerLevel.OFF
+    production: false,
+    logLevel: NgxLoggerLevel.TRACE,
+    serverLogLevel: NgxLoggerLevel.OFF,
+    applicationName: 'angular-material-template',
 };

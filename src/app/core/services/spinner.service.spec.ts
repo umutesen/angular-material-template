@@ -1,5 +1,6 @@
-import { SpinnerConsumer } from '../../shared/mocks/spinner-consumer';
-import { SpinnerService } from './spinner.service';
+import {SpinnerConsumer} from '../../shared/mocks/spinner-consumer';
+import {SpinnerService} from './spinner.service';
+import {Injector} from "@angular/core";
 
 describe('BusyIndicatorService', () => {
     let component: SpinnerService;
@@ -8,8 +9,18 @@ describe('BusyIndicatorService', () => {
 
     beforeEach(() => {
         component = new SpinnerService();
-        consumer1 = new SpinnerConsumer(component);
-        consumer2 = new SpinnerConsumer(component);
+        consumer1 = Injector.create({
+            providers: [
+                {provide: SpinnerConsumer},
+                {provide: SpinnerService, useValue: component},
+            ],
+        }).get(SpinnerConsumer);
+        consumer2 = Injector.create({
+            providers: [
+                {provide: SpinnerConsumer},
+                {provide: SpinnerService, useValue: component},
+            ],
+        }).get(SpinnerConsumer);
     });
 
     it('should be created', () => {

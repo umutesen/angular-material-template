@@ -1,4 +1,5 @@
-app-select-check-all .mat-checkbox-layout,
-app-select-check-all .mat-checkbox-label {
-  width:100% !important;
+app-select-check-all .mat-mdc-checkbox,
+app-select-check-all .mat-mdc-checkbox .mdc-form-field,
+app-select-check-all .mat-mdc-checkbox .mdc-label {
+    width: 100% !important;
 }

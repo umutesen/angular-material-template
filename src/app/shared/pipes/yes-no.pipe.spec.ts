@@ -1,24 +1,21 @@
-import { YesNoPipe } from './yes-no.pipe';
+import {YesNoPipe} from './yes-no.pipe';
 
 describe('YesNoPipe', () => {
-  it('create an instance', () => {
-    const pipe = new YesNoPipe();
-    expect(pipe).toBeTruthy();
-  });
-
-  it('returns Yes given true', () => {
     const pipe = new YesNoPipe();
 
-    const result = pipe.transform(true);
+    it('create an instance', () => {
+        expect(pipe).toBeTruthy();
+    });
 
-    expect(result).toBe('Yes');
-  });
+    it('returns Yes given true', () => {
+        const result = pipe.transform(true);
 
-  it('returns No given false', () => {
-    const pipe = new YesNoPipe();
+        expect(result).toBe('Yes');
+    });
 
-    const result = pipe.transform(false);
+    it('returns No given false', () => {
+        const result = pipe.transform(false);
 
-    expect(result).toBe('No');
-  });
+        expect(result).toBe('No');
+    });
 });

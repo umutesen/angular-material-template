@@ -2,7 +2,7 @@
   margin: 20px 0;
 }
 
-.single-card .mat-card-avatar {
+.single-card .mat-mdc-card-avatar {
   width: 50px;
   height: 50px;
 }

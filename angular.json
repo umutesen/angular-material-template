@@ -13,15 +13,29 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "en",
+        "locales": {
+          "fr": {
+            "translation": "src/locale/messages.fr.json"
+          }
+        }
+      },
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular/build:application",
           "options": {
             "outputPath": "dist/angular-material-template",
             "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "browser": "src/main.ts",
+            "polyfills": [
+              "src/polyfills.ts",
+              "@angular/localize/init"
+            ],
             "tsConfig": "tsconfig.app.json",
+            "allowedCommonJsDependencies": [
+              "moment"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -36,8 +50,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "2mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -53,49 +67,54 @@
               ],
               "outputHashing": "all"
             },
-            "development": {
-              "buildOptimizer": false,
+            "development-fr": {
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "localize": [
+                "fr"
+              ],
+              "baseHref": "/fr/"
+            },
+            "development-en": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "localize": [
+                "en"
+              ],
+              "baseHref": "/en/"
             }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular-material-template:build:production"
+              "buildTarget": "angular-material-template:build:production"
             },
-            "development": {
-              "browserTarget": "angular-material-template:build:development"
+            "development-fr": {
+              "buildTarget": "angular-material-template:build:development-fr"
+            },
+            "development-en": {
+              "buildTarget": "angular-material-template:build:development-en"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development-en"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "builder": "@angular/build:extract-i18n",
           "options": {
-            "browserTarget": "angular-material-template:build"
+            "buildTarget": "angular-material-template:build",
+            "outputPath": "src/locale",
+            "format": "json"
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular-builders/jest:run",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
             "scripts": []
           }
         },
@@ -114,6 +133,39 @@
   "cli": {
     "schematicCollections": [
       "@angular-eslint/schematics"
-    ]
+    ],
+    "analytics": "24bafa3d-8ecc-47ab-9ef6-176a14f0fcf6"
+  },
+  "schematics": {
+    "@angular-eslint/schematics:application": {
+      "setParserOptionsProject": true
+    },
+    "@angular-eslint/schematics:library": {
+      "setParserOptionsProject": true
+    },
+    "@schematics/angular:component": {
+      "type": "component"
+    },
+    "@schematics/angular:directive": {
+      "type": "directive"
+    },
+    "@schematics/angular:service": {
+      "type": "service"
+    },
+    "@schematics/angular:guard": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:interceptor": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:module": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:pipe": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:resolver": {
+      "typeSeparator": "."
+    }
   }
 }

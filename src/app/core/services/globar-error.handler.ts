@@ -1,17 +1,17 @@
-import { ErrorHandler, Injectable, Injector } from '@angular/core';
-import { NGXLogger } from 'ngx-logger';
+import {ErrorHandler, inject, Injectable, Injector} from '@angular/core';
+import {NGXLogger} from 'ngx-logger';
 
 @Injectable()
 export class GlobalErrorHandler implements ErrorHandler {
-
-
-    constructor(private injector: Injector) { }
+    private injector = inject(Injector);
 
     handleError(error: Error) {
         // Obtain dependencies at the time of the error
         // This is because the GlobalErrorHandler is registered first
         // which prevents constructor dependency injection
         const logger = this.injector.get(NGXLogger);
+
+        console.log(error);
 
         const err = {
             message: error.message ? error.message : error.toString(),

@@ -1,21 +1,20 @@
-<div class="container" fxLayout="row" fxLayoutAlign="center none">
-  <div fxFlex="95%">
+<div class="container fx-row fx-justify-center">
+    <div class="fx-95">
 
-    <mat-card>
-      <mat-card-content>
-        <h2>Users</h2>
+        <mat-card appearance="outlined">
+            <mat-card-content>
+                <h2 i18n="@@users.title">Users</h2>
 
+                <div class="container fx-row fx-justify-center">
+                    <div class="fx-50 text-center no-records animate">
+                        <mat-icon>people_outline</mat-icon>
+                        <p i18n="@@users.content.no-users">No users exist.</p>
+                    </div>
+                    <mat-icon></mat-icon>
+                </div>
 
-        <div class="container" fxLayout="row" fxLayoutAlign="center none">
-          <div fxFlex="50%" class="text-center no-records animate">
-            <mat-icon>people_outline</mat-icon>
-            <p>No users exist.</p>
-          </div>
-          <mat-icon> </mat-icon>
-        </div>
+            </mat-card-content>
+        </mat-card>
 
-      </mat-card-content>
-    </mat-card>
-
-  </div>
+    </div>
 </div>

@@ -1,21 +1,23 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { LayoutComponent } from 'src/app/shared/layout/layout.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
-import { UserListComponent } from './user-list/user-list.component';
+import {UserListComponent} from './user-list/user-list.component';
+import {LayoutComponent} from "../../shared/layout/layout.component";
 
 const routes: Routes = [
-  {
-    path: '',
-    component: LayoutComponent,
-    children: [
-      { path: '', component: UserListComponent },
-    ]
-  }
+    {
+        path: '',
+        component: LayoutComponent,
+        children: [
+            {path: '', component: UserListComponent},
+        ]
+    }
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule]
 })
-export class UsersRoutingModule { }
+export class UsersRoutingModule {
+
+}

@@ -1,20 +1,15 @@
-import { Injectable, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { delay, map } from 'rxjs/operators';
-import * as jwt_decode from 'jwt-decode';
-import * as moment from 'moment';
-
-import { environment } from '../../../environments/environment';
-import { of, EMPTY } from 'rxjs';
+import {inject, Injectable} from '@angular/core';
+import {delay, map} from 'rxjs/operators';
+import moment from 'moment';
+import {of} from 'rxjs';
+import {LocalStorageService} from "./local-storage.service";
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthenticationService {
-
-    constructor(private http: HttpClient,
-        @Inject('LOCALSTORAGE') private localStorage: Storage) {
-    }
+    private readonly CURRENT_USER_KEY: string = 'currentUser';
+    private localStorageService = inject(LocalStorageService);
 
     login(email: string, password: string) {
         return of(true)
@@ -24,7 +19,7 @@ export class AuthenticationService {
                     // const decodedToken = jwt_decode(response['token']);
 
                     // store email and jwt token in local storage to keep user logged in between page refreshes
-                    this.localStorage.setItem('currentUser', JSON.stringify({
+                    this.localStorageService.setItem(this.CURRENT_USER_KEY, {
                         token: 'aisdnaksjdn,axmnczm',
                         isAdmin: true,
                         email: 'john.doe@gmail.com',
@@ -32,7 +27,7 @@ export class AuthenticationService {
                         alias: 'john.doe@gmail.com'.split('@')[0],
                         expiration: moment().add(1, 'days').toDate(),
                         fullName: 'John Doe'
-                    }));
+                    });
 
                     return true;
                 }));
@@ -40,7 +35,7 @@ export class AuthenticationService {
 
     logout(): void {
         // clear token remove user from local storage to log user out
-        this.localStorage.removeItem('currentUser');
+        this.localStorageService.removeItem(this.CURRENT_USER_KEY);
     }
 
     getCurrentUser(): any {
@@ -58,14 +53,17 @@ export class AuthenticationService {
     }
 
     passwordResetRequest(email: string) {
-        return of(true).pipe(delay(1000));
+        return of(true)
+            .pipe(delay(1000));
     }
 
     changePassword(email: string, currentPwd: string, newPwd: string) {
-        return of(true).pipe(delay(1000));
+        return of(true)
+            .pipe(delay(1000));
     }
 
     passwordReset(email: string, token: string, password: string, confirmPassword: string): any {
-        return of(true).pipe(delay(1000));
+        return of(true)
+            .pipe(delay(1000));
     }
 }

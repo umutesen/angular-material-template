@@ -1,31 +1,38 @@
-<div class="container login-container" fxLayout="row" fxLayoutAlign="center center">
-    <form [formGroup]="loginForm" fxFlex="30%" fxFlex.sm="50%" fxFlex.xs="90%">
-        <mat-card>
+<div class="container login-container fx-row fx-justify-center fx-align-center">
+    <form [formGroup]="loginForm" class="fx-form-30">
+        <mat-card appearance="outlined">
             <mat-card-title>angular-material-template</mat-card-title>
             <mat-card-subtitle>Log in to your account</mat-card-subtitle>
             <mat-card-content>
 
                 <mat-form-field class="full-width">
-                    <input id="emailInput" matInput placeholder="Email" formControlName="email" autocomplete="email"
-                        type="email">
+                    <input autocomplete="email" formControlName="email" id="emailInput" matInput placeholder="Email"
+                           type="email">
 
-                    <mat-error id="invalidEmailError" *ngIf="loginForm.controls['email'].hasError('email')">
-                        Please enter a valid email address
-                    </mat-error>
-                    <mat-error id="requiredEmailError" *ngIf="loginForm.controls['email'].hasError('required')">
-                        Email is
-                        <strong>required</strong>
-                    </mat-error>
+                    @if (loginForm.controls['email'].hasError('email')) {
+                        <mat-error id="invalidEmailError">
+                            Please enter a valid email address
+                        </mat-error>
+                    }
+                    @if (loginForm.controls['email'].hasError('required')) {
+                        <mat-error id="requiredEmailError">
+                            Email is
+                            <strong>required</strong>
+                        </mat-error>
+                    }
 
                 </mat-form-field>
 
                 <mat-form-field class="full-width">
-                    <input id="passwordInput" matInput placeholder="Password" formControlName="password" type="password"
-                        autocomplete="current-password">
-                    <mat-error id="requiredPasswordError" *ngIf="loginForm.controls['email'].hasError('required')">
-                        Password is
-                        <strong>required</strong>
-                    </mat-error>
+                    <input autocomplete="current-password" formControlName="password" id="passwordInput" matInput
+                           placeholder="Password"
+                           type="password">
+                    @if (loginForm.controls['email'].hasError('required')) {
+                        <mat-error id="requiredPasswordError">
+                            Password is
+                            <strong>required</strong>
+                        </mat-error>
+                    }
                 </mat-form-field>
 
                 <div class="full-width">
@@ -35,13 +42,16 @@
             </mat-card-content>
 
             <mat-card-actions class="login-actions">
-                <button mat-raised-button id="login" color="primary" [disabled]="loginForm.invalid || loading"
-                    (click)="login()">Login</button>
-                <button mat-button id="resetPassword" (click)="resetPassword()" type="button">Reset Password</button>
+                <button (click)="login()" [disabled]="loginForm.invalid || loading" color="primary" id="login"
+                        mat-raised-button>Login
+                </button>
+                <button (click)="resetPassword()" id="resetPassword" mat-button type="button">Reset Password</button>
             </mat-card-actions>
 
         </mat-card>
 
-        <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+        @if (loading) {
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        }
     </form>
 </div>
